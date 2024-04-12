@@ -1,15 +1,42 @@
 <div style="display: flex; flex-direction: row; justify-content:center;">
     <div class="border my-3 mx-5 rounded rounded-4 px-5 py-3" style="width:70%">
-        <a class="nav-link text-secondary" routerLink="/step0" routerLinkActive="active"><i class="bi bi-chevron-left me-3"></i>Retour</a>
+        <a class="nav-link text-secondary" routerLink="/step0" routerLinkActive="active"><i
+                class="bi bi-chevron-left me-3"></i>Retour</a>
         <div class="mx-5">
             <h1 class="my-5 text-center">Votre installation</h1>
             <div class="container mx-5">
-                <h6 class="fw-bold">Votre installation électrique est-t-elle bien en monophasé ?<i class="bi bi-info-circle text-danger fs-5 ms-2"></i></h6>
+                <h6 class="fw-bold">Votre installation électrique est-t-elle bien en monophasé ?
+                    <!-- Button trigger modal -->
+                    <button class="btn btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#explanation">
+                        <i class="bi bi-info-circle text-danger fs-5"></i>
+                    </button>
+                </h6>
+                <!-- Modal -->
+                <div class="modal fade" id="explanation" tabindex="-1" aria-labelledby="explanation" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-right" >
+                        <div class="modal-content" style="width:fit-content">
+                            <div class="modal-header">
+                                <h6 class="modal-title bg-danger bg-opacity-10 text-danger" id="explanation"
+                                    style="width:100%"><i class="bi bi-info-circle text-danger fs-5 me-2"></i>Monophasé
+                                    ou triphasé ?</h6>
+                            </div>
+                            <div class="modal-body"
+                                style="display: flex; flex-direction: row; justify-content:space-evenly;">
+                                <div class="me-5">
+                                    <img src="../../assets/images/monophase.jpg" alt="monophasé image identifier">
+                                </div>
+                                <div>
+                                    <img src="../../assets/images/triphase.jpg" alt="triphasé image identifier">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <p class="my-4">90% des foyers français ont une installation électrique en monophasé.</p>
                 <div style="display: flex; flex-direction: row; justify-content:flex-start;">
-                    <button class="btn border border-dark rounded rounded-3 me-3">Je ne sais pas</button> 
-                    <button class="btn border border-dark rounded rounded-3 me-3">Oui, monophasé</button> 
-                    <button class="btn border border-dark rounded rounded-3 me-3">Non, triphasé</button> 
+                    <button class="btn border border-dark rounded rounded-3 me-3">Je ne sais pas</button>
+                    <button class="btn border border-dark rounded rounded-3 me-3">Oui, monophasé</button>
+                    <button class="btn border border-dark rounded rounded-3 me-3">Non, triphasé</button>
                 </div>
                 <!-- <h6 class="fw-bold my-4">Quelle est la puissance d’installation électrique chez vous ?<i class="bi bi-info-circle text-danger fs-5 ms-2"></i></h6>
                 <select class="form-select" aria-label="selectKva">
@@ -21,38 +48,46 @@
                 <h6 class="fw-bold my-4">Où souhaitez-vous positionner votre borne de recharge ?</h6>
                 <div style="display: flex; flex-direction: row; justify-content:flex-start;">
                     <button class="btn btn-light rounded rounded-3 me-3">
-                        <p style="display: flex; flex-direction: column; justify-content:space-between;">Tableau électrique et véhicule dans <span class="fw-bold">la même pièce</span></p>
+                        <p style="display: flex; flex-direction: column; justify-content:space-between;">Tableau
+                            électrique et véhicule dans <span class="fw-bold">la même pièce</span></p>
                         <i class="bi bi-house-check fs-1"></i>
-                    </button> 
+                    </button>
                     <button class="btn btn-light rounded rounded-3 me-3">
-                        <p style="display: flex; flex-direction: column; justify-content:space-between;">Tableau électrique et véhicule dans <span class="fw-bold">une pièce différente</span></p>
+                        <p style="display: flex; flex-direction: column; justify-content:space-between;">Tableau
+                            électrique et véhicule dans <span class="fw-bold">une pièce différente</span></p>
                         <i class="bi bi-house-gear fs-1"></i>
-                    </button> 
+                    </button>
                     <button class="btn btn-light rounded rounded-3 me-3">
-                        <p style="display: flex; flex-direction: column; justify-content:space-between;">Tableau électrique à l’intérieur et <span class="fw-bold">véhicule à l’extérieur</span></p>
+                        <p style="display: flex; flex-direction: column; justify-content:space-between;">Tableau
+                            électrique à l’intérieur et <span class="fw-bold">véhicule à l’extérieur</span></p>
                         <i class="bi bi-house-dash fs-1"></i>
-                    </button> 
+                    </button>
                 </div>
                 <h6 class="fw-bold my-4">Souhaitez-vous installer votre borne sur un mur ?</h6>
                 <p>
                     <small>
-                        L’installation sur pied de la borne engendre en coût de 550€ HT sur un sol dur et 300€ HT supplémentaire sur un sol mou nécessitant une structure solide (ex : sur de terre)
+                        L’installation sur pied de la borne engendre en coût de 550€ HT sur un sol dur et 300€ HT
+                        supplémentaire sur un sol mou nécessitant une structure solide (ex : sur de terre)
                     </small>
                 </p>
                 <div style="display: flex; flex-direction: row; justify-content:flex-start;">
-                    <button class="btn border border-dark rounded rounded-3 me-3"><i class="bi bi-graph-down me-2"></i>Oui, sur un mur</button> 
-                    <button class="btn border border-dark rounded rounded-3 me-3"><i class="bi bi-modem me-2"></i>Non, je préfère un pied</button> 
+                    <button class="btn border border-dark rounded rounded-3 me-3"><i
+                            class="bi bi-graph-down me-2"></i>Oui, sur un mur</button>
+                    <button class="btn border border-dark rounded rounded-3 me-3"><i class="bi bi-modem me-2"></i>Non,
+                        je préfère un pied</button>
                 </div>
-                <h6 class="fw-bold my-4">Quelle est la distance entre votre tableau électrique et votre future borne ?</h6>
+                <h6 class="fw-bold my-4">Quelle est la distance entre votre tableau électrique et votre future borne ?
+                </h6>
                 <div style="display: flex; flex-direction: row; justify-content:flex-start;">
-                    <button class="btn border border-dark rounded rounded-3 me-3">Je ne sais pas</button> 
-                    <button class="btn border border-dark rounded rounded-3 me-3">0 à 5 mètres</button> 
+                    <button class="btn border border-dark rounded rounded-3 me-3">Je ne sais pas</button>
+                    <button class="btn border border-dark rounded rounded-3 me-3">0 à 5 mètres</button>
                     <button class="btn border border-dark rounded rounded-3 me-3">5 à 10 mètres</button>
                     <button class="btn border border-dark rounded rounded-3 me-3">10 à 15 mètres</button>
-                    <button class="btn border border-dark rounded rounded-3 me-3">15 à 20 mètres</button> 
+                    <button class="btn border border-dark rounded rounded-3 me-3">15 à 20 mètres</button>
                 </div>
                 <div class="me-0 my-5" style="display: flex; flex-direction: row; justify-content:flex-end;">
-                    <button class="btn btn-dark" routerLink="/step2" routerLinkActive="active">Choisir vos offres et services<i class="bi bi-arrow-right-short"></i></button>
+                    <button class="btn btn-dark" routerLink="/step2" routerLinkActive="active">Choisir vos offres et
+                        services<i class="bi bi-arrow-right-short"></i></button>
                 </div>
             </div>
         </div>
