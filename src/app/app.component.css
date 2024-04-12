@@ -1,0 +1,11 @@
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Set height to viewport height */
+  }
+  
+  .content {
+    flex: 1; /* Allows content to grow and fill remaining space */
+    overflow-y: auto; /* Enable vertical scrolling for content */
+    /* Add any other styles you need for your content area */
+  }
