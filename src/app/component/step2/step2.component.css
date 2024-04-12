@@ -1,0 +1,11 @@
+.option{
+    /* background-color: rgb(236, 232, 238); */
+    background-color: "url(#paint0_linear_252_4327)";
+    /* Gradient definition */
+    background-image: linear-gradient(45deg, #A5D2FF,#FDC2B4);
+    
+}
+.clicked {
+    background-color: black;
+}
+

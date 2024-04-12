@@ -12,11 +12,11 @@
             <div class="my-2" style="width:300px">
                 <div style="height:20px">
                 <div style="display: flex; flex-direction: row; justify-content:center;" >
-                    <i class="bi bi-circle-fill fs-6 text-info"></i>
+                    <i class="bi {{ currentRoute==='step1' ? ' bi-circle-fill':' bi-circle'}} fs-6 text-info"></i>
                     <div class="horizontal-line"></div>
-                    <i class="bi bi-circle fs-6 text-info"></i>
+                    <i class="bi {{ currentRoute==='step2' ? ' bi-circle-fill':' bi-circle'}} fs-6 text-info"></i>
                     <div class="horizontal-line"></div>
-                    <i class="bi bi-circle fs-6 text-info"></i>
+                    <i class="bi {{ currentRoute==='step3' ? ' bi-circle-fill':' bi-circle'}} fs-6 text-info"></i>
                 </div>
             </div>
                 <div class="mt-1 text-center" style="display: flex; flex-direction: row; justify-content:center;">
