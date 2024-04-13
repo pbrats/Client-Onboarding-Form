@@ -18,7 +18,7 @@ export class Step2Component {
   button15MetersCable: boolean = false;
   clickedDontKnow(): void {
     if (this.buttonDontKnow) {
-      
+
     } else {// if it is inactive it activates 
       this.buttonDontKnow = true;
       this.buttonOption1 = false;
@@ -28,7 +28,7 @@ export class Step2Component {
   }
   clickedOption1(): void {
     if (this.buttonOption1) {
-      
+
     } else {// if it is inactive it activates 
       this.buttonOption1 = true;
       this.buttonDontKnow = false;
@@ -38,7 +38,7 @@ export class Step2Component {
   }
   clickedOption2(): void {
     if (this.buttonOption2) {
-      
+
     } else {// if it is inactive it activates 
       this.buttonOption2 = true;
       this.buttonOption1 = false;
@@ -48,7 +48,7 @@ export class Step2Component {
   }
   clickedNoCable(): void {
     if (this.buttonNoCable) {
-      
+
     } else {// if it is inactive it activates 
       this.buttonNoCable = true;
       this.button5MetersCable = false;
@@ -56,10 +56,10 @@ export class Step2Component {
       this.button15MetersCable = false;
     }
   }
- 
+
   clicked5MetersCable(): void {
     if (this.button5MetersCable) {
-      
+
     } else {// if it is inactive it activates 
       this.button5MetersCable = true;
       this.buttonNoCable = false;
@@ -69,7 +69,7 @@ export class Step2Component {
   }
   clicked7MetersCable(): void {
     if (this.button7MetersCable) {
-      
+
     } else {// if it is inactive it activates 
       this.button7MetersCable = true;
       this.button5MetersCable = false;
@@ -79,7 +79,7 @@ export class Step2Component {
   }
   clicked15MetersCable(): void {
     if (this.button15MetersCable) {
-      
+
     } else {// if it is inactive it activates 
       this.button15MetersCable = true;
       this.button5MetersCable = false;

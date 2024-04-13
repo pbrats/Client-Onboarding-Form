@@ -1,0 +1,19 @@
+.check{
+    background-color: "url(#paint0_linear_252_4327)";
+    /* Gradient definition */
+    background-image: linear-gradient(45deg, #A5D2FF, #FDC2B4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+.background-container {
+    position: absolute;
+    top: 25vh;
+    left:5vh;
+    right:5vh;
+    height: 100%;
+    margin-left: 5px; 
+    margin-right: 5px;
+    background-image: linear-gradient(45deg, #A5D2FF, #FDC2B4);
+    z-index: -1; 
+}

@@ -1,1 +1,123 @@
-<p>step3 works!</p>
+<div style="display: flex; flex-direction: row; justify-content:center;">
+    <div class="border my-3 mx-5 rounded rounded-4 px-5 py-3" style="width:70%">
+        <a class="nav-link text-secondary" routerLink="/step2" routerLinkActive="active"><i
+                class="bi bi-chevron-left me-3"></i>Vos offres et services</a>
+        <div class="mx-5">
+            <h1 class="my-5 text-center">À propos de vous</h1>
+            <div class="container">
+                <div style="display: flex; flex-direction: row; justify-content:center;">
+                    <p class="bg-info bg-opacity-10 rounded rounded-5 py-3 px-4" style="width:65%">Pourquoi nous
+                        partager vos informations personnelles ?
+                        Cela nous permet de vous transmettre un devis détaillé et de suivre votre demande avec l’un de
+                        nos experts.</p>
+                </div>
+            </div>
+        </div>
+        <div class="my-5">
+            <form class="row g-3 needs-validation" novalidate>
+                <div class="col-md-6">
+                    <label for="validationCustom01" class="form-label">Nom<span class="text-danger fw-bold">*</span></label>
+                    <input type="text" class="form-control rounded rounded-4 bg-light" id="validationCustom01" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please choose a username.
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="validationCustom02" class="form-label">Prénom<span class="text-danger fw-bold">*</span></label>
+                    <input type="text" class="form-control rounded rounded-4 bg-light" id="validationCustom02" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Veuillez remplir ce champ obligatoire.
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="validationCustom03" class="form-label">Numéro de téléphone<span class="text-danger fw-bold">*</span></label>
+                    <input type="text" class="form-control rounded rounded-4 bg-light" id="validationCustom03" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Veuillez remplir ce champ obligatoire.
+                    </div>
+                    <!-- Un numéro de téléphone valide ne peut contenir que des chiffres, et +()-. ou x -->
+                    <!-- Le numéro que vous avez saisi n'est pas dans la plage. -->
+                </div>
+                <div class="col-md-6">
+                    <label for="validationCustom04" class="form-label">E-mail<span class="text-danger fw-bold">*</span></label>
+                    <input type="text" class="form-control rounded rounded-4 bg-light" id="validationCustom04" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Veuillez remplir ce champ obligatoire..
+                    </div>
+                    <!-- L'adresse e-mail doit être indiquée dans un format approprié. -->
+                </div>
+                <div class="col-md-12">
+                    <label for="validationCustom05" class="form-label">Adresse postale<span class="text-danger fw-bold">*</span></label>
+                    <div>
+                        <small class="text-secondary">Votre adresse nous permet uniquement de définir quel installateur se situe dans votre secteur.</small>
+                    </div>
+                    <input type="text" class="form-control rounded rounded-4 bg-light" id="validationCustom05" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Veuillez remplir ce champ obligatoire..
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="validationCustom06" class="form-label">Code postal<span class="text-danger fw-bold">*</span></label>
+                    <input type="number" class="form-control rounded rounded-4 bg-light" id="validationCustom06" required>
+                    <div class="invalid-feedback">
+                        Please provide a valid zip.
+                    </div>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="validationCustom07" class="form-label">Ville<span class="text-danger fw-bold">*</span></label>
+                    <input type="text" class="form-control rounded rounded-4 bg-light" id="validationCustom07" required>
+                    <div class="invalid-feedback">
+                        Please provide a valid zip.
+                    </div>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <label for="validationCustom07" class="form-label">Code de parrainage</label>
+                    <input type="text" class="form-control rounded rounded-4 bg-light" id="validationCustom07" >
+                </div>
+                <div class="col-12">
+                    <div class="form-check">
+                      <input class="form-check-input border-dark" type="checkbox" value="" id="newsletter">
+                      <label class="form-check-label" for="newsletter">
+                        M'inscrire à la newsletter de Beev
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-check">
+                      <input class="form-check-input border-dark" type="checkbox" value="" id="invalidCheck" required>
+                      <label class="form-check-label" for="invalidCheck">
+                        J’accepte la politique de <a href="https://www.beev.co/donnees-personnelles/">traitement des données</a> de Beev<span class="text-danger fw-bold">*</span>
+                      </label>
+                      <div class="invalid-feedback">
+                        Veuillez remplir ce champ obligatoire.
+                      </div>
+                    </div>
+                  </div>
+                <div class="col-12 text-center my-4">
+                    <button class="btn btn-dark rounded rounded-4 mt-3 px-4" type="submit"  routerLink="/end" routerLinkActive="active">Soumettre</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -16,16 +16,16 @@ export class Step1Component {
   buttonDifferent: boolean = false;
   buttonOut: boolean = false;
   buttonWall: boolean = false;
-  buttonStand : boolean = false;
+  buttonStand: boolean = false;
   buttonDontKnowMeters: boolean = false;
   button0Meters: boolean = false;
   button5Meters: boolean = false;
   button10Meters: boolean = false;
-  button15Meters : boolean = false;
+  button15Meters: boolean = false;
 
   clickedDontKnow(): void {
     if (this.buttonDontKnow) {
-      
+
     } else {// if it is inactive it activates 
       this.buttonDontKnow = true;
       this.buttonYes = false;
@@ -35,7 +35,7 @@ export class Step1Component {
   }
   clickedYes(): void {
     if (this.buttonYes) {
-      
+
     } else {// if it is inactive it activates 
       this.buttonYes = true;
       this.buttonDontKnow = false;
@@ -45,7 +45,7 @@ export class Step1Component {
   }
   clickedNo(): void {
     if (this.buttonNo) {
-      
+
     } else {// if it is inactive it activates 
       this.buttonNo = true;
       this.buttonYes = false;
@@ -55,7 +55,7 @@ export class Step1Component {
   }
   clickedSame(): void {
     if (this.buttonSame) {
-      
+
     } else {// if it is inactive it activates 
       this.buttonSame = true;
       this.buttonDifferent = false;
@@ -63,9 +63,9 @@ export class Step1Component {
 
     }
   }
-  clickedDifferent(): void { 
+  clickedDifferent(): void {
     if (this.buttonDifferent) {
-      
+
     } else {// if it is inactive it activates 
       this.buttonDifferent = true;
       this.buttonSame = false;
@@ -75,7 +75,7 @@ export class Step1Component {
   }
   clickedOut(): void {
     if (this.buttonOut) {
-      
+
     } else {// if it is inactive it activates 
       this.buttonOut = true;
       this.buttonDifferent = false;
@@ -85,23 +85,23 @@ export class Step1Component {
   }
   clickedWall(): void {
     if (this.buttonWall) {
-      
+
     } else {// if it is inactive it activates 
       this.buttonWall = true;
       this.buttonStand = false;
-      }
+    }
   }
   clickedStand(): void {
     if (this.buttonStand) {
-     
+
     } else { // if it is inactive it activates 
       this.buttonStand = true;
       this.buttonWall = false;
-      }
+    }
   }
   clickedDontKnowMeters(): void {
     if (this.buttonDontKnowMeters) {
-      
+
     } else {// if it is inactive it activates 
       this.buttonDontKnowMeters = true;
       this.button0Meters = false;
@@ -113,7 +113,7 @@ export class Step1Component {
   }
   clicked0Meters(): void {
     if (this.button0Meters) {
-      
+
     } else {// if it is inactive it activates 
       this.button0Meters = true;
       this.button5Meters = false;
@@ -125,7 +125,7 @@ export class Step1Component {
   }
   clicked5Meters(): void {
     if (this.button5Meters) {
-      
+
     } else {// if it is inactive it activates 
       this.button5Meters = true;
       this.button0Meters = false;
@@ -137,7 +137,7 @@ export class Step1Component {
   }
   clicked10Meters(): void {
     if (this.button10Meters) {
-      
+
     } else {// if it is inactive it activates 
       this.button10Meters = true;
       this.button0Meters = false;
@@ -149,7 +149,7 @@ export class Step1Component {
   }
   clicked15Meters(): void {
     if (this.button15Meters) {
-      
+
     } else {// if it is inactive it activates 
       this.button15Meters = true;
       this.button0Meters = false;

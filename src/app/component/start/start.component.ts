@@ -9,5 +9,5 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './start.component.css'
 })
 export class StartComponent {
-  
+
 }

@@ -1,7 +1,7 @@
 .horizontal-line {
     position: relative;
-    top: 10px; /* Adjust the top position as needed */
+    top: 10px;
     border: none;
-    border-top: 1px solid #f87777; /* Adjust the color as needed */
-    width: 40%; /* Adjust width as needed */
-  }
+    border-top: 1px solid #f87777;
+    width: 40%;
+}
