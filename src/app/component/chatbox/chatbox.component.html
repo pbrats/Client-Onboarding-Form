@@ -54,7 +54,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body my-2"
-                style="display: flex; flex-direction: column; justify-content:flex-start; height:300px">
+                style="display: flex; flex-direction: column; justify-content:flex-start; height:320px">
                 <div class="d-flex flex-sm-row justify-content-start chat">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40"
                         height="40" viewBox="0 0 90 90">
@@ -80,13 +80,43 @@
                 </div>
                 @if(hasTyped){
                     <div class="d-flex flex-sm-row justify-content-end mt-3">
-                    
                     <div class="bg-secondary bg-opacity-10 me-2 mt-3" style="width:80%">
                         <p class="text-start px-2 py-2">{{typedMessage}}</p>
                     </div>
                     <div class="circle me-3"></div>
                 </div>
-                @if(delay){
+                @if(!delay){
+                <div class="d-flex flex-sm-row justify-content-start chat">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40"
+                        height="40" viewBox="0 0 90 90">
+                        <defs>
+                            <linearGradient id="linear-gradient" x1="0.88" y1="0.223" x2="0.073" y2="1.101"
+                                gradientUnits="objectBoundingBox">
+                                <stop offset="0" stop-color="#a5d2ff" />
+                                <stop offset="1" stop-color="#fdc2b4" />
+                            </linearGradient>
+                        </defs>
+                        <g id="Groupe_353" data-name="Groupe 353" transform="translate(0.254 0.164)">
+                            <circle id="Ellipse_12" data-name="Ellipse 12" cx="45" cy="45" r="45"
+                                transform="translate(-0.254 -0.164)" fill="url(#linear-gradient)" />
+                            <path id="Union_8" data-name="Union 8"
+                                d="M10.448,48.07V28.55H18.7V41.47H30.824a7.861,7.861,0,0,0,8.036-7.679,8.007,8.007,0,0,0-8.321-7.821H2.65L0,19.731H29.312c13.878,0,17.729,8.751,17.729,14.493,0,7.893-6.1,13.846-14.925,13.846ZM38.869,18.823A22.714,22.714,0,0,0,34.6,17.634a6.781,6.781,0,0,0,1.821-4.65c0-3.586-3.015-6.386-6.963-6.386H18.7v10.59H10.448V0H31.542c7.1,0,12.987,5.381,12.987,12.483a11.2,11.2,0,0,1-2.918,7.687A18.528,18.528,0,0,0,38.869,18.823Z"
+                                transform="translate(20.375 22.436)" fill="#001010" />
+                        </g>
+                    </svg>
+                    <div class="bg-info bg-opacity-10 ms-2 mt-3 p-5" style="width:80%">
+                        <div class="spinner-grow align-items-center me-2" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <div class="spinner-grow align-items-center me-2" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <div class="spinner-grow align-items-center me-2" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+            }@else{
                 <div class="d-flex flex-sm-row justify-content-start chat mt-3">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40"
                         height="40" viewBox="0 0 90 90">
