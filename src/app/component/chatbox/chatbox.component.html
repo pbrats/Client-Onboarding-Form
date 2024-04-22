@@ -1,0 +1,164 @@
+<!-- Button trigger modal -->
+<button class="chatbot rounded rounded-circle btn bg-info bg-opacity-25" type="button" data-bs-toggle="modal"
+    data-bs-target="#beevBot">
+    <!-- <i class="bi bi-chat-square"></i> -->
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="30"
+        viewBox="0 0 39 37" class="conversations-visitor-open-icon">
+        <defs>
+            <path id="conversations-visitor-open-icon-path-1:r0:"
+                d="M31.4824242 24.6256121L31.4824242 0.501369697 0.476266667 0.501369697 0.476266667 24.6256121z">
+            </path>
+        </defs>
+        <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
+            <g transform="translate(-1432 -977) translate(1415.723 959.455)">
+                <g transform="translate(17 17)">
+                    <g transform="translate(6.333 .075)">
+                        <path fill="#33475b"
+                            d="M30.594 4.773c-.314-1.943-1.486-3.113-3.374-3.38C27.174 1.382 22.576.5 15.36.5c-7.214 0-11.812.882-11.843.889-1.477.21-2.507.967-3.042 2.192a83.103 83.103 0 019.312-.503c6.994 0 11.647.804 12.33.93 3.079.462 5.22 2.598 5.738 5.728.224 1.02.932 4.606.932 8.887 0 2.292-.206 4.395-.428 6.002 1.22-.516 1.988-1.55 2.23-3.044.008-.037.893-3.814.893-8.415 0-4.6-.885-8.377-.89-8.394">
+                        </path>
+                    </g>
+                    <g fill="#33475b" transform="translate(0 5.832)">
+                        <path
+                            d="M31.354 4.473c-.314-1.944-1.487-3.114-3.374-3.382-.046-.01-4.644-.89-11.859-.89-7.214 0-11.813.88-11.843.888-1.903.27-3.075 1.44-3.384 3.363C.884 4.489 0 8.266 0 12.867c0 4.6.884 8.377.889 8.393.314 1.944 1.486 3.114 3.374 3.382.037.007 3.02.578 7.933.801l2.928 5.072a1.151 1.151 0 001.994 0l2.929-5.071c4.913-.224 7.893-.794 7.918-.8 1.902-.27 3.075-1.44 3.384-3.363.01-.037.893-3.814.893-8.414 0-4.601-.884-8.378-.888-8.394">
+                        </path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </svg>
+</button>
+<!-- Modal -->
+<div class="modal fade" id="beevBot" tabindex="-1" aria-labelledby="beevBot" aria-hidden="true"
+    data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-right modal-dialog-scrollable">
+        <div class="modal-content" style="width:400px; height:500px">
+            <div class="modal-header bg-info bg-opacity-10">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40"
+                    height="40" viewBox="0 0 90 90" class="border border-dark rounded-circle me-2">
+                    <defs>
+                        <linearGradient id="linear-gradient" x1="0.88" y1="0.223" x2="0.073" y2="1.101"
+                            gradientUnits="objectBoundingBox">
+                            <stop offset="0" stop-color="#a5d2ff" />
+                            <stop offset="1" stop-color="#fdc2b4" />
+                        </linearGradient>
+                    </defs>
+                    <g id="Groupe_353" data-name="Groupe 353" transform="translate(0.254 0.164)">
+                        <circle id="Ellipse_12" data-name="Ellipse 12" cx="45" cy="45" r="45"
+                            transform="translate(-0.254 -0.164)" fill="url(#linear-gradient)" />
+                        <path id="Union_8" data-name="Union 8"
+                            d="M10.448,48.07V28.55H18.7V41.47H30.824a7.861,7.861,0,0,0,8.036-7.679,8.007,8.007,0,0,0-8.321-7.821H2.65L0,19.731H29.312c13.878,0,17.729,8.751,17.729,14.493,0,7.893-6.1,13.846-14.925,13.846ZM38.869,18.823A22.714,22.714,0,0,0,34.6,17.634a6.781,6.781,0,0,0,1.821-4.65c0-3.586-3.015-6.386-6.963-6.386H18.7v10.59H10.448V0H31.542c7.1,0,12.987,5.381,12.987,12.483a11.2,11.2,0,0,1-2.918,7.687A18.528,18.528,0,0,0,38.869,18.823Z"
+                            transform="translate(20.375 22.436)" fill="#001010" />
+                    </g>
+                </svg>
+                <h6 class="modal-title" id="beevBot">BeevBot</h6>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body my-2"
+                style="display: flex; flex-direction: column; justify-content:flex-start; height:300px">
+                <div class="d-flex flex-sm-row justify-content-start chat">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40"
+                        height="40" viewBox="0 0 90 90">
+                        <defs>
+                            <linearGradient id="linear-gradient" x1="0.88" y1="0.223" x2="0.073" y2="1.101"
+                                gradientUnits="objectBoundingBox">
+                                <stop offset="0" stop-color="#a5d2ff" />
+                                <stop offset="1" stop-color="#fdc2b4" />
+                            </linearGradient>
+                        </defs>
+                        <g id="Groupe_353" data-name="Groupe 353" transform="translate(0.254 0.164)">
+                            <circle id="Ellipse_12" data-name="Ellipse 12" cx="45" cy="45" r="45"
+                                transform="translate(-0.254 -0.164)" fill="url(#linear-gradient)" />
+                            <path id="Union_8" data-name="Union 8"
+                                d="M10.448,48.07V28.55H18.7V41.47H30.824a7.861,7.861,0,0,0,8.036-7.679,8.007,8.007,0,0,0-8.321-7.821H2.65L0,19.731H29.312c13.878,0,17.729,8.751,17.729,14.493,0,7.893-6.1,13.846-14.925,13.846ZM38.869,18.823A22.714,22.714,0,0,0,34.6,17.634a6.781,6.781,0,0,0,1.821-4.65c0-3.586-3.015-6.386-6.963-6.386H18.7v10.59H10.448V0H31.542c7.1,0,12.987,5.381,12.987,12.483a11.2,11.2,0,0,1-2.918,7.687A18.528,18.528,0,0,0,38.869,18.823Z"
+                                transform="translate(20.375 22.436)" fill="#001010" />
+                        </g>
+                    </svg>
+                    <div class="bg-info bg-opacity-10 ms-2 mt-3" style="width:80%">
+                        <p class="text-start px-2 py-2">Nous sommes absents pour le moment, mais nous reviendrons vers
+                            vous dès que possible.</p>
+                    </div>
+                </div>
+                @if(hasTyped){
+                    <div class="d-flex flex-sm-row justify-content-end mt-3">
+                    
+                    <div class="bg-secondary bg-opacity-10 me-2 mt-3" style="width:80%">
+                        <p class="text-start px-2 py-2">{{typedMessage}}</p>
+                    </div>
+                    <div class="circle me-3"></div>
+                </div>
+                @if(delay){
+                <div class="d-flex flex-sm-row justify-content-start chat mt-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40"
+                        height="40" viewBox="0 0 90 90">
+                        <defs>
+                            <linearGradient id="linear-gradient" x1="0.88" y1="0.223" x2="0.073" y2="1.101"
+                                gradientUnits="objectBoundingBox">
+                                <stop offset="0" stop-color="#a5d2ff" />
+                                <stop offset="1" stop-color="#fdc2b4" />
+                            </linearGradient>
+                        </defs>
+                        <g id="Groupe_353" data-name="Groupe 353" transform="translate(0.254 0.164)">
+                            <circle id="Ellipse_12" data-name="Ellipse 12" cx="45" cy="45" r="45"
+                                transform="translate(-0.254 -0.164)" fill="url(#linear-gradient)" />
+                            <path id="Union_8" data-name="Union 8"
+                                d="M10.448,48.07V28.55H18.7V41.47H30.824a7.861,7.861,0,0,0,8.036-7.679,8.007,8.007,0,0,0-8.321-7.821H2.65L0,19.731H29.312c13.878,0,17.729,8.751,17.729,14.493,0,7.893-6.1,13.846-14.925,13.846ZM38.869,18.823A22.714,22.714,0,0,0,34.6,17.634a6.781,6.781,0,0,0,1.821-4.65c0-3.586-3.015-6.386-6.963-6.386H18.7v10.59H10.448V0H31.542c7.1,0,12.987,5.381,12.987,12.483a11.2,11.2,0,0,1-2.918,7.687A18.528,18.528,0,0,0,38.869,18.823Z"
+                                transform="translate(20.375 22.436)" fill="#001010" />
+                        </g>
+                    </svg>
+                    <div class="bg-info bg-opacity-10 ms-2 mt-3" style="width:80%">
+                        <p class="text-start px-2 py-2">Nous sommes absents pour le moment, mais nous reviendrons vers
+                            vous dès que possible.</p>
+                    </div>
+                </div>
+            }
+                }
+                @if(new){
+                    @for(type of newtyped; track $index){
+                        <div class="d-flex flex-sm-row justify-content-end mt-3">
+                            <div class="bg-secondary bg-opacity-10 me-2 mt-3" style="width:80%">
+                                <p class="text-start px-2 py-2">{{type}}</p>
+                            </div>
+                            <div class="circle me-3"></div>
+                        </div>
+                        @if(delay){
+                        <div class="d-flex flex-sm-row justify-content-start chat mt-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40"
+                                height="40" viewBox="0 0 90 90">
+                                <defs>
+                                    <linearGradient id="linear-gradient" x1="0.88" y1="0.223" x2="0.073" y2="1.101"
+                                        gradientUnits="objectBoundingBox">
+                                        <stop offset="0" stop-color="#a5d2ff" />
+                                        <stop offset="1" stop-color="#fdc2b4" />
+                                    </linearGradient>
+                                </defs>
+                                <g id="Groupe_353" data-name="Groupe 353" transform="translate(0.254 0.164)">
+                                    <circle id="Ellipse_12" data-name="Ellipse 12" cx="45" cy="45" r="45"
+                                        transform="translate(-0.254 -0.164)" fill="url(#linear-gradient)" />
+                                    <path id="Union_8" data-name="Union 8"
+                                        d="M10.448,48.07V28.55H18.7V41.47H30.824a7.861,7.861,0,0,0,8.036-7.679,8.007,8.007,0,0,0-8.321-7.821H2.65L0,19.731H29.312c13.878,0,17.729,8.751,17.729,14.493,0,7.893-6.1,13.846-14.925,13.846ZM38.869,18.823A22.714,22.714,0,0,0,34.6,17.634a6.781,6.781,0,0,0,1.821-4.65c0-3.586-3.015-6.386-6.963-6.386H18.7v10.59H10.448V0H31.542c7.1,0,12.987,5.381,12.987,12.483a11.2,11.2,0,0,1-2.918,7.687A18.528,18.528,0,0,0,38.869,18.823Z"
+                                        transform="translate(20.375 22.436)" fill="#001010" />
+                                </g>
+                            </svg>
+                            <div class="bg-info bg-opacity-10 ms-2 mt-3" style="width:80%">
+                                <p class="text-start px-2 py-2">Nous sommes absents pour le moment, mais nous reviendrons vers
+                                    vous dès que possible.</p>
+                            </div>
+                        </div>
+                    }
+                    }
+                }
+            </div>
+            <div class="modal-footer">
+                <div>
+                    <form (submit)="onSubmit()" [formGroup]="chatForm">
+                        <div class="form-group" style="display: flex; flex-direction: row; justify-content:flex-start;">
+                            <input class="form-control bg-info bg-opacity-10 text-start" type="text" id="message"
+                                name="message" formControlName="message" placeholder="Écrire un message"
+                                style="width:330px">
+                            <button type="submit" class="btn text-end"><i class="bi bi-send-fill"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

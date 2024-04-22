@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { ChatboxComponent } from '../chatbox/chatbox.component';
 
 @Component({
   selector: 'app-step3',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive, ChatboxComponent],
   templateUrl: './step3.component.html',
   styleUrl: './step3.component.css'
 })
