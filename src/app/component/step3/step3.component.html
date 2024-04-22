@@ -13,6 +13,7 @@
                 </div>
             </div>
         </div>
+        @if(!submitted){
         <div class="my-5">
             <form class="row g-3 needs-validation" novalidate>
                 <div class="col-md-6">
@@ -107,7 +108,7 @@
                     <div class="form-check">
                       <input class="form-check-input border-dark" type="checkbox" value="" id="invalidCheck" required>
                       <label class="form-check-label" for="invalidCheck">
-                        J’accepte la politique de <a href="https://www.beev.co/donnees-personnelles/">traitement des données</a> de Beev<span class="text-danger fw-bold">*</span>
+                        J’accepte la politique de <a href="https://www.beev.co/donnees-personnelles/" target="_blank">traitement des données</a> de Beev<span class="text-danger fw-bold">*</span>
                       </label>
                       <div class="invalid-feedback">
                         Veuillez remplir ce champ obligatoire.
@@ -115,9 +116,18 @@
                     </div>
                   </div>
                 <div class="col-12 text-center my-4">
-                    <button class="btn btn-dark rounded rounded-4 mt-3 px-4" type="submit"  routerLink="/end" routerLinkActive="active">Soumettre</button>
+                    <!-- <button class="btn btn-dark rounded rounded-4 mt-3 px-4" type="submit"  routerLink="/end" routerLinkActive="active" (click)="onSubmit()">Soumettre</button> -->
+                    <button class="btn btn-dark rounded rounded-4 mt-3 px-4" type="submit" (click)="onSubmit()">Soumettre</button>
                 </div>
             </form>
         </div>
+    }@else{
+        <div class="m-5 text-center">
+            <p class="fs-4">Envoi de vos informations à nos équipes...</p>
+            <div class="spinner-border m-5" role="status" style="width: 10rem; height: 10rem;">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    }
     </div>
 </div>

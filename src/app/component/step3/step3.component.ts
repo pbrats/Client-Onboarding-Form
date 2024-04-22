@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-step3',
@@ -9,5 +9,13 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './step3.component.css'
 })
 export class Step3Component {
+  constructor(private router: Router){}
+  submitted : boolean =false;
+  onSubmit() {
+    this.submitted = true;
+    setTimeout(() => {
+      this.router.navigate(['end']);
+    }, 2000);
+  }
 
 }

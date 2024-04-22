@@ -1,5 +1,5 @@
 <header class="sticky-top">
-    <div class="border mt-2 mb-5 mx-5 rounded rounded-2 shadow px-5 {{currentRoute ==='step0' ? 'py-4': 'py-1'}} ">
+    <div class="border mt-2 mb-5 mx-5 rounded rounded-2 shadow px-5 {{currentRoute ==='step0' || currentRoute ==='end' ? 'py-4': 'py-1'}} ">
         <div class="d-flex flex-wrap align-items-center">
             <div class="mx-auto">
                 <a class="nav-link" routerLink="" routerLinkActive="active"
@@ -8,7 +8,7 @@
                     <img src="../../assets/images/beev.svg" alt="Beev logo">
                 </a>
             </div>
-            @if(currentRoute!=="step0"){
+            @if(currentRoute!=="step0" && currentRoute !=='end'){
             <div class="my-2" style="width:300px">
                 <div style="height:20px">
                     <div style="display: flex; flex-direction: row; justify-content:center;">
