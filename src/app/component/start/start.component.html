@@ -1,10 +1,16 @@
-<div style="display: flex; flex-direction: row; justify-content:flex-start;">
-    <div class="border my-5 ms-5 me-3 rounded rounded-4 px-5 py-3" style="width:70%">
+<app-language (actionEventEmitter)="change($event)" />
+<div class="start" style="display: flex; flex-direction: row; justify-content:flex-start;">
+    <div class="border my-5 ms-5 me-3 rounded rounded-4 px-5 py-3" style="width:70%; height:fit-content">
         <div class="">
             <div class="my-5 text-center">
+                @if(language ==='french'){
                 <h1 class="mb-5"><span class="fw-bold">Installez <br>votre borne de recharge</span><br> en quelques
                     étapes !
                 </h1>
+                }@else if(language ==='english') {
+                <h1 class="mb-5"><span class="fw-bold">Install <br>your charging station</span><br> in just a few steps!
+                </h1>
+                }
                 <div style="display: flex; flex-direction: row; justify-content:center;">
                     <!-- <div style="display: flex; flex-direction:row; justify-content:space-between;">
                     <i class="bi bi-person-standing fs-3"></i>
@@ -32,14 +38,27 @@
                         </defs>
                     </svg>
                     <div class="mx-2">
-                        <p class="text-center">Pour le moment, nous installons des bornes uniquement dans <br>les <span
-                                class="fw-bold"> maisons individuelles en France (hors Corse) et Belgique
+                        <p class="text-center">
+                            @if(language ==='french'){
+                            Pour le moment, nous installons des bornes uniquement dans <br>les <span class="fw-bold">
+                                maisons individuelles en France (hors Corse) et Belgique
                                 Wallonne</span>
+                            }@else if(language ==='english') {
+                            At the moment, we are only installing terminals in <br>the <span class="fw-bold">individual
+                                houses in France (excluding Corsica) and Belgium
+                                Walloon</span>
+                            }
                         </p>
                     </div>
                 </div>
                 <div class="mx-auto my-5 border border-light bg-light bg-opacity-10 p-5 rounded fs-5" style="width:65%">
-                    <p>Voici les prochaines étapes :</p>
+                    <p>
+                        @if(language ==='french'){
+                        Voici les prochaines étapes :
+                        }@else if(language ==='english') {
+                        Here are the next steps :
+                        }
+                    </p>
                     <div class="px-5" style="display: flex; flex-direction: row; justify-content:space-around;">
                         <i class="bi bi-circle-fill fs-6 text-danger"></i>
                         <div class="horizontal-line"></div>
@@ -48,36 +67,59 @@
                         <i class="bi bi-circle fs-6 text-danger"></i>
                     </div>
                     <div class="mt-2" style="display: flex; flex-direction: row; justify-content:space-around;">
+                        @if(language ==='french'){
                         <p>Votre installation</p>
                         <p>Vos offres et services</p>
                         <p>À propos de vous</p>
+                        }@else if(language ==='english') {
+                        <p>Your installation</p>
+                        <p>Your offers and services</p>
+                        <p>About you</p>
+                        }
                     </div>
                 </div>
                 <div class="me-5" style="display: flex; flex-direction: row; justify-content:flex-end;">
-                    <p class="mx-2 my-auto">Durée du formulaire : 5 min</p>
-                    <button class="btn btn-dark" routerLink="/step1" routerLinkActive="active">Commencer<i
-                            class="bi bi-arrow-right-short"></i></button>
+                    <p class="mx-2 my-auto">
+                        @if(language ==='french'){
+                        Durée du formulaire : 5 min
+                        }@else if(language ==='english') {
+                        Duration of the form: 5 min
+                        }
+                    </p>
+                    <button class="btn btn-dark" routerLink="/step1" routerLinkActive="active">
+                        @if(language ==='french'){
+                        Commencer
+                        }@else if(language ==='english'){
+                        Start
+                        }
+                        <i class="bi bi-arrow-right-short"></i></button>
                 </div>
             </div>
         </div>
     </div>
-    <div class="my-5" style="width:25%; height:100px">
+    <div class="my-5" style="width:25%; height:fit-content">
         <div class="border rounded rounded-4 text-center py-2 mb-4"
-            style="display: flex; flex-direction: column; justify-content:center; height:200px">
+            style="display: flex; flex-direction: column; justify-content:center; height:fit-content">
             <div>
                 <img src="../../assets/images/googleReviews.png" alt="google Reviews logo photo" style="width:100px">
             </div>
             <div class="px-4 pe-5 mt-2">
                 <div style="display: flex; flex-direction: row; justify-content:center;">
                     <i class="bi bi-quote" style="font-size: 3em;"></i>
-                    <p class="text-start px-2">Excellent échange avec Simon, le commercial de chez Beev. Explication
-                        claire
-                        et devis conforme à la demande...</p>
+                    <p class="text-start px-2">
+                        @if(language ==='french'){
+                        Excellent échange avec Simon, le commercial de chez Beev. Explication claire et devis conforme à
+                        la demande...
+                        }@else if(language ==='english'){
+                        Excellent exchange with Simon, the Beev sales representative. Clear explanation and quote in
+                        accordance with the request...
+                        }
+                    </p>
                 </div>
             </div>
         </div>
         <div class="border rounded rounded-4 text-center pb-5 mb-4"
-            style="display: flex; flex-direction: column; justify-content:space-around;height:320px">
+            style="display: flex; flex-direction: column; justify-content:space-around; height:fit-content">
             <div style="display: flex; flex-direction: column; align-items:flex-end;">
                 <div>
                     <svg width="120" height="120" viewBox="0 0 70 69" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -96,27 +138,44 @@
                         </defs>
                     </svg>
                 </div>
-                <div class="text-center ms-1 px-5">La borne <span class="fw-bold">connectée</span> Wallbox Pulsar
-                    Plus Socket</div>
+                <div class="text-center ms-1 px-5">
+                    @if(language ==='french'){
+                    La borne <span class="fw-bold">connectée</span> Wallbox Pulsar Plus Socket
+                    }@else if(language ==='english'){
+                    The borne <span class="fw-bold">connected</span>Wallbox Pulsar Plus Socket
+                    }
+                </div>
             </div>
             <div>
                 <img src="../../assets/images/option1.png" alt="Option1 image" style="height:130px">
             </div>
         </div>
         <div class="border bg-info bg-opacity-10 rounded rounded-4 text-center py-4 ps-4 mb-4"
-            style="display: flex; flex-direction: row; justify-content:space-evenly; height:180px">
+            style="display: flex; flex-direction: row; justify-content:space-evenly; height:fit-content">
             <div class="me-3">
                 <img src="../../assets/images/dock.png" alt="charging station photo" style="height:35px">
             </div>
             <div>
-                <h4 class="text-start pb-5">Installez votre borne de recharge en 10 jours ouvrés </h4>
+                <h4 class="text-start">
+                    @if(language ==='french'){
+                    Installez votre borne de recharge en 10 jours ouvrés
+                    }@else if(language ==='english'){
+                    Install your charging station in 10 working days
+                    }
+                </h4>
             </div>
             <div>
                 <img src="../../assets/images/line.png" alt="white diagonial line" style="height: 100px;">
             </div>
         </div>
         <div class="border rounded rounded-4 py-4 px-3 mb-4">
-            <p class="fs-5">Nos certifications</p>
+            <p class="fs-5">
+                @if(language ==='french'){
+                Nos certifications
+                }@else if(language ==='english'){
+                Our certifications
+                }
+            </p>
             <div>
                 <img class="me-2 my-2" src="../../assets/images/iso1.png" alt="iso 1 image" style="height: 50px;">
                 <img class="me-2" src="../../assets/images/iso2.png" alt="iso 2 image" style="height: 50px;">
@@ -133,9 +192,15 @@
                 <img src="../../assets/images/dock.png" alt="charging station photo" style="height:30px">
             </div>
             <div>
-                <h4 class="text-start">Profitez des aides disponibles</h4>
+                <h4 class="text-start">
+                    @if(language ==='french'){
+                    Profitez des aides disponibles
+                    }@else if(language ==='english'){
+                    Take advantage of the assistance available
+                    }
+                </h4>
             </div>
         </div>
     </div>
 </div>
-<app-chatbox />
+<app-chatbox (actionEventEmitter)="change($event)" />

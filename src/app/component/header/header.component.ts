@@ -10,6 +10,7 @@ import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/ro
 })
 export class HeaderComponent {
   currentRoute: string = '';
+  language!: string;
   constructor(private router: Router) { }
   ngOnInit() {
     this.router.events.subscribe(event => {
@@ -18,5 +19,10 @@ export class HeaderComponent {
         console.log("currentRoute:", this.currentRoute);
       }
     });
+    const lang = sessionStorage.getItem('language');
+    console.log("language oninit: ", lang);
+    if (lang) {
+      this.language = lang;
+    }
   }
 }

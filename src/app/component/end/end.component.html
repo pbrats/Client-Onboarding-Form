@@ -1,34 +1,78 @@
+<app-language (actionEventEmitter)="change($event)" />
 <div class="app-container">
-    <div class="background-container"></div>
-<div style="display: flex; flex-direction: row; justify-content:center;">
-    <div class="border my-3 bg-white mx-5 rounded rounded-4 px-5 py-3" style="width:70%">
-        <a class="nav-link text-secondary" routerLink="/step3" routerLinkActive="active"><i
-                class="bi bi-chevron-left me-3"></i>À propos de vous</a>
-        <div class="mx-5">
-            <div class="text-center">
-                <i class="bi check bi-check-circle"  style="font-size: 5rem"></i>
-            </div>
-            <h1 class="mb-4 text-center">Demande envoyée</h1>
-            <div class="container" style="width:75%">
-                <div class="bg-light bg-opacity-50 rounded rounded-4 pb-3 mb-5 mx-auto"
-                    style="display: flex; flex-direction: column; justify-content:center;">
-                    <div>
-                        <h4 class="bg-info bg-opacity-25 rounded rounded-4 py-3 px-5 text-center">Confirmez votre
-                            adresse mail et créez
-                            votre espace personnel via l’email que nous venons d’envoyer </h4>
-                    </div>
-                    <div class="mx-4">
-                        <h6 class="my-2">Vous pourrez :</h6>
-                        <div class="mb-2" style="display: flex; flex-direction: column; justify-content:center;">
-                            <div><i class="bi bi-arrow-right fw-bold fs-5"></i> Voir les différentes aides qui existent
-                                afin de valider votre devis</div>
-                            <div><i class="bi bi-arrow-right fw-bold fs-5"></i> Ajouter les photos de votre installation
+    <div class="background-container "></div>
+    <div style="display: flex; flex-direction: row; justify-content:center;">
+        <div class="border my-3 bg-white mx-5 rounded rounded-4 px-5 py-3" style="width:70%">
+            <a class="nav-link text-secondary" routerLink="/step3" routerLinkActive="active"><i
+                    class="bi bi-chevron-left me-3"></i>
+                @if(language ==='french'){
+                À propos de vous
+                }@else if(language ==='english') {
+                About you
+                }
+            </a>
+            <div class="mx-5">
+                <div class="text-center">
+                    <i class="bi check bi-check-circle" style="font-size: 5rem"></i>
+                </div>
+                <h1 class="mb-4 text-center">
+                    @if(language ==='french'){
+                    Demande envoyée
+                    }@else if(language ==='english') {
+                    Request sent
+                    }
+                </h1>
+                <div class="container" style="width:75%">
+                    <div class="bg-light bg-opacity-50 rounded rounded-4 pb-3 mb-5 mx-auto"
+                        style="display: flex; flex-direction: column; justify-content:center;">
+                        <div>
+                            <h4 class="bg-info bg-opacity-25 rounded rounded-4 py-3 px-5 text-center">
+                                @if(language ==='french'){
+                                Confirmez votre adresse mail et créez votre espace personnel via l’email que nous venons
+                                d’envoyer
+                                }@else if(language ==='english') {
+                                Confirm your email address and create your personal space via the email we just sent
+                                }
+                            </h4>
+                        </div>
+                        <div class="mx-4">
+                            <h6 class="my-2">
+                                @if(language ==='french'){
+                                Vous pourrez :
+                                }@else if(language ==='english') {
+                                You will be able :
+                                }
+                            </h6>
+                            <div class="mb-2" style="display: flex; flex-direction: column; justify-content:center;">
+                                <div><i class="bi bi-arrow-right fw-bold fs-5"></i>
+                                    @if(language ==='french'){
+                                    Voir les différentes aides qui existent afin de valider votre devis
+                                    }@else if(language ==='english') {
+                                    See the different aids that exist in order to validate your quote
+                                    }
+                                </div>
+                                <div><i class="bi bi-arrow-right fw-bold fs-5"></i>
+                                    @if(language ==='french'){
+                                    Ajouter les photos de votre installation
+                                    }@else if(language ==='english') {
+                                    Add photos of your installation
+                                    }
+                                </div>
+                                <div><i class="bi bi-arrow-right fw-bold fs-5"></i>
+                                    @if(language ==='french'){
+                                    Payer votre installation (4x sans frais possible)
+                                    }@else if(language ==='english') {
+                                    Pay for your installation (4x free of charge possible)
+                                    }
+                                </div>
+                                <div><i class="bi bi-arrow-right fw-bold fs-5"></i>
+                                    @if(language ==='french'){
+                                    Suivre votre projet en toute sérénité avec nos experts
+                                    }@else if(language ==='english') {
+                                    Follow your project with complete peace of mind with our experts
+                                    }
+                                </div>
                             </div>
-                            <div><i class="bi bi-arrow-right fw-bold fs-5"></i> Payer votre installation (4x sans frais
-                                possible)</div>
-                            <div><i class="bi bi-arrow-right fw-bold fs-5"></i> Suivre votre projet en toute sérénité
-                                avec
-                                nos experts</div>
                         </div>
                     </div>
                 </div>
@@ -36,5 +80,4 @@
         </div>
     </div>
 </div>
-</div>
-<app-chatbox />
+<app-chatbox (actionEventEmitter)="change($event)" />

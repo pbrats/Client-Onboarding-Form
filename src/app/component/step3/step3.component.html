@@ -1,15 +1,33 @@
-<div style="display: flex; flex-direction: row; justify-content:center;">
+<app-language (actionEventEmitter)="change($event)" />
+<div class="mb-5" style="display: flex; flex-direction: row; justify-content:center;">
     <div class="border my-3 mx-5 rounded rounded-4 px-5 py-3" style="width:70%">
         <a class="nav-link text-secondary" routerLink="/step2" routerLinkActive="active"><i
-                class="bi bi-chevron-left me-3"></i>Vos offres et services</a>
+                class="bi bi-chevron-left me-3"></i>
+            @if(language ==='french'){
+            Vos offres et services
+            }@else if(language ==='english') {
+            Your offers and services
+            }
+        </a>
         <div class="mx-5">
-            <h1 class="my-5 text-center">À propos de vous</h1>
+            <h1 class="my-5 text-center">
+                @if(language ==='french'){
+                À propos de vous
+                }@else if(language ==='english') {
+                About you
+                }
+            </h1>
             <div class="container">
                 <div style="display: flex; flex-direction: row; justify-content:center;">
-                    <p class="bg-info bg-opacity-10 rounded rounded-5 py-3 px-4" style="width:65%">Pourquoi nous
-                        partager vos informations personnelles ?
-                        Cela nous permet de vous transmettre un devis détaillé et de suivre votre demande avec l’un de
-                        nos experts.</p>
+                    <p class="bg-info bg-opacity-10 rounded rounded-5 py-3 px-4" style="width:65%">
+                        @if(language ==='french'){
+                        Pourquoi nous partager vos informations personnelles ? Cela nous permet de vous transmettre un
+                        devis détaillé et de suivre votre demande avec l’un de nos experts.
+                        }@else if(language ==='english') {
+                        Why share your personal information with us? This allows us to send you a detailed quote and
+                        follow up your request with one of our experts.
+                        }
+                    </p>
                 </div>
             </div>
         </div>
@@ -17,7 +35,13 @@
         <div class="my-5">
             <form class="row g-3 needs-validation" novalidate>
                 <div class="col-md-6">
-                    <label for="validationCustom01" class="form-label">Nom<span class="text-danger fw-bold">*</span></label>
+                    <label for="validationCustom01" class="form-label">
+                        @if(language ==='french'){
+                        Nom
+                        }@else if(language ==='english') {
+                        Name
+                        }
+                        <span class="text-danger fw-bold">*</span></label>
                     <input type="text" class="form-control rounded rounded-4 bg-light" id="validationCustom01" required>
                     <div class="valid-feedback">
                         Looks good!
@@ -27,54 +51,112 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <label for="validationCustom02" class="form-label">Prénom<span class="text-danger fw-bold">*</span></label>
+                    <label for="validationCustom02" class="form-label">
+                        @if(language ==='french'){
+                        Prénom
+                        }@else if(language ==='english') {
+                        First name
+                        }
+                        <span class="text-danger fw-bold">*</span></label>
                     <input type="text" class="form-control rounded rounded-4 bg-light" id="validationCustom02" required>
                     <div class="valid-feedback">
                         Looks good!
                     </div>
                     <div class="invalid-feedback">
+                        @if(language ==='french'){
                         Veuillez remplir ce champ obligatoire.
+                        }@else if(language ==='english') {
+                        Please complete this required field.
+                        }
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <label for="validationCustom03" class="form-label">Numéro de téléphone<span class="text-danger fw-bold">*</span></label>
+                    <label for="validationCustom03" class="form-label">
+                        @if(language ==='french'){
+                        Numéro de téléphone
+                        }@else if(language ==='english') {
+                        Phone number
+                        }
+                        <span class="text-danger fw-bold">*</span></label>
                     <input type="text" class="form-control rounded rounded-4 bg-light" id="validationCustom03" required>
                     <div class="valid-feedback">
                         Looks good!
                     </div>
                     <div class="invalid-feedback">
+                        @if(language ==='french'){
                         Veuillez remplir ce champ obligatoire.
+                        }@else if(language ==='english') {
+                        Please complete this required field.
+                        }
                     </div>
-                    <!-- Un numéro de téléphone valide ne peut contenir que des chiffres, et +()-. ou x -->
-                    <!-- Le numéro que vous avez saisi n'est pas dans la plage. -->
+                    <!-- @if(language ==='french'){
+                            Un numéro de téléphone valide ne peut contenir que des chiffres, et +()-. ou x 
+                        }@else if(language ==='english') {
+                           A valid phone number can only contain digits, and +()-. or x
+                        }
+                        -->
+                    <!-- @if(language ==='french'){
+                            Le numéro que vous avez saisi n'est pas dans la plage.
+                        }@else if(language ==='english') {
+                          The number you entered is not in range.
+                        } -->
                 </div>
                 <div class="col-md-6">
-                    <label for="validationCustom04" class="form-label">E-mail<span class="text-danger fw-bold">*</span></label>
+                    <label for="validationCustom04" class="form-label">E-mail<span
+                            class="text-danger fw-bold">*</span></label>
                     <input type="text" class="form-control rounded rounded-4 bg-light" id="validationCustom04" required>
                     <div class="valid-feedback">
                         Looks good!
                     </div>
                     <div class="invalid-feedback">
+                        @if(language ==='french'){
                         Veuillez remplir ce champ obligatoire..
+                        }@else if(language ==='english') {
+                        Please complete this required field..
+                        }
                     </div>
                     <!-- L'adresse e-mail doit être indiquée dans un format approprié. -->
                 </div>
                 <div class="col-md-12">
-                    <label for="validationCustom05" class="form-label">Adresse postale<span class="text-danger fw-bold">*</span></label>
+                    <label for="validationCustom05" class="form-label">
+                        @if(language ==='french'){
+                        Adresse postale
+                        }@else if(language ==='english') {
+                        Address
+                        }
+                        <span class="text-danger fw-bold">*</span></label>
                     <div>
-                        <small class="text-secondary">Votre adresse nous permet uniquement de définir quel installateur se situe dans votre secteur.</small>
+                        <small class="text-secondary">
+                            @if(language ==='french'){
+                            Votre adresse nous permet uniquement de définir quel installateur se situe dans votre
+                            secteur.
+                            }@else if(language ==='english') {
+                            Your address only allows us to define which installer is located in your area.
+                            }
+                        </small>
                     </div>
                     <input type="text" class="form-control rounded rounded-4 bg-light" id="validationCustom05" required>
                     <div class="valid-feedback">
                         Looks good!
                     </div>
                     <div class="invalid-feedback">
+                        @if(language ==='french'){
                         Veuillez remplir ce champ obligatoire..
+                        }@else if(language ==='english') {
+                        Please complete this required field..
+                        }
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <label for="validationCustom06" class="form-label">Code postal<span class="text-danger fw-bold">*</span></label>
-                    <input type="number" class="form-control rounded rounded-4 bg-light" id="validationCustom06" required>
+                    <label for="validationCustom06" class="form-label">
+                        @if(language ==='french'){
+                        Code postal
+                        }@else if(language ==='english') {
+                        Postal code
+                        }
+                        <span class="text-danger fw-bold">*</span></label>
+                    <input type="number" class="form-control rounded rounded-4 bg-light" id="validationCustom06"
+                        required>
                     <div class="invalid-feedback">
                         Please provide a valid zip.
                     </div>
@@ -83,7 +165,13 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <label for="validationCustom07" class="form-label">Ville<span class="text-danger fw-bold">*</span></label>
+                    <label for="validationCustom07" class="form-label">
+                        @if(language ==='french'){
+                        Ville
+                        }@else if(language ==='english') {
+                        City
+                        }
+                        <span class="text-danger fw-bold">*</span></label>
                     <input type="text" class="form-control rounded rounded-4 bg-light" id="validationCustom07" required>
                     <div class="invalid-feedback">
                         Please provide a valid zip.
@@ -93,42 +181,75 @@
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <label for="validationCustom07" class="form-label">Code de parrainage</label>
-                    <input type="text" class="form-control rounded rounded-4 bg-light" id="validationCustom07" >
+                    <label for="validationCustom07" class="form-label">
+                        @if(language ==='french'){
+                        Code de parrainage
+                        }@else if(language ==='english') {
+                        Referral Code
+                        }
+                    </label>
+                    <input type="text" class="form-control rounded rounded-4 bg-light" id="validationCustom07">
                 </div>
                 <div class="col-12">
                     <div class="form-check">
-                      <input class="form-check-input border-dark" type="checkbox" value="" id="newsletter">
-                      <label class="form-check-label" for="newsletter">
-                        M'inscrire à la newsletter de Beev
-                      </label>
+                        <input class="form-check-input border-dark" type="checkbox" value="" id="newsletter">
+                        <label class="form-check-label" for="newsletter">
+                            @if(language ==='french'){
+                            M'inscrire à la newsletter de Beev
+                            }@else if(language ==='english') {
+                            Subscribe to the Beev newsletter
+                            }
+                        </label>
                     </div>
-                  </div>
-                  <div class="col-12">
+                </div>
+                <div class="col-12">
                     <div class="form-check">
-                      <input class="form-check-input border-dark" type="checkbox" value="" id="invalidCheck" required>
-                      <label class="form-check-label" for="invalidCheck">
-                        J’accepte la politique de <a href="https://www.beev.co/donnees-personnelles/" target="_blank">traitement des données</a> de Beev<span class="text-danger fw-bold">*</span>
-                      </label>
-                      <div class="invalid-feedback">
-                        Veuillez remplir ce champ obligatoire.
-                      </div>
+                        <input class="form-check-input border-dark" type="checkbox" value="" id="invalidCheck" required>
+                        <label class="form-check-label" for="invalidCheck">
+                            @if(language ==='french'){
+                            J’accepte la politique de <a href="https://www.beev.co/donnees-personnelles/"
+                                target="_blank">traitement des données</a> de Beev<span
+                                class="text-danger fw-bold">*</span>
+                            }@else if(language ==='english') {
+                            I accept the policy of <a href="https://www.beev.co/donnees-personnelles/"
+                                target="_blank">data processing</a> by Beev<span class="text-danger fw-bold">*</span>
+                            }
+                        </label>
+                        <div class="invalid-feedback">
+                            @if(language ==='french'){
+                            Veuillez remplir ce champ obligatoire.
+                            }@else if(language ==='english') {
+                            Please complete this required field.
+                            }
+                        </div>
                     </div>
-                  </div>
+                </div>
                 <div class="col-12 text-center my-4">
                     <!-- <button class="btn btn-dark rounded rounded-4 mt-3 px-4" type="submit"  routerLink="/end" routerLinkActive="active" (click)="onSubmit()">Soumettre</button> -->
-                    <button class="btn btn-dark rounded rounded-4 mt-3 px-4" type="submit" (click)="onSubmit()">Soumettre</button>
+                    <button class="btn btn-dark rounded rounded-4 mt-3 px-4" type="submit" (click)="onSubmit()">
+                        @if(language ==='french'){
+                        Soumettre
+                        }@else if(language ==='english') {
+                        Submit
+                        }
+                    </button>
                 </div>
             </form>
         </div>
-    }@else{
+        }@else{
         <div class="m-5 text-center">
-            <p class="fs-4">Envoi de vos informations à nos équipes...</p>
+            <p class="fs-4">
+                @if(language ==='french'){
+                Envoi de vos informations à nos équipes...
+                }@else if(language ==='english') {
+                Sending your information to our teams...
+                }
+            </p>
             <div class="spinner-border m-5" role="status" style="width: 10rem; height: 10rem;">
                 <span class="visually-hidden">Loading...</span>
             </div>
         </div>
-    }
+        }
     </div>
 </div>
-<app-chatbox />
+<app-chatbox (actionEventEmitter)="change($event)" />

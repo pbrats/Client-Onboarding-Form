@@ -2,7 +2,7 @@
     /* background-color: rgb(236, 232, 238); */
     background-color: "url(#paint0_linear_252_4327)";
     /* Gradient definition */
-    background-image: linear-gradient(45deg, #FDC2B4, #A5D2FF);
+    background-image: linear-gradient(90deg,  #e0ecf8, #f5e3df);
 }
 
 .clicked {

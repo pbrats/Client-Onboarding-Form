@@ -1,4 +1,4 @@
-.check{
+.check {
     background-color: "url(#paint0_linear_252_4327)";
     /* Gradient definition */
     background-image: linear-gradient(45deg, #FDC2B4, #A5D2FF);
@@ -6,16 +6,17 @@
     background-clip: text;
     color: transparent;
 }
+
 .background-container {
     position: absolute;
     top: 30vh;
-    left:5vh;
-    right:5vh;
+    left: 5vh;
+    right: 5vh;
     height: 100vh;
-    margin-left: 5px; 
+    margin-left: 5px;
     margin-right: 5px;
     background-image: linear-gradient(45deg, #FDC2B4, #A5D2FF);
-    z-index: -1; 
+    z-index: -1;
 }
 
 .app-container {
@@ -24,5 +25,6 @@
     /* overflow: visible; */
     position: relative;
     height: 100vh;
-    z-index: 1; 
+    z-index: 1;
+    margin-bottom: 40vh;
 }

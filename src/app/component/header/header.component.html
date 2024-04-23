@@ -1,9 +1,10 @@
 <header class="sticky-top">
-    <div class="border mt-2 mb-5 mx-5 rounded rounded-2 shadow px-5 {{currentRoute ==='step0' || currentRoute ==='end' ? 'py-4': 'py-1'}} ">
+    <div
+        class="border mt-2 mb-5 mx-5 rounded rounded-2 shadow px-5 {{currentRoute ==='step0' || currentRoute ==='end' ? 'py-4': 'py-1'}} ">
         <div class="d-flex flex-wrap align-items-center">
             <div class="mx-auto">
-                <a class="nav-link" routerLink="" routerLinkActive="active"
-                    class="fw-bold text-black text-decoration-none fs-1">
+                <a class="nav-link fw-bold text-black text-decoration-none fs-1" routerLink=""
+                    routerLinkActive="active">
                     <!-- Beev -->
                     <img src="../../assets/images/beev.svg" alt="Beev logo">
                 </a>
@@ -20,9 +21,15 @@
                     </div>
                 </div>
                 <div class="mt-1 text-center" style="display: flex; flex-direction: row; justify-content:center;">
+                    @if(language ==='french'){
                     <p>Votre installation</p>
                     <p>Vos offres et services</p>
                     <p>À propos de vous</p>
+                    }@else if(language ==='english') {
+                    <p>Your installation</p>
+                    <p>Your offers and services</p>
+                    <p>About you</p>
+                    }
                 </div>
             </div>
             }

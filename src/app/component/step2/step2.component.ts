@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { ChatboxComponent } from '../chatbox/chatbox.component';
+import { LanguageComponent } from '../language/language.component';
 
 @Component({
   selector: 'app-step2',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, ChatboxComponent],
+  imports: [RouterLink, RouterLinkActive, ChatboxComponent, LanguageComponent],
   templateUrl: './step2.component.html',
   styleUrl: './step2.component.css'
 })
@@ -17,6 +18,18 @@ export class Step2Component {
   button5MetersCable: boolean = false;
   button7MetersCable: boolean = false;
   button15MetersCable: boolean = false;
+  language!: string;
+  ngOnInit() {
+    const lang = sessionStorage.getItem('language');
+    console.log("language oninit: ", lang);
+    if (lang) {
+      this.language = lang;
+    }
+  }
+  change(event: any) {
+    this.language = event;
+    console.log("language change step2 ", event);
+  }
   clickedDontKnow(): void {
     if (this.buttonDontKnow) {
 

@@ -9,5 +9,12 @@ import { RouterLink } from '@angular/router';
   styleUrl: './footer.component.css'
 })
 export class FooterComponent {
-
+  language!: string;
+  ngOnInit() {
+    const lang = sessionStorage.getItem('language');
+    console.log("language oninit: ", lang);
+    if (lang) {
+      this.language = lang;
+    }
+  }
 }

@@ -1,0 +1,9 @@
+<div class="d-flex flex-row justify-content-end me-5">
+    <a class="nav-link {{ language=='french'? 'fw-bold' : ''}} text-black text-decoration-none me-2" type="button"
+        value="french" (click)="change('french')">FR</a>
+    <!-- (click)="setLanguageFrench()" -->
+    |
+    <a class="nav-link {{ language=='english'? 'fw-bold' : ''}} text-black text-decoration-none ms-2" type="button"
+        value="english" (click)="change('english')">GB</a>
+    <!-- (click)="setLanguageEnglish()" -->
+</div>

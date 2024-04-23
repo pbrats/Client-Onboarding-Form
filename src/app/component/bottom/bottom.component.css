@@ -1,18 +1,11 @@
-.bottom{
-    position: relative;
-    top:70%;
+.circle {
+  width: 3rem;
+  height: 3rem;
+  background-color: white;
+  border-radius: 50%;
 }
 
-.circle {
-    width: 3rem;
-    height: 3rem;
-    background-color: white;
-    border-radius: 50%;
-  }
-  
-  .background-container {
-    position: relative;
-    top:70%;
-    background-image: linear-gradient(45deg, #FDC2B4, #A5D2FF);
-    height:10px;
+.background-container {
+  background-image: linear-gradient(45deg, #FDC2B4, #A5D2FF);
+  height: 10px;
 }

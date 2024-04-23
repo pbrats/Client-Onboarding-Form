@@ -1,11 +1,29 @@
-<div style="display: flex; flex-direction: row; justify-content:center;">
+<app-language (actionEventEmitter)="change($event)" />
+<div class="mb-5" style="display: flex; flex-direction: row; justify-content:center;">
     <div class="border my-3 mx-5 rounded rounded-4 px-5 py-3" style="width:70%">
         <a class="nav-link text-secondary" routerLink="/step0" routerLinkActive="active"><i
-                class="bi bi-chevron-left me-3"></i>Retour</a>
+                class="bi bi-chevron-left me-3"></i>
+            @if(language ==='french'){
+            Retour
+            }@else if(language ==='english') {
+            Back
+            }
+        </a>
         <div class="mx-5">
-            <h1 class="my-5 text-center">Votre installation</h1>
+            <h1 class="my-5 text-center">
+                @if(language ==='french'){
+                Votre installation
+                }@else if(language ==='english') {
+                Your installation
+                }
+            </h1>
             <div class="container mx-5">
-                <h6 class="fw-bold">Votre installation électrique est-t-elle bien en monophasé ?
+                <h6 class="fw-bold">
+                    @if(language ==='french'){
+                    Votre installation électrique est-t-elle bien en monophasé ?
+                    }@else if(language ==='english') {
+                    Is your electrical installation single-phase?
+                    }
                     <!-- Button trigger modal -->
                     <button class="btn btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#explanation">
                         <i class="bi bi-info-circle text-danger fs-5"></i>
@@ -17,8 +35,13 @@
                         <div class="modal-content" style="width:fit-content">
                             <div class="modal-header">
                                 <h6 class="modal-title bg-danger bg-opacity-10 text-danger" id="explanation"
-                                    style="width:100%"><i class="bi bi-info-circle text-danger fs-5 me-2"></i>Monophasé
-                                    ou triphasé ?</h6>
+                                    style="width:100%"><i class="bi bi-info-circle text-danger fs-5 me-2"></i>
+                                    @if(language ==='french'){
+                                    Monophasé ou triphasé ?
+                                    }@else if(language ==='english') {
+                                    Single-phase or three-phase?
+                                    }
+                                </h6>
                             </div>
                             <div class="modal-body"
                                 style="display: flex; flex-direction: row; justify-content:space-evenly;">
@@ -32,17 +55,46 @@
                         </div>
                     </div>
                 </div>
-                <p class="my-4">90% des foyers français ont une installation électrique en monophasé.</p>
+                <p class="my-4">
+                    @if(language ==='french'){
+                    90% des foyers français ont une installation électrique en monophasé.
+                    }@else if(language ==='english') {
+                    90% of French homes have a single-phase electrical installation.
+                    }
+                </p>
                 <div style="display: flex; flex-direction: row; justify-content:flex-start;">
                     <button class="btn btn-outline-dark rounded rounded-3 me-3" [class.active]="buttonDontKnow"
-                        (click)="clickedDontKnow()">Je ne sais pas</button>
+                        (click)="clickedDontKnow()">
+                        @if(language ==='french'){
+                        Je ne sais pas
+                        }@else if(language ==='english') {
+                        I don't know
+                        }
+                    </button>
                     <button class="btn btn-outline-dark rounded rounded-3 me-3" [class.active]="buttonYes"
-                        (click)="clickedYes()">Oui, monophasé</button>
+                        (click)="clickedYes()">
+                        @if(language ==='french'){
+                        Oui, monophasé
+                        }@else if(language ==='english') {
+                        Yes, single phase
+                        }
+                    </button>
                     <button class="btn btn-outline-dark rounded rounded-3 me-3" [class.active]="buttonNo"
-                        (click)="clickedNo()">Non, triphasé</button>
+                        (click)="clickedNo()">
+                        @if(language ==='french'){
+                        Non, triphasé
+                        }@else if(language ==='english') {
+                        No, three-phase
+                        }
+                    </button>
                 </div>
                 @if(buttonYes || buttonNo){
-                <h6 class="fw-bold mt-4 mb-2">Quelle est la puissance d’installation électrique chez vous ?
+                <h6 class="fw-bold mt-4 mb-2">
+                    @if(language ==='french'){
+                    Quelle est la puissance d’installation électrique chez vous ?
+                    }@else if(language ==='english') {
+                    What is the electrical installation power in your home?
+                    }
                     <!-- Button trigger modal -->
                     <button class="btn btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#explanationYes">
                         <i class="bi bi-info-circle text-danger fs-5"></i>
@@ -55,13 +107,25 @@
                         <div class="modal-content" style="width:fit-content">
                             <div class="modal-header">
                                 <h6 class="modal-title bg-danger bg-opacity-10 text-danger" id="explanationYes"
-                                    style="width:100%"><i class="bi bi-info-circle text-danger fs-5 me-2"></i>Quelle
-                                    puissance ?</h6>
+                                    style="width:100%"><i class="bi bi-info-circle text-danger fs-5 me-2"></i>
+                                    @if(language ==='french'){
+                                    Quelle puissance ?
+                                    }@else if(language ==='english') {
+                                    What power ?
+                                    }
+                                </h6>
                             </div>
                             <div class="modal-body my-2"
                                 style="display: flex; flex-direction: column; justify-content:space-around;">
-                                <p>La puissance est exprimée en kVA. Vous pouvez la consulter sur votre compteur ou
-                                    votre facture d'électricité. </p>
+                                <p>
+                                    @if(language ==='french'){
+                                    La puissance est exprimée en kVA. Vous pouvez la consulter sur votre compteur ou
+                                    votre facture d'électricité.
+                                    }@else if(language ==='english') {
+                                    Power is expressed in kVA. You can consult it on your meter or your electricity
+                                    bill.
+                                    }
+                                </p>
                                 <div>
                                     <img src="../../assets/images/explanationYes.png" alt="puissance image explanation"
                                         style="width:100%">
@@ -73,17 +137,35 @@
                 }
                 @if(buttonYes){
                 <select class="form-select mb-5 bg-light" aria-label="selectYes" style="width:45%">
-                    <option selected>Veuillez sélectionner</option>
+                    <option selected>
+                        @if(language ==='french'){
+                        Veuillez sélectionner
+                        }@else if(language ==='english') {
+                        Please select
+                        }
+                    </option>
                     <option value="1">3 kVa</option>
                     <option value="2">6 kVa</option>
                     <option value="3">9 kVa</option>
                     <option value="4">12 kVa</option>
-                    <option value="5">Je ne sais pas</option>
+                    <option value="5">
+                        @if(language ==='french'){
+                        Je ne sais pas
+                        }@else if(language ==='english') {
+                        I don't know
+                        }
+                    </option>
                 </select>
                 }
                 @if(buttonNo){
                 <select class="form-select mb-5 bg-light" aria-label="selectNo" style="width:45%">
-                    <option selected>Veuillez sélectionner</option>
+                    <option selected>
+                        @if(language ==='french'){
+                        Veuillez sélectionner
+                        }@else if(language ==='english') {
+                        Please select
+                        }
+                    </option>
                     <option value="1">12 kVa</option>
                     <option value="2">15 kVa</option>
                     <option value="3">18 kVa</option>
@@ -93,15 +175,33 @@
                     <option value="7">30 kVa</option>
                     <option value="8">33 kVa</option>
                     <option value="9">36 kVa</option>
-                    <option value="10">Je ne sais pas</option>
+                    <option value="10">
+                        @if(language ==='french'){
+                        Je ne sais pas
+                        }@else if(language ==='english') {
+                        I don't know
+                        }
+                    </option>
                 </select>
                 }
-                <h6 class="fw-bold my-4">Où souhaitez-vous positionner votre borne de recharge ?</h6>
+                <h6 class="fw-bold my-4">
+                    @if(language ==='french'){
+                    Où souhaitez-vous positionner votre borne de recharge ?
+                    }@else if(language ==='english') {
+                    Where do you want to position your charging station?
+                    }
+
+                </h6>
                 <div style="display: flex; flex-direction: row; justify-content:flex-start;">
                     <button class="btn btn-light btn-outline-dark  rounded rounded-3 me-3" [class.active]="buttonSame"
                         (click)="clickedSame()">
-                        <p style="display: flex; flex-direction: column; justify-content:space-between;">Tableau
-                            électrique et véhicule dans <span class="fw-bold">la même pièce</span></p>
+                        <p style="display: flex; flex-direction: column; justify-content:space-between;">
+                            @if(language ==='french'){
+                            Tableau électrique et véhicule dans <span class="fw-bold">la même pièce</span>
+                            }@else if(language ==='english') {
+                            Electrical panel and vehicle in <span class="fw-bold">the same room</span>
+                            }
+                        </p>
                         <!-- <i class="bi bi-house-check fs-1"></i> -->
                         <svg width="62" height="64" viewBox="0 0 62 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M4.56934 40.6826V62.6211H38.5609H57.9847V40.6826" stroke="#1D1D1D" stroke-width="2"
@@ -147,8 +247,13 @@
                     </button>
                     <button class="btn btn-light btn-outline-dark rounded rounded-3 me-3"
                         [class.active]="buttonDifferent" (click)="clickedDifferent()">
-                        <p style="display: flex; flex-direction: column; justify-content:space-between;">Tableau
-                            électrique et véhicule dans <span class="fw-bold">une pièce différente</span></p>
+                        <p style="display: flex; flex-direction: column; justify-content:space-between;">
+                            @if(language ==='french'){
+                            Tableau électrique et véhicule dans <span class="fw-bold">une pièce différente</span>
+                            }@else if(language ==='english') {
+                            Electrical panel and vehicle in <span class="fw-bold">a different room</span>
+                            }
+                        </p>
                         <!-- <i class="bi bi-house-gear fs-1"></i> -->
                         <svg width="74" height="66" viewBox="0 0 74 66" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -198,8 +303,13 @@
                     </button>
                     <button class="btn btn-light btn-outline-dark  rounded rounded-3 me-3" [class.active]="buttonOut"
                         (click)="clickedOut()">
-                        <p style="display: flex; flex-direction: column; justify-content:space-between;">Tableau
-                            électrique à l’intérieur et <span class="fw-bold">véhicule à l’extérieur</span></p>
+                        <p style="display: flex; flex-direction: column; justify-content:space-between;">
+                            @if(language ==='french'){
+                            Tableau électrique à l’intérieur et <span class="fw-bold">véhicule à l’extérieur</span>
+                            }@else if(language ==='english') {
+                            Electrical panel inside and <span class="fw-bold">vehicle outside</span>
+                            }
+                        </p>
                         <!-- <i class="bi bi-house-dash fs-1"></i> -->
                         <svg width="92" height="64" viewBox="0 0 92 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -244,11 +354,22 @@
                         </svg>
                     </button>
                 </div>
-                <h6 class="fw-bold my-4">Souhaitez-vous installer votre borne sur un mur ?</h6>
+                <h6 class="fw-bold my-4">
+                    @if(language ==='french'){
+                    Souhaitez-vous installer votre borne sur un mur ?
+                    }@else if(language ==='english') {
+                    Do you want to install your terminal on a wall?
+                    }
+                </h6>
                 <p>
                     <small>
+                        @if(language ==='french'){
                         L’installation sur pied de la borne engendre en coût de 550€ HT sur un sol dur et 300€ HT
                         supplémentaire sur un sol mou nécessitant une structure solide (ex : sur de terre)
+                        }@else if(language ==='english') {
+                        Installing the terminal on a stand costs €550 excluding tax on hard ground and €300 excluding
+                        tax. additional on soft ground requiring a solid structure (e.g. on dirt)
+                        }
                     </small>
                 </p>
                 <div style="display: flex; flex-direction: row; justify-content:flex-start;">
@@ -263,34 +384,84 @@
                             <path d="M2.66667 11.8506L2 13.3506H3L2.33333 14.8506" stroke="#1D1D1D" stroke-width="0.5"
                                 stroke-linecap="round" stroke-linejoin="round"></path>
                         </svg>
-                        Oui, sur un mur</button>
+                        @if(language ==='french'){
+                        Oui, sur un mur
+                        }@else if(language ==='english') {
+                        Yes, on a wall
+                        }
+                    </button>
                     <button class="btn btn-outline-dark rounded rounded-3" [class.active]="buttonStand"
                         (click)="clickedStand()">
                         <!-- <i class="bi bi-modem me-2"></i> -->
                         <img class="me-1" src="../../assets/images/buttonimage.png"
                             alt="'Non, je préfère un pied' image description" style="height:27px">
-                        Non, je préfère un pied</button>
+                        @if(language ==='french'){
+                        Non, je préfère un pied
+                        }@else if(language ==='english') {
+                        No, I prefer a foot
+                        }
+                    </button>
                 </div>
-                <h6 class="fw-bold my-4">Quelle est la distance entre votre tableau électrique et votre future borne ?
+                <h6 class="fw-bold my-4">
+                    @if(language ==='french'){
+                    Quelle est la distance entre votre tableau électrique et votre future borne ?
+                    }@else if(language ==='english') {
+                    What is the distance between your electrical panel and your future terminal?
+                    }
                 </h6>
                 <div style="display: flex; flex-direction: row; justify-content:flex-start;">
                     <button class="btn btn-outline-dark rounded rounded-3 me-3" [class.active]="buttonDontKnowMeters"
-                        (click)="clickedDontKnowMeters()">Je ne sais pas</button>
+                        (click)="clickedDontKnowMeters()">
+                        @if(language ==='french'){
+                        Je ne sais pas
+                        }@else if(language ==='english') {
+                        I don't know
+                        }
+                    </button>
                     <button class="btn btn-outline-dark rounded rounded-3 me-3" [class.active]="button0Meters"
-                        (click)="clicked0Meters()">0 à 5 mètres</button>
+                        (click)="clicked0Meters()">
+                        @if(language ==='french'){
+                        0 à 5 mètres
+                        }@else if(language ==='english') {
+                        0 to 5 meters
+                        }
+                    </button>
                     <button class="btn btn-outline-dark rounded rounded-3 me-3" [class.active]="button5Meters"
-                        (click)="clicked5Meters()">5 à 10 mètres</button>
+                        (click)="clicked5Meters()">
+                        @if(language ==='french'){
+                        5 à 10 mètres
+                        }@else if(language ==='english') {
+                        5 to 10 meters
+                        }
+                    </button>
                     <button class="btn btn-outline-dark rounded rounded-3 me-3" [class.active]="button10Meters"
-                        (click)="clicked10Meters()">10 à 15 mètres</button>
+                        (click)="clicked10Meters()">
+                        @if(language ==='french'){
+                        10 à 15 mètres
+                        }@else if(language ==='english') {
+                        10 to 15 meters
+                        }
+                    </button>
                     <button class="btn btn-outline-dark rounded rounded-3 me-3" [class.active]="button15Meters"
-                        (click)="clicked15Meters()">15 à 20 mètres</button>
+                        (click)="clicked15Meters()">
+                        @if(language ==='french'){
+                        15 à 20 mètres
+                        }@else if(language ==='english') {
+                        15 to 20 meters
+                        }
+                    </button>
                 </div>
                 <div class="me-0 my-5" style="display: flex; flex-direction: row; justify-content:flex-end;">
-                    <button class="btn btn-dark" routerLink="/step2" routerLinkActive="active">Choisir vos offres et
-                        services<i class="bi bi-arrow-right-short"></i></button>
+                    <button class="btn btn-dark" routerLink="/step2" routerLinkActive="active">
+                        @if(language ==='french'){
+                        Choisir vos offres et services
+                        }@else if(language ==='english') {
+                        Choose your offers and services
+                        }
+                        <i class="bi bi-arrow-right-short"></i></button>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<app-chatbox />
+<app-chatbox (actionEventEmitter)="change($event)" />
