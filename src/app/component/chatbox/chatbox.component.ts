@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LanguageComponent } from '../language/language.component';
 
@@ -10,7 +10,7 @@ import { LanguageComponent } from '../language/language.component';
   styleUrl: './chatbox.component.css'
 })
 export class ChatboxComponent {
-  @Output() actionEventEmitter = new EventEmitter();
+  @Input() language!: string;
   chatForm!: FormGroup;
   typedMessage: string = '';
   hasTyped: boolean = false;
@@ -19,20 +19,9 @@ export class ChatboxComponent {
   prCounter: number = 0;
   newtyped: any;
   delay: boolean = false;
-  language!: string;
   ngOnInit() {
-    const lang = sessionStorage.getItem('language');
-    console.log("language oninit: ", lang);
-    if (lang) {
-      this.language = lang;
-    }
+    console.log("language oninit: ", this.language);
     this.setFormValues();
-  }
-  change(event: any) {
-    this.language = event;
-    console.log("language change chatbox ", event);
-    this.actionEventEmitter.emit(event);
-    sessionStorage.setItem('language', event);
   }
   setFormValues() {
     this.chatForm = new FormGroup({

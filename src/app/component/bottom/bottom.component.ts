@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 import { LanguageComponent } from '../language/language.component';
 
 @Component({
@@ -9,12 +9,12 @@ import { LanguageComponent } from '../language/language.component';
   styleUrl: './bottom.component.css'
 })
 export class BottomComponent {
-  language!: string;
-  ngOnInit() {
-    const lang = sessionStorage.getItem('language');
-    console.log("language oninit: ", lang);
-    if (lang) {
-      this.language = lang;
+  @Input() language!: string;
+  ngOnChanges(changes: SimpleChanges) { 
+    console.log('changes: ', changes);
+    if (changes['language']) {
+      console.log("change language bottom current value: ", changes['language'].currentValue);
+      this.language = changes['language'].currentValue;
     }
   }
 }

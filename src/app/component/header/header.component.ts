@@ -1,16 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { LanguageComponent } from '../language/language.component';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive, LanguageComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
   currentRoute: string = '';
-  language!: string;
+  @Input() language!: string;
   constructor(private router: Router) { }
   ngOnInit() {
     this.router.events.subscribe(event => {
@@ -19,10 +20,5 @@ export class HeaderComponent {
         console.log("currentRoute:", this.currentRoute);
       }
     });
-    const lang = sessionStorage.getItem('language');
-    console.log("language oninit: ", lang);
-    if (lang) {
-      this.language = lang;
-    }
   }
 }

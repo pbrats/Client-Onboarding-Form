@@ -21,6 +21,6 @@ export class StartComponent {
   }
   change(event: any) {
     this.language = event;
-    console.log("language change start ", event);
+    console.log("language change start: ", event);
   }
 }

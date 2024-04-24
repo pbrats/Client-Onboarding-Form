@@ -1,10 +1,9 @@
-import { Component, EventEmitter, Output, SimpleChanges } from '@angular/core';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-language',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule],
+  imports: [],
   templateUrl: './language.component.html',
   styleUrl: './language.component.css'
 })
