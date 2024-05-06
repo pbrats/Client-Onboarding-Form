@@ -22,31 +22,10 @@ export class Step2Component {
   language!: string;
   constructor(private languageService: LanguageService) { }
   ngOnInit() {
-    // this.languageService.language$.subscribe(language => {
-    //   this.language = language;
-    // });
     this.languageService.language$.subscribe(language => {
       this.language = language;
     });
-    const lang = sessionStorage.getItem('language');
-    console.log("language oninit: ", this.language);
-    console.log("language session storage: ", lang);
-    //to check if there is a language already selected and stored in session storage
-    if (lang!== null) { 
-      this.language = lang;
-    }
   }
-  // ngOnInit() {
-  //   const lang = sessionStorage.getItem('language');
-  //   console.log("language oninit: ", lang);
-  //   if (lang) {
-  //     this.language = lang;
-  //   }
-  // }
-  // change(event: any) {
-  //   this.language = event;
-  //   console.log("language change step2 ", event);
-  // }
   clickedDontKnow(): void {
     if (this.buttonDontKnow) {
 

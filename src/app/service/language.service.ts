@@ -1,15 +1,22 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LanguageService {
+  private languageSubject: BehaviorSubject<string>;
+  public language$: Observable<string>;
 
-  private languageSubject = new BehaviorSubject<string>('french');
-  language$ = this.languageSubject.asObservable();
+  constructor() {
+    // Initialize language from session storage or default to 'french'
+    const storedLanguage = sessionStorage.getItem('language');
+    this.languageSubject = new BehaviorSubject<string>(storedLanguage || 'french');
+    this.language$ = this.languageSubject.asObservable();
+  }
 
-  setLanguage(language: string) {
+  setLanguage(language: string): void {
     this.languageSubject.next(language);
+    sessionStorage.setItem('language', language); // Store language in session storage
   }
 }

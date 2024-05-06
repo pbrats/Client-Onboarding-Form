@@ -1,17 +1,9 @@
 <div class="app-container">
   <app-header />
   <div class="content">
-    <app-language (actionEventEmitter)="change($event)" />
+    <app-language />
     <router-outlet />
     <app-bottom  />
     <app-footer />
   </div>
 </div>
-<!-- <div class="app-container">
-  <app-header [language]="language"/>
-  <div class="content">
-    <router-outlet />
-    <app-bottom [language]="language" />
-    <app-footer [language]="language"/>
-  </div>
-</div> -->
