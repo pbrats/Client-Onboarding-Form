@@ -31,7 +31,7 @@
 <div class="modal fade" id="beevBot" tabindex="-1" aria-labelledby="beevBot" aria-hidden="true"
     data-bs-backdrop="static">
     <div class="modal-dialog modal-dialog-centered modal-dialog-right modal-dialog-scrollable">
-        <div class="modal-content" style="width:400px; height:500px">
+        <div class="modal-content {{darkTheme?'bg-secondary':'bg-white'}} " style="width:400px; height:500px">
             <div class="modal-header bg-info bg-opacity-10">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40"
                     height="40" viewBox="0 0 90 90" class="border border-dark rounded-circle me-2">
@@ -85,13 +85,13 @@
                 </div>
                 @if(hasTyped){
                 <div class="d-flex flex-sm-row justify-content-end mt-3">
-                    <div class="bg-secondary bg-opacity-10 me-2 mt-3" style="width:80%">
+                    <div class="{{darkTheme?'bg-dark bg-opacity-25':'bg-secondary bg-opacity-10'}} me-2 mt-3" style="width:80%">
                         <p class="text-start px-2 py-2">{{typedMessage}}</p>
                     </div>
                     <div class="circle me-3"></div>
                 </div>
                 @if(!delay){
-                <div class="d-flex flex-sm-row justify-content-start chat">
+                <div class="d-flex flex-sm-row justify-content-start chat mt-3">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40"
                         height="40" viewBox="0 0 90 90">
                         <defs>
@@ -155,7 +155,7 @@
                 @if(new){
                 @for(type of newtyped; track $index){
                 <div class="d-flex flex-sm-row justify-content-end mt-3">
-                    <div class="bg-secondary bg-opacity-10 me-2 mt-3" style="width:80%">
+                    <div class="{{darkTheme?'bg-dark bg-opacity-25':'bg-secondary bg-opacity-10'}} me-2 mt-3" style="width:80%">
                         <p class="text-start px-2 py-2">{{type}}</p>
                     </div>
                     <div class="circle me-3"></div>

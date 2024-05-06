@@ -1,6 +1,6 @@
 <div class="mb-5" style="display: flex; flex-direction: row; justify-content:center;">
     <div class="border my-3 mx-5 rounded rounded-4 px-5 py-3" style="width:70%">
-        <a class="nav-link text-secondary" routerLink="/step0" routerLinkActive="active"><i
+        <a class="nav-link {{darkTheme?'text-dark':'text-secondary'}}" routerLink="/step0" routerLinkActive="active"><i
                 class="bi bi-chevron-left me-3"></i>
             @if(language ==='french'){
             Retour
@@ -31,7 +31,7 @@
                 <!-- Modal -->
                 <div class="modal fade" id="explanation" tabindex="-1" aria-labelledby="explanation" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-dialog-right">
-                        <div class="modal-content" style="width:fit-content">
+                        <div class="modal-content {{darkTheme?'bg-secondary':'bg-white'}}" style="width:fit-content">
                             <div class="modal-header">
                                 <h6 class="modal-title bg-danger bg-opacity-10 text-danger" id="explanation"
                                     style="width:100%"><i class="bi bi-info-circle text-danger fs-5 me-2"></i>
@@ -103,7 +103,7 @@
                 <div class="modal fade" id="explanationYes" tabindex="-1" aria-labelledby="explanationYes"
                     aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-dialog-right">
-                        <div class="modal-content" style="width:fit-content">
+                        <div class="modal-content {{darkTheme?'bg-secondary':'bg-white'}}" style="width:fit-content">
                             <div class="modal-header">
                                 <h6 class="modal-title bg-danger bg-opacity-10 text-danger" id="explanationYes"
                                     style="width:100%"><i class="bi bi-info-circle text-danger fs-5 me-2"></i>
@@ -135,7 +135,7 @@
                 </div>
                 }
                 @if(buttonYes){
-                <select class="form-select mb-5 bg-light" aria-label="selectYes" style="width:45%">
+                <select class="form-select mb-5 {{darkTheme?'bg-secondary bg-opacity-75':'bg-light'}}" aria-label="selectYes" style="width:45%">
                     <option selected>
                         @if(language ==='french'){
                         Veuillez sélectionner
@@ -157,7 +157,7 @@
                 </select>
                 }
                 @if(buttonNo){
-                <select class="form-select mb-5 bg-light" aria-label="selectNo" style="width:45%">
+                <select class="form-select mb-5 {{darkTheme?'bg-secondary bg-opacity-75':'bg-light'}}" aria-label="selectNo" style="width:45%">
                     <option selected>
                         @if(language ==='french'){
                         Veuillez sélectionner
@@ -192,7 +192,7 @@
 
                 </h6>
                 <div style="display: flex; flex-direction: row; justify-content:flex-start;">
-                    <button class="btn btn-light btn-outline-dark  rounded rounded-3 me-3" [class.active]="buttonSame"
+                    <button class="btn btn-outline-dark {{darkTheme?'btn-secondary':'btn-light'}} rounded rounded-3 me-3" [class.active]="buttonSame"
                         (click)="clickedSame()">
                         <p style="display: flex; flex-direction: column; justify-content:space-between;">
                             @if(language ==='french'){
@@ -244,7 +244,7 @@
                                 stroke-linecap="round" stroke-linejoin="round"></path>
                         </svg>
                     </button>
-                    <button class="btn btn-light btn-outline-dark rounded rounded-3 me-3"
+                    <button class="btn btn-outline-dark {{darkTheme?'btn-secondary':'btn-light'}}  rounded rounded-3 me-3"
                         [class.active]="buttonDifferent" (click)="clickedDifferent()">
                         <p style="display: flex; flex-direction: column; justify-content:space-between;">
                             @if(language ==='french'){
@@ -300,7 +300,7 @@
                                 stroke-linecap="round" stroke-linejoin="round"></path>
                         </svg>
                     </button>
-                    <button class="btn btn-light btn-outline-dark  rounded rounded-3 me-3" [class.active]="buttonOut"
+                    <button class="btn btn-outline-dark {{darkTheme?'btn-secondary':'btn-light'}} rounded rounded-3 me-3" [class.active]="buttonOut"
                         (click)="clickedOut()">
                         <p style="display: flex; flex-direction: column; justify-content:space-between;">
                             @if(language ==='french'){
@@ -463,4 +463,3 @@
         </div>
     </div>
 </div>
-<app-chatbox [language]="language" />

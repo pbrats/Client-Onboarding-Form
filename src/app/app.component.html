@@ -1,8 +1,13 @@
-<div class="app-container">
+<div class="app-container {{darkTheme?'bg-secondary':''}}">
   <app-header />
   <div class="content">
-    <app-language />
+    <!-- <div class="d-flex flex flex-column align-items-end"> -->
+      <div class="mx-5" style="display: flex; flex-direction: row; justify-content:space-between">
+        <app-theme />
+        <app-language />      
+    </div>
     <router-outlet />
+    <app-chatbox [language]="language" [darkTheme]="darkTheme" />
     <app-bottom  />
     <app-footer />
   </div>

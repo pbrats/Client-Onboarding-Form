@@ -1,0 +1,12 @@
+  .custom-checkbox .custom-control-input:checked {
+    background-color: black;
+  }
+  
+  .custom-checkbox .custom-control-input:active {
+    background-color: grey;
+  }
+   
+  .custom-checkbox .custom-control-input:focus{
+    box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(185, 184, 184, 0.25);
+    border-color: lightgray;
+  }

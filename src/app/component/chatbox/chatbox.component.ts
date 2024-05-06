@@ -11,6 +11,7 @@ import { LanguageComponent } from '../language/language.component';
 })
 export class ChatboxComponent {
   @Input() language!: string;
+  @Input() darkTheme!: boolean;
   chatForm!: FormGroup;
   typedMessage: string = '';
   hasTyped: boolean = false;

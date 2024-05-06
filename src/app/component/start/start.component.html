@@ -50,7 +50,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="mx-auto my-5 border border-light bg-light bg-opacity-10 p-5 rounded fs-5" style="width:65%">
+                <div class="mx-auto my-5 border {{darkTheme? 'border-secondary':'border-light'}} bg-light bg-opacity-10 p-5 rounded fs-5" style="width:65%">
                     <p>
                         @if(language ==='french'){
                         Voici les prochaines étapes :
@@ -149,7 +149,7 @@
                 <img src="../../assets/images/option1.png" alt="Option1 image" style="height:130px">
             </div>
         </div>
-        <div class="border bg-info bg-opacity-10 rounded rounded-4 text-center py-4 ps-4 mb-4"
+        <div class="border bg-info {{darkTheme? 'bg-opacity-25':'bg-opacity-10'}} rounded rounded-4 text-center py-4 ps-4 mb-4"
             style="display: flex; flex-direction: row; justify-content:space-evenly; height:fit-content">
             <div class="me-3">
                 <img src="../../assets/images/dock.png" alt="charging station photo" style="height:35px">
@@ -185,7 +185,7 @@
                 <img class="me-2" src="../../assets/images/cert7.png" alt="cert7 image" style="height: 50px;">
             </div>
         </div>
-        <div class="border bg-danger bg-opacity-10 rounded rounded-4 text-center py-4 ps-4 pe-3"
+        <div class="border bg-danger {{darkTheme? 'bg-opacity-25':'bg-opacity-10'}} rounded rounded-4 text-center py-4 ps-4 pe-3"
             style="display: flex; flex-direction: row; justify-content:space-evenly;">
             <div class="me-3">
                 <img src="../../assets/images/dock.png" alt="charging station photo" style="height:30px">
@@ -202,4 +202,3 @@
         </div>
     </div>
 </div>
-<app-chatbox [language]="language" />

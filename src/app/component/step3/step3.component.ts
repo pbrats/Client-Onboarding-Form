@@ -3,6 +3,7 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { ChatboxComponent } from '../chatbox/chatbox.component';
 import { LanguageComponent } from '../language/language.component';
 import { LanguageService } from '../../service/language.service';
+import { ThemeService } from '../../service/theme.service';
 
 @Component({
   selector: 'app-step3',
@@ -14,8 +15,12 @@ import { LanguageService } from '../../service/language.service';
 export class Step3Component {
   submitted: boolean = false;
   language!: string;
-  constructor(private router: Router, private languageService: LanguageService) { }
-  ngOnInit() {
+  darkTheme!: boolean;
+  constructor(private router: Router, private languageService: LanguageService, private themeService: ThemeService) { }
+  ngOnInit(){
+    this.themeService.darkTheme$.subscribe(darkTheme => {
+      this.darkTheme = darkTheme;
+    });
     this.languageService.language$.subscribe(language => {
       this.language = language;
     });
