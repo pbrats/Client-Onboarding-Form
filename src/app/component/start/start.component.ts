@@ -1,14 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { ChatboxComponent } from '../chatbox/chatbox.component';
-import { LanguageComponent } from '../language/language.component';
 import { LanguageService } from '../../service/language.service';
 import { ThemeService } from '../../service/theme.service';
 
 @Component({
   selector: 'app-start',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, ChatboxComponent, LanguageComponent],
+  imports: [RouterLink, RouterLinkActive],
   templateUrl: './start.component.html',
   styleUrl: './start.component.css'
 })

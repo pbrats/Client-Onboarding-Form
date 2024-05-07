@@ -1,14 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { ChatboxComponent } from '../chatbox/chatbox.component';
-import { LanguageComponent } from '../language/language.component';
 import { LanguageService } from '../../service/language.service';
 import { ThemeService } from '../../service/theme.service';
 
 @Component({
   selector: 'app-end',
   standalone: true,
-  imports: [RouterLink, ChatboxComponent, LanguageComponent],
+  imports: [RouterLink],
   templateUrl: './end.component.html',
   styleUrl: './end.component.css'
 })

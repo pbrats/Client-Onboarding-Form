@@ -1,11 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LanguageComponent } from '../language/language.component';
 
 @Component({
   selector: 'app-chatbox',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, LanguageComponent],
+  imports: [FormsModule, ReactiveFormsModule],
   templateUrl: './chatbox.component.html',
   styleUrl: './chatbox.component.css'
 })

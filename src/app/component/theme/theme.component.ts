@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ThemeService } from '../../service/theme.service';
+import { LanguageService } from '../../service/language.service';
 
 @Component({
   selector: 'app-theme',
@@ -10,7 +11,8 @@ import { ThemeService } from '../../service/theme.service';
 })
 export class ThemeComponent {
   darkTheme! : boolean; //false;
-  constructor(private themeService: ThemeService) { }
+  language!: string;
+  constructor(private themeService: ThemeService, private languageService: LanguageService) { }
   ngOnInit(){
     // const storedValue =sessionStorage.getItem("darkTheme");
     // console.log("dark theme storedValue : ", storedValue);
@@ -24,6 +26,9 @@ export class ThemeComponent {
     // }
     this.themeService.darkTheme$.subscribe(darkTheme => {
       this.darkTheme = darkTheme;
+    });
+    this.languageService.language$.subscribe(language => {
+      this.language = language;
     });
   }
   onChange(event: any) {
