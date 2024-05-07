@@ -1,6 +1,6 @@
-<div class="start" style="display: flex; flex-direction: row; justify-content:flex-start;">
-    <div class="border my-5 ms-5 me-3 rounded rounded-4 px-5 py-3" style="width:70%; height:fit-content">
-        <div class="">
+<div class="start me-3" style="display: flex; flex-direction: row; justify-content:space-between;">
+    <div style="display: flex; flex-direction: column; justify-content:flex-start;" style="width:75%; height:fit-content">
+        <div class="border my-5 ms-5 me-3 rounded rounded-4 px-5 py-3" >
             <div class="my-5 text-center">
                 @if(language ==='french'){
                 <h1 class="mb-5"><span class="fw-bold">Installez <br>votre borne de recharge</span><br> en quelques
@@ -80,9 +80,9 @@
                 <div class="me-5" style="display: flex; flex-direction: row; justify-content:flex-end;">
                     <p class="mx-2 my-auto">
                         @if(language ==='french'){
-                        Durée du formulaire : 5 min
+                        Durée du formulaire :  2-3 min
                         }@else if(language ==='english') {
-                        Duration of the form: 5 min
+                        Duration of the form:  2-3 min
                         }
                     </p>
                     <button class="btn btn-dark" routerLink="/step1" routerLinkActive="active">
@@ -95,8 +95,108 @@
                 </div>
             </div>
         </div>
+        <div>
+            <h4 class="mx-5">
+                @if(language ==='french'){
+                Ils ont choisi Beev
+            }@else if(language ==='english'){
+                They chose Beev
+            }
+            </h4>
+        </div>
+        <div class="border my-5 ms-5 me-3 rounded rounded-4 px-5 py-3" style="display: flex; flex-direction: row; justify-content:space-between;">
+            <div class="me-5" style="display: flex; flex-direction: column; align-items:center; width:30%">
+                <div>
+                    <h1>4,5</h1>
+                </div>
+                <div class="text-success fs-2">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                </div>
+                <div>
+                    <p>
+                        @if(language ==='french'){
+                            Sur la base de <a class="link link-dark"  href="https://www.trustpilot.com/review/beev.co"
+                            target="_blank">202 avis</a>
+                        }@else if(language ==='english'){
+                            Based on <a class="link link-dark"  href="https://www.trustpilot.com/review/beev.co"
+                            target="_blank">202 reviews</a>
+                        }
+                       
+                    </p>
+                </div>
+                <div>
+                    <img src="../../assets/images/trustpilot.jpg" alt="TrustPilot logo image" width="75%">
+                </div>
+            </div>
+            <div class="me-3" style="display: flex; flex-direction: row; align-items:center;">
+                <button class="btn btn-sm btn-light rounded rounded-5 btn-outline-secondary">
+                    <span class="text-center"> &lt;</span>
+                </button>
+            </div>
+            <div style="display: flex; flex-direction: row; align-items:flex-start;">
+                <div style="width:50%" >
+                    <div class="stars-light">
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i>
+                    </div>
+                    <div>
+                        <div class="mb-1">
+                            <small class="fw-bold">The customer service (Leo) was excellent</small>
+                        </div>
+                        <div class="mb-1">
+                            <small>The customer service was excellent, the result was not thus far through through no fault of... </small>
+                        </div>
+                        <small class="text-secondary">
+                            @if(language ==='french'){
+                                C K, 14 Mars
+                            }@else if(language ==='english'){
+                                C K, March 14
+                            }
+                        </small>
+                    </div>
+                </div>
+                <div class="ms-4">
+                    <div class="text-success">
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    </div>
+                    <div>
+                        <div class="mb-1">
+                            <small class="fw-bold">
+                                @if(language ==='french'){
+                                    Service au top merci Beev
+                                }@else if(language ==='english'){
+                                    Top service thank you Beev
+                                }
+                            </small>
+                        </div>
+                        <div class="mb-1">
+                            <small>
+                                @if(language ==='french'){
+                                    Service au top merci Beev
+                                }@else if(language ==='english'){
+                                    Top service thank you Beev
+                                }
+                            </small>
+                        </div>
+                        <div class="pt-5">
+                            <small class="text-secondary">
+                                @if(language ==='french'){
+                                    Tim, 16 Janvier
+                                }@else if(language ==='english'){
+                                    Tim, January 16
+                                }
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="display: flex; flex-direction: row; align-items:center;">
+                <button class="btn  btn-sm btn-light rounded rounded-5 btn-outline-secondary">
+                    <span class="text-center">&gt;</span>
+                </button>
+            </div>
+        </div>
     </div>
-    <div class="my-5" style="width:25%; height:fit-content">
+    <div class="my-5 " style="width:25%; height:fit-content">
         <div class="border rounded rounded-4 text-center py-2 mb-4"
             style="display: flex; flex-direction: column; justify-content:center; height:fit-content">
             <div>
