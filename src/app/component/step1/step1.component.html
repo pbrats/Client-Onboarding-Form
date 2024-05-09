@@ -64,19 +64,19 @@
                 </p>
                 <div class="form-group">
                 <div style="display: flex; flex-direction: row; justify-content:flex-start;">
-                    <!-- [class.active]="buttonDontKnow  (click)="clickedDontKnow()"-->
-                    <button type="button" class="form-control btn  {{invalidFlag1 ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3" [class.active]="step1Form.get('selectedButton')?.value === 'buttonDontKnow'"
-                      (click)="onClick('buttonDontKnow')" name="installation">
+                    <!-- [class.active]="buttonDontKnow"  (click)="clickedDontKnow()"-->
+                    <button type="button" class="form-control btn  {{invalidFlag1 ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3" [class.active]="step1Form.get('selectedButton1')?.value === 'buttonDontKnow'"
+                      (click)="onClick1('buttonDontKnow')" name="installation">
                         {{language ==='french'? ' Je ne sais pas':' I don`t know'}}
                     </button>
-                    <!-- [class.active]="buttonYes (click)="clickedYes()" -->
-                        <button type="button" class="form-control btn {{invalidFlag1 ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3" [class.active]="step1Form.get('selectedButton')?.value === 'buttonYes'"
-                        (click)="onClick('buttonYes')" name="installation" >
+                    <!-- [class.active]="buttonYes" (click)="clickedYes()" -->
+                        <button type="button" class="form-control btn {{invalidFlag1 ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3" [class.active]="step1Form.get('selectedButton1')?.value === 'buttonYes'"
+                        (click)="onClick1('buttonYes')" name="installation" >
                         {{language ==='french'? ' Oui, monophasé':' Yes, single phase'}}
                         </button>
-                         <!-- [class.active]="buttonNo (click)="clickedNo()" -->
-                        <button type="button" class="form-control btn {{invalidFlag1 ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3" [class.active]="step1Form.get('selectedButton')?.value === 'buttonNo'"
-                        (click)="onClick('buttonNo')" name="installation" >
+                         <!-- [class.active]="buttonNo" (click)="clickedNo()" -->
+                        <button type="button" class="form-control btn {{invalidFlag1 ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3" [class.active]="step1Form.get('selectedButton1')?.value === 'buttonNo'"
+                        (click)="onClick1('buttonNo')" name="installation" >
                         {{language ==='french'? 'Non, triphasé':'No, three-phase'}}
                         </button>
                     </div>
@@ -135,18 +135,18 @@
                 @if(buttonYes){
                     <!-- {{darkTheme?'bg-secondary bg-opacity-75':''}} -->
                 <select class="form-select mb-5 {{ invalidFlag1_yes ?'bg-danger bg-opacity-50':'bg-light opacity-75'}} {{darkTheme?'bg-secondary bg-opacity-75':''}}"  aria-label="selectYes" formControlName="selectYes" style="width:45%" (change)="onSelectionChangeYes($event)">
-                    <option selected disabled>
+                    <option [class.selected]="step1Form.get('selectYes')?.value === ''" disabled>
                         @if(language ==='french'){
                         Veuillez sélectionner
                         }@else if(language ==='english') {
                         Please select
                         }
                     </option>
-                    <option value="1">3 kVa</option>
-                    <option value="2">6 kVa</option>
-                    <option value="3">9 kVa</option>
-                    <option value="4">12 kVa</option>
-                    <option value="5">
+                    <option [class.selected]="step1Form.get('selectYes')?.value === '1'" value="1">3 kVa</option>
+                    <option [class.selected]="step1Form.get('selectYes')?.value === '2'" value="2">6 kVa</option>
+                    <option [class.selected]="step1Form.get('selectYes')?.value === '3'" value="3">9 kVa</option>
+                    <option [class.selected]="step1Form.get('selectYes')?.value === '4'" value="4">12 kVa</option>
+                    <option [class.selected]="step1Form.get('selectYes')?.value === '5'" value="5">
                         @if(language ==='french'){
                         Je ne sais pas
                         }@else if(language ==='english') {
@@ -158,23 +158,23 @@
                 @if(buttonNo){
                     <!-- {{darkTheme?'bg-secondary bg-opacity-75':'bg-light'}}  -->
                 <select class="form-select mb-5 {{ invalidFlag1_no ?'bg-danger bg-opacity-50':'bg-light opacity-75'}}" aria-label="selectNo" formControlName="selectNo" style="width:45%" (change)="onSelectionChangeNo($event)">
-                    <option selected disabled>
+                    <option [class.selected]="step1Form.get('selectNo')?.value === ''" disabled>
                         @if(language ==='french'){
                         Veuillez sélectionner
                         }@else if(language ==='english') {
                         Please select
                         }
                     </option>
-                    <option value="1">12 kVa</option>
-                    <option value="2">15 kVa</option>
-                    <option value="3">18 kVa</option>
-                    <option value="4">21 kVa</option>
-                    <option value="5">24 kVa</option>
-                    <option value="6">27 kVa</option>
-                    <option value="7">30 kVa</option>
-                    <option value="8">33 kVa</option>
-                    <option value="9">36 kVa</option>
-                    <option value="10">
+                    <option [class.selected]="step1Form.get('selectNo')?.value === '1'" value="1">12 kVa</option>
+                    <option [class.selected]="step1Form.get('selectNo')?.value === '2'" value="2">15 kVa</option>
+                    <option [class.selected]="step1Form.get('selectNo')?.value === '3'" value="3">18 kVa</option>
+                    <option [class.selected]="step1Form.get('selectNo')?.value === '4'" value="4">21 kVa</option>
+                    <option [class.selected]="step1Form.get('selectNo')?.value === '5'" value="5">24 kVa</option>
+                    <option [class.selected]="step1Form.get('selectNo')?.value === '6'" value="6">27 kVa</option>
+                    <option [class.selected]="step1Form.get('selectNo')?.value === '7'" value="7">30 kVa</option>
+                    <option [class.selected]="step1Form.get('selectNo')?.value === '8'" value="8">33 kVa</option>
+                    <option [class.selected]="step1Form.get('selectNo')?.value === '9'" value="9">36 kVa</option>
+                    <option [class.selected]="step1Form.get('selectNo')?.value === '10'" value="10">
                         @if(language ==='french'){
                         Je ne sais pas
                         }@else if(language ==='english') {
@@ -192,9 +192,11 @@
                     }
 
                 </h6>
+                <div class="form-group">
                 <div style="display: flex; flex-direction: row; justify-content:flex-start;">
+                    <!-- (click)="clickedSame()" -->
                     <button type="button" class="btn {{invalidFlag2 ?'bg-danger bg-opacity-50':'btn-outline-dark'}} {{darkTheme?'btn-secondary':'btn-light'}} rounded rounded-3 me-3" [class.active]="buttonSame"
-                        (click)="clickedSame()">
+                         (click)="onClick2('buttonSame')">
                         <p style="display: flex; flex-direction: column; justify-content:space-between;">
                             @if(language ==='french'){
                             Tableau électrique et véhicule dans <span class="fw-bold">la même pièce</span>
@@ -245,8 +247,9 @@
                                 stroke-linecap="round" stroke-linejoin="round"></path>
                         </svg>
                     </button>
+                    <!-- (click)="clickedDifferent()"  -->
                     <button type="button" class="btn {{invalidFlag2 ?'bg-danger bg-opacity-50':'btn-outline-dark'}} {{darkTheme?'btn-secondary':'btn-light'}}  rounded rounded-3 me-3"
-                        [class.active]="buttonDifferent" (click)="clickedDifferent()">
+                        [class.active]="buttonDifferent" (click)="onClick2('buttonDifferent')">
                         <p style="display: flex; flex-direction: column; justify-content:space-between;">
                             @if(language ==='french'){
                             Tableau électrique et véhicule dans <span class="fw-bold">une pièce différente</span>
@@ -301,8 +304,9 @@
                                 stroke-linecap="round" stroke-linejoin="round"></path>
                         </svg>
                     </button>
+                    <!-- (click)="clickedOut()" -->
                     <button type="button" class="btn {{invalidFlag2 ?'bg-danger bg-opacity-50':'btn-outline-dark'}} {{darkTheme?'btn-secondary':'btn-light'}} rounded rounded-3 me-3" [class.active]="buttonOut"
-                        (click)="clickedOut()">
+                         (click)="onClick2('buttonOut')">
                         <p style="display: flex; flex-direction: column; justify-content:space-between;">
                             @if(language ==='french'){
                             Tableau électrique à l’intérieur et <span class="fw-bold">véhicule à l’extérieur</span>
@@ -354,6 +358,7 @@
                         </svg>
                     </button>
                 </div>
+                </div>
                 <h6 class="fw-bold my-4">
                     @if(language ==='french'){
                     Souhaitez-vous installer votre borne sur un mur ?
@@ -372,9 +377,11 @@
                         }
                     </small>
                 </p>
+                <div class="form-group">
                 <div style="display: flex; flex-direction: row; justify-content:flex-start;">
+                    <!-- (click)="clickedWall()"  -->
                     <button type="button" class="btn {{invalidFlag3 ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3" [class.active]="buttonWall"
-                        (click)="clickedWall()">
+                        (click)="onClick3('buttonWall')">
                         <!-- <i class="bi bi-graph-down me-2"></i> -->
                         <svg width="18" height="27" viewBox="0 0 18 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1 0.850586V25.8506H17" stroke="#1D1D1D" stroke-linecap="round"></path>
@@ -390,8 +397,9 @@
                         Yes, on a wall
                         }
                     </button>
+                    <!-- (click)="clickedStand()" -->
                     <button type="button" class="btn {{invalidFlag3 ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3" [class.active]="buttonStand"
-                        (click)="clickedStand()">
+                         (click)="onClick3('buttonStand')">
                         <!-- <i class="bi bi-modem me-2"></i> -->
                         <img class="me-1" src="../../assets/images/buttonimage.png"
                             alt="'Non, je préfère un pied' image description" style="height:27px">
@@ -402,6 +410,7 @@
                         }
                     </button>
                 </div>
+                </div>
                 <h6 class="fw-bold my-4">
                     @if(language ==='french'){
                     Quelle est la distance entre votre tableau électrique et votre future borne ?
@@ -409,47 +418,54 @@
                     What is the distance between your electrical panel and your future terminal?
                     }
                 </h6>
+                <div class="form-group">
                 <div style="display: flex; flex-direction: row; justify-content:flex-start;">
+                    <!-- (click)="clickedDontKnowMeters()" -->
                     <button type="button" class="btn {{invalidFlag4 ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3" [class.active]="buttonDontKnowMeters"
-                        (click)="clickedDontKnowMeters()">
+                        (click)="onClick4('buttonDontKnowMeters')">
                         @if(language ==='french'){
                         Je ne sais pas
                         }@else if(language ==='english') {
                         I don't know
                         }
                     </button>
+                    <!-- (click)="clicked0Meters()" -->
                     <button type="button" class="btn {{invalidFlag4 ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3" [class.active]="button0Meters"
-                        (click)="clicked0Meters()">
+                         (click)="onClick4('button0Meters')">
                         @if(language ==='french'){
                         0 à 5 mètres
                         }@else if(language ==='english') {
                         0 to 5 meters
                         }
                     </button>
+                    <!-- (click)="clicked5Meters()"  -->
                     <button type="button" class="btn {{invalidFlag4 ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3" [class.active]="button5Meters"
-                        (click)="clicked5Meters()">
+                        (click)="onClick4('button5Meters')">
                         @if(language ==='french'){
                         5 à 10 mètres
                         }@else if(language ==='english') {
                         5 to 10 meters
                         }
                     </button>
+                    <!-- (click)="clicked10Meters()" -->
                     <button type="button" class="btn {{invalidFlag4 ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3" [class.active]="button10Meters"
-                        (click)="clicked10Meters()">
+                       (click)="onClick4('button10Meters')">
                         @if(language ==='french'){
                         10 à 15 mètres
                         }@else if(language ==='english') {
                         10 to 15 meters
                         }
                     </button>
+                    <!-- (click)="clicked15Meters()" -->
                     <button type="button" class="btn {{invalidFlag4 ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3" [class.active]="button15Meters"
-                        (click)="clicked15Meters()">
+                        (click)="onClick4('button15Meters')">
                         @if(language ==='french'){
                         15 à 20 mètres
                         }@else if(language ==='english') {
                         15 to 20 meters
                         }
                     </button>
+                </div>
                 </div>
                 <div class="me-0 my-5" style="display: flex; flex-direction: row; justify-content:flex-end;">
                     <button type="submit" class="btn btn-dark" > 
