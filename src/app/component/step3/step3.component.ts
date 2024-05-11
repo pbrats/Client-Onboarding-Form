@@ -38,7 +38,7 @@ export class Step3Component {
       city: new FormControl("", [Validators.required]),
       referralCode: new FormControl(""),
       newsletter: new FormControl(""),
-      invalidCheck: new FormControl("", [Validators.required])
+      invalidCheck: new FormControl("", [Validators.requiredTrue])
     });
   }
   onSubmit() {
