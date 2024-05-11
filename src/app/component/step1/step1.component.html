@@ -64,18 +64,18 @@
                 </p>
                 <div class="form-group">
                 <div style="display: flex; flex-direction: row; justify-content:flex-start;">
-                    <!-- [class.active]="buttonDontKnow"  (click)="clickedDontKnow()"-->
-                    <button type="button" class="form-control btn  {{invalidFlag1 ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3" [class.active]="step1Form.get('selectedButton1')?.value === 'buttonDontKnow'"
+                    <!-- [class.active]="step1Form.get('selectedButton1')?.value === 'buttonDontKnow'"  (click)="clickedDontKnow()"-->
+                    <button type="button" class="form-control btn  {{invalidFlag1 ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3" [class.active]="buttonDontKnow"
                       (click)="onClick1('buttonDontKnow')" name="installation">
                         {{language ==='french'? ' Je ne sais pas':' I don`t know'}}
                     </button>
-                    <!-- [class.active]="buttonYes" (click)="clickedYes()" -->
-                        <button type="button" class="form-control btn {{invalidFlag1 ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3" [class.active]="step1Form.get('selectedButton1')?.value === 'buttonYes'"
+                    <!-- [class.active]="step1Form.get('selectedButton1')?.value === 'buttonYes'" (click)="clickedYes()" -->
+                        <button type="button" class="form-control btn {{invalidFlag1 ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3" [class.active]="buttonYes"
                         (click)="onClick1('buttonYes')" name="installation" >
                         {{language ==='french'? ' Oui, monophasé':' Yes, single phase'}}
                         </button>
-                         <!-- [class.active]="buttonNo" (click)="clickedNo()" -->
-                        <button type="button" class="form-control btn {{invalidFlag1 ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3" [class.active]="step1Form.get('selectedButton1')?.value === 'buttonNo'"
+                         <!-- [class.active]="step1Form.get('selectedButton1')?.value === 'buttonNo'" (click)="clickedNo()" -->
+                        <button type="button" class="form-control btn {{invalidFlag1 ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3" [class.active]="buttonNo"
                         (click)="onClick1('buttonNo')" name="installation" >
                         {{language ==='french'? 'Non, triphasé':'No, three-phase'}}
                         </button>

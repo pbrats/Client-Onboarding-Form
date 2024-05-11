@@ -58,9 +58,6 @@ export class Step1Component {
     this.selectedButton2Value = sessionStorage.getItem("selectedButton2");
     this.selectedButton3Value = sessionStorage.getItem("selectedButton3");
     this.selectedButton4Value = sessionStorage.getItem("selectedButton4");
-    
-    /// na ftiaxo ti synthiki xexorista
-
     if (this.selectedButton1Value !== null && this.selectedButton2Value !== null && this.selectedButton3Value !== null && this.selectedButton4Value !== null) {
       if (this.selectYesValue !== null) {
         this.step1Form = this.formBuilder.group({
