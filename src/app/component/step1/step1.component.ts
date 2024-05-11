@@ -28,13 +28,13 @@ export class Step1Component {
   language!: string;
   darkTheme!: boolean;
   step1Form!: FormGroup;
-  invalidFlag1: boolean = false;
-  invalidFlag1_yes: boolean = false;
-  invalidFlag1_no: boolean = false;
-  invalidFlag2: boolean = false;
-  invalidFlag3: boolean = false;
-  invalidFlag4: boolean = false;
-  invalidFlag: boolean = false;
+  // invalidFlag1: boolean = false;
+  // invalidFlag1_yes: boolean = false;
+  // invalidFlag1_no: boolean = false;
+  // invalidFlag2: boolean = false;
+  // invalidFlag3: boolean = false;
+  // invalidFlag4: boolean = false;
+  // invalidFlag: boolean = false;
   selectedNo: boolean = false;
   selectedYes: boolean = false;
   step1value: any;
@@ -144,6 +144,7 @@ export class Step1Component {
     }
   }
   onSubmit() {
+    this.step1Form.markAllAsTouched();
     this.step1value = this.step1Form;
     console.log("step1value: ", this.step1value);
     console.log("value", this.step1Form.value);
@@ -263,30 +264,29 @@ export class Step1Component {
     } else {
       console.log("Invalid form!");
     }
-
-    if (!this.buttonDontKnow && !this.buttonNo && !this.buttonYes) {
-      this.invalidFlag1 = true;
-    }
-    if (this.buttonNo && !this.selectedNo) {
-      this.invalidFlag1_no = true;
-    }
-    if (this.buttonYes && !this.selectedYes) {
-      this.invalidFlag1_yes = true;
-    }
-    if (!this.buttonSame && !this.buttonDifferent && !this.buttonOut) {
-      this.invalidFlag2 = true;
-    }
-    if (!this.buttonWall && !this.buttonStand) {
-      this.invalidFlag3 = true;
-    }
-    if (!this.buttonDontKnowMeters && !this.button0Meters && !this.button5Meters && !this.button10Meters && !this.button15Meters) {
-      this.invalidFlag4 = true;
-    }
-    if (this.invalidFlag1 || this.invalidFlag2 || this.invalidFlag3 || this.invalidFlag4 || this.invalidFlag1_yes || this.invalidFlag1_no) {
-      this.invalidFlag = true;
-    } else {
-      this.invalidFlag = false;
-    }
+    // if (!this.buttonDontKnow && !this.buttonNo && !this.buttonYes) {
+    //   this.invalidFlag1 = true;
+    // }
+    // if (this.buttonNo && !this.selectedNo) {
+    //   this.invalidFlag1_no = true;
+    // }
+    // if (this.buttonYes && !this.selectedYes) {
+    //   this.invalidFlag1_yes = true;
+    // }
+    // if (!this.buttonSame && !this.buttonDifferent && !this.buttonOut) {
+    //   this.invalidFlag2 = true;
+    // }
+    // if (!this.buttonWall && !this.buttonStand) {
+    //   this.invalidFlag3 = true;
+    // }
+    // if (!this.buttonDontKnowMeters && !this.button0Meters && !this.button5Meters && !this.button10Meters && !this.button15Meters) {
+    //   this.invalidFlag4 = true;
+    // }
+    // if (this.invalidFlag1 || this.invalidFlag2 || this.invalidFlag3 || this.invalidFlag4 || this.invalidFlag1_yes || this.invalidFlag1_no) {
+    //   this.invalidFlag = true;
+    // } else {
+    //   this.invalidFlag = false;
+    // }
     // if (!this.invalidFlag) {
     //   this.router.navigate(['step2']);
     // }
@@ -320,7 +320,7 @@ export class Step1Component {
     }
     this.step1Form.get('selectYes')?.updateValueAndValidity();
     this.step1Form.get('selectNo')?.updateValueAndValidity();
-    this.invalidFlag1 = false;
+    // this.invalidFlag1 = false;
   }
   onClick2(buttonName: string) {
     this.step1Form.patchValue({
@@ -345,7 +345,7 @@ export class Step1Component {
       this.buttonDifferent = false;
       this.buttonSame = false;
     }
-    this.invalidFlag2 = false;
+    // this.invalidFlag2 = false;
   }
   onClick3(buttonName: string) {
     this.step1Form.patchValue({
@@ -362,7 +362,7 @@ export class Step1Component {
       this.buttonStand = true;
       this.buttonWall = false;
     }
-    this.invalidFlag3 = false;
+    // this.invalidFlag3 = false;
   }
   onClick4(buttonName: string) {
     this.step1Form.patchValue({
@@ -409,16 +409,16 @@ export class Step1Component {
       this.button10Meters = false;
       this.buttonDontKnowMeters = false;
     }
-    this.invalidFlag4 = false;
+    // this.invalidFlag4 = false;
   }
   onSelectionChangeYes(event: any) {
     this.selectedYes = true;
     console.log('Selected value Yes:', event.target.value);
-    this.invalidFlag1_yes = false;
+    // this.invalidFlag1_yes = false;
   }
   onSelectionChangeNo(event: any) {
     this.selectedNo = true;
     console.log('Selected value No:', event.target.value);
-    this.invalidFlag1_no = false;
+    // this.invalidFlag1_no = false;
   }
 }

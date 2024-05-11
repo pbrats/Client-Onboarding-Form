@@ -64,18 +64,18 @@
                 </p>
                 <div class="form-group">
                 <div style="display: flex; flex-direction: row; justify-content:flex-start;">
-                    <!-- [class.active]="step1Form.get('selectedButton1')?.value === 'buttonDontKnow'"  (click)="clickedDontKnow()"-->
-                    <button type="button" class="form-control btn  {{invalidFlag1 ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3" [class.active]="buttonDontKnow"
+                    <!-- [class.active]="step1Form.get('selectedButton1')?.value === 'buttonDontKnow'"  (click)="clickedDontKnow()" invalidFlag1-->
+                    <button type="button" class="form-control btn  {{ step1Form.get('selectedButton1')?.hasError('required') && step1Form.get('selectedButton1')?.touched ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3" [class.active]="buttonDontKnow"
                       (click)="onClick1('buttonDontKnow')" name="installation" id="installation">
                         {{language ==='french'? ' Je ne sais pas':' I don`t know'}}
                     </button>
                     <!-- [class.active]="step1Form.get('selectedButton1')?.value === 'buttonYes'" (click)="clickedYes()" -->
-                        <button type="button" class="form-control btn {{invalidFlag1 ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3" [class.active]="buttonYes"
+                        <button type="button" class="form-control btn {{step1Form.get('selectedButton1')?.hasError('required') && step1Form.get('selectedButton1')?.touched ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3" [class.active]="buttonYes"
                         (click)="onClick1('buttonYes')" name="installation" id="installation">
                         {{language ==='french'? ' Oui, monophasé':' Yes, single phase'}}
                         </button>
                          <!-- [class.active]="step1Form.get('selectedButton1')?.value === 'buttonNo'" (click)="clickedNo()" -->
-                        <button type="button" class="form-control btn {{invalidFlag1 ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3" [class.active]="buttonNo"
+                        <button type="button" class="form-control btn {{step1Form.get('selectedButton1')?.hasError('required') && step1Form.get('selectedButton1')?.touched ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3" [class.active]="buttonNo"
                         (click)="onClick1('buttonNo')" name="installation" id="installation">
                         {{language ==='french'? 'Non, triphasé':'No, three-phase'}}
                         </button>
@@ -133,8 +133,8 @@
                 }
                 <div class="form-group">
                 @if(buttonYes){
-                    <!-- {{darkTheme?'bg-secondary bg-opacity-75':''}} -->
-                <select class="form-select mb-5 {{ invalidFlag1_yes ?'bg-danger bg-opacity-50':'bg-light opacity-75'}} {{darkTheme?'bg-secondary bg-opacity-75':''}}"  aria-label="selectYes" formControlName="selectYes" style="width:45%" (change)="onSelectionChangeYes($event)" id="yes">
+                    <!-- {{darkTheme?'bg-secondary bg-opacity-75':''}} invalidFlag1_yes-->
+                <select class="form-select mb-5 {{ step1Form.get('selectYes')?.hasError('required') && step1Form.get('selectYes')?.touched ?'bg-danger bg-opacity-50':'bg-light opacity-75'}} {{darkTheme?'bg-secondary bg-opacity-75':''}}"  aria-label="selectYes" formControlName="selectYes" style="width:45%" (change)="onSelectionChangeYes($event)" id="yes">
                     <option [class.selected]="step1Form.get('selectYes')?.value === ''" disabled>
                         @if(language ==='french'){
                         Veuillez sélectionner
@@ -156,8 +156,8 @@
                 </select>
                 }
                 @if(buttonNo){
-                    <!-- {{darkTheme?'bg-secondary bg-opacity-75':'bg-light'}}  -->
-                <select class="form-select mb-5 {{ invalidFlag1_no ?'bg-danger bg-opacity-50':'bg-light opacity-75'}}" aria-label="selectNo" formControlName="selectNo" style="width:45%" (change)="onSelectionChangeNo($event)" id="no">
+                    <!-- {{darkTheme?'bg-secondary bg-opacity-75':'bg-light'}} invalidFlag1_no-->
+                <select class="form-select mb-5 {{ step1Form.get('selectNo')?.hasError('required') && step1Form.get('selectNo')?.touched?'bg-danger bg-opacity-50':'bg-light opacity-75'}}" aria-label="selectNo" formControlName="selectNo" style="width:45%" (change)="onSelectionChangeNo($event)" id="no">
                     <option [class.selected]="step1Form.get('selectNo')?.value === ''" disabled>
                         @if(language ==='french'){
                         Veuillez sélectionner
@@ -194,8 +194,8 @@
                 </h6>
                 <div class="form-group">
                 <div style="display: flex; flex-direction: row; justify-content:flex-start;">
-                    <!-- (click)="clickedSame()" -->
-                    <button type="button" class="btn {{invalidFlag2 ?'bg-danger bg-opacity-50':'btn-outline-dark'}} {{darkTheme?'btn-secondary':'btn-light'}} rounded rounded-3 me-3" [class.active]="buttonSame"
+                    <!-- (click)="clickedSame()" invalidFlag2-->
+                    <button type="button" class="btn {{ step1Form.get('selectedButton2')?.hasError('required') && step1Form.get('selectedButton2')?.touched ?'bg-danger bg-opacity-50':'btn-outline-dark'}} {{darkTheme?'btn-secondary':'btn-light'}} rounded rounded-3 me-3" [class.active]="buttonSame"
                          (click)="onClick2('buttonSame')" id="position">
                         <p style="display: flex; flex-direction: column; justify-content:space-between;">
                             @if(language ==='french'){
@@ -248,7 +248,7 @@
                         </svg>
                     </button>
                     <!-- (click)="clickedDifferent()"  -->
-                    <button type="button" class="btn {{invalidFlag2 ?'bg-danger bg-opacity-50':'btn-outline-dark'}} {{darkTheme?'btn-secondary':'btn-light'}}  rounded rounded-3 me-3"
+                    <button type="button" class="btn {{ step1Form.get('selectedButton2')?.hasError('required') && step1Form.get('selectedButton2')?.touched ?'bg-danger bg-opacity-50':'btn-outline-dark'}} {{darkTheme?'btn-secondary':'btn-light'}}  rounded rounded-3 me-3"
                         [class.active]="buttonDifferent" (click)="onClick2('buttonDifferent')" id="position">
                         <p style="display: flex; flex-direction: column; justify-content:space-between;">
                             @if(language ==='french'){
@@ -305,7 +305,7 @@
                         </svg>
                     </button>
                     <!-- (click)="clickedOut()" -->
-                    <button type="button" class="btn {{invalidFlag2 ?'bg-danger bg-opacity-50':'btn-outline-dark'}} {{darkTheme?'btn-secondary':'btn-light'}} rounded rounded-3 me-3" [class.active]="buttonOut"
+                    <button type="button" class="btn {{ step1Form.get('selectedButton2')?.hasError('required') && step1Form.get('selectedButton2')?.touched ?'bg-danger bg-opacity-50':'btn-outline-dark'}} {{darkTheme?'btn-secondary':'btn-light'}} rounded rounded-3 me-3" [class.active]="buttonOut"
                          (click)="onClick2('buttonOut')" id="position">
                         <p style="display: flex; flex-direction: column; justify-content:space-between;">
                             @if(language ==='french'){
@@ -379,8 +379,8 @@
                 </p>
                 <div class="form-group">
                 <div style="display: flex; flex-direction: row; justify-content:flex-start;">
-                    <!-- (click)="clickedWall()"  -->
-                    <button type="button" class="btn {{invalidFlag3 ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3" [class.active]="buttonWall"
+                    <!-- (click)="clickedWall()" invalidFlag3 -->
+                    <button type="button" class="btn {{ step1Form.get('selectedButton3')?.hasError('required') && step1Form.get('selectedButton3')?.touched ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3" [class.active]="buttonWall"
                         (click)="onClick3('buttonWall')" id="placement">
                         <!-- <i class="bi bi-graph-down me-2"></i> -->
                         <svg width="18" height="27" viewBox="0 0 18 27" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -398,7 +398,7 @@
                         }
                     </button>
                     <!-- (click)="clickedStand()" -->
-                    <button type="button" class="btn {{invalidFlag3 ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3" [class.active]="buttonStand"
+                    <button type="button" class="btn {{ step1Form.get('selectedButton3')?.hasError('required') && step1Form.get('selectedButton3')?.touched ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3" [class.active]="buttonStand"
                          (click)="onClick3('buttonStand')"  id="placement">
                         <!-- <i class="bi bi-modem me-2"></i> -->
                         <img class="me-1" src="../../assets/images/buttonimage.png"
@@ -420,8 +420,8 @@
                 </h6>
                 <div class="form-group">
                 <div style="display: flex; flex-direction: row; justify-content:flex-start;">
-                    <!-- (click)="clickedDontKnowMeters()" -->
-                    <button type="button" class="btn {{invalidFlag4 ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3" [class.active]="buttonDontKnowMeters"
+                    <!-- (click)="clickedDontKnowMeters()" invalidFlag4-->
+                    <button type="button" class="btn {{ step1Form.get('selectedButton4')?.hasError('required') && step1Form.get('selectedButton4')?.touched ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3" [class.active]="buttonDontKnowMeters"
                         (click)="onClick4('buttonDontKnowMeters')" id="distance">
                         @if(language ==='french'){
                         Je ne sais pas
@@ -430,7 +430,7 @@
                         }
                     </button>
                     <!-- (click)="clicked0Meters()" -->
-                    <button type="button" class="btn {{invalidFlag4 ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3" [class.active]="button0Meters"
+                    <button type="button" class="btn {{ step1Form.get('selectedButton4')?.hasError('required') && step1Form.get('selectedButton4')?.touched ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3" [class.active]="button0Meters"
                          (click)="onClick4('button0Meters')" id="distance">
                         @if(language ==='french'){
                         0 à 5 mètres
@@ -439,7 +439,7 @@
                         }
                     </button>
                     <!-- (click)="clicked5Meters()"  -->
-                    <button type="button" class="btn {{invalidFlag4 ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3" [class.active]="button5Meters"
+                    <button type="button" class="btn {{ step1Form.get('selectedButton4')?.hasError('required') && step1Form.get('selectedButton4')?.touched ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3" [class.active]="button5Meters"
                         (click)="onClick4('button5Meters')" id="distance">
                         @if(language ==='french'){
                         5 à 10 mètres
@@ -448,7 +448,7 @@
                         }
                     </button>
                     <!-- (click)="clicked10Meters()" -->
-                    <button type="button" class="btn {{invalidFlag4 ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3" [class.active]="button10Meters"
+                    <button type="button" class="btn {{ step1Form.get('selectedButton4')?.hasError('required') && step1Form.get('selectedButton4')?.touched ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3" [class.active]="button10Meters"
                        (click)="onClick4('button10Meters')" id="distance">
                         @if(language ==='french'){
                         10 à 15 mètres
@@ -457,7 +457,7 @@
                         }
                     </button>
                     <!-- (click)="clicked15Meters()" -->
-                    <button type="button" class="btn {{invalidFlag4 ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3" [class.active]="button15Meters"
+                    <button type="button" class="btn {{ step1Form.get('selectedButton4')?.hasError('required') && step1Form.get('selectedButton4')?.touched ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3" [class.active]="button15Meters"
                         (click)="onClick4('button15Meters')" id="distance">
                         @if(language ==='french'){
                         15 à 20 mètres
@@ -481,7 +481,8 @@
             </form>
             </div>
         </div>
-        @if(invalidFlag){
+        <!-- invalidFlag -->
+        @if(step1Form.invalid && step1Form.touched){
                 <p class="text-danger mb-5">
                     <i class="bi bi-x-lg"></i>
                    {{language ==='french'? ' Certaines réponses sont manquantes pour passer à l’étape suivante':' Some answers are missing to move on to the next step'}}</p>
