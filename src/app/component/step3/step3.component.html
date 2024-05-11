@@ -42,7 +42,7 @@
                         }
                         <span class="text-danger fw-bold">*</span></label>
                     <input type="text"
-                        class="form-control rounded rounded-4 {{darkTheme?'bg-dark bg-opacity-25':'bg-light'}}"
+                        class="form-control rounded rounded-4 {{ step3Form.get('name')?.hasError('required') && step3Form.get('name')?.touched ?'border border-danger':''}} {{darkTheme?'bg-light bg-opacity-25':'bg-light'}}"
                         name="name" id="name" formControlName="name" autocomplete="given-name">
                     @if(step3Form.get('name')?.hasError('required') &&
                     step3Form.get('name')?.touched){
@@ -62,7 +62,7 @@
                         }
                         <span class="text-danger fw-bold">*</span></label>
                     <input type="text"
-                        class="form-control rounded rounded-4 {{darkTheme?'bg-dark bg-opacity-25':'bg-light'}}"
+                        class="form-control rounded rounded-4 {{ step3Form.get('lastname')?.hasError('required') && step3Form.get('lastname')?.touched ?'border border-danger':''}} {{darkTheme?'bg-light bg-opacity-25':'bg-light'}}"
                         name="lastname" id="lastname" formControlName="lastname" autocomplete="family-name">
                     @if(step3Form.get('lastname')?.hasError('required') &&
                     step3Form.get('lastname')?.touched){
@@ -82,7 +82,7 @@
                         }
                         <span class="text-danger fw-bold">*</span></label>
                     <input type="tel" name="telephone" id="telephone" formControlName="telephone" autocomplete="tel"
-                        class="form-control rounded rounded-4 {{darkTheme?'bg-dark bg-opacity-25':'bg-light'}}">
+                        class="form-control rounded rounded-4 {{ step3Form.get('telephone')?.hasError('required') && step3Form.get('telephone')?.touched ?'border border-danger':''}} {{darkTheme?'bg-light bg-opacity-25':'bg-light'}}">
                     @if(step3Form.get('telephone')?.hasError('required') &&
                     step3Form.get('telephone')?.touched){
                     <span class="text-danger">
@@ -119,7 +119,7 @@
                 <div class="form-group col-md-6">
                     <label for="email" class="form-label">E-mail<span class="text-danger fw-bold">*</span></label>
                     <input type="text" id="email" name="email" formControlName="email" autocomplete="email"
-                        class="form-control rounded rounded-4 {{darkTheme?'bg-dark bg-opacity-25':'bg-light'}}">
+                        class="form-control rounded rounded-4 {{ step3Form.get('email')?.hasError('required') && step3Form.get('email')?.touched ?'border border-danger':''}} {{darkTheme?'bg-light bg-opacity-25':'bg-light'}}">
                     @if(step3Form.get('email')?.hasError('required') &&
                     step3Form.get('email')?.touched){
                     <span class="text-danger">
@@ -157,7 +157,7 @@
                     </div>
                     <input type="text" name="address" id="address" formControlName="address"
                         autocomplete="street-address"
-                        class="form-control rounded rounded-4 {{darkTheme?'bg-dark bg-opacity-25':'bg-light'}}">
+                        class="form-control rounded rounded-4 {{ step3Form.get('address')?.hasError('required') && step3Form.get('address')?.touched ?'border border-danger':''}} {{darkTheme?'bg-light bg-opacity-25':'bg-light'}}">
                     @if(step3Form.get('address')?.hasError('required') &&
                     step3Form.get('address')?.touched){
                     <span class="text-danger">
@@ -167,7 +167,8 @@
                         </span>
                     }
                 </div>
-                <div class="form-control col-md-6">
+                <div class="col-md-6" style="display: flex; flex-direction: row; justify-content:space-between;">
+                <div class="form-control col-md-6 {{darkTheme?'bg-secondary border border-secondary':'border border-white'}}  ps-1 pe-2">
                     <label for="postalCode" class="form-label">
                         @if(language ==='french'){
                         Code postal
@@ -176,7 +177,7 @@
                         }
                         <span class="text-danger fw-bold">*</span></label>
                     <input type="number" name="postalCode" id="postalCode" formControlName="postalCode"
-                        class="form-control rounded rounded-4 {{darkTheme?'bg-dark bg-opacity-25':'bg-light'}}">
+                        class="form-control rounded rounded-4 {{ step3Form.get('postalCode')?.hasError('required') && step3Form.get('postalCode')?.touched ?'border border-danger':''}} {{darkTheme?'bg-light bg-opacity-25':'bg-light'}}">
                     @if(step3Form.get('postalCode')?.hasError('required') &&
                     step3Form.get('postalCode')?.touched){
                     <span class="text-danger">
@@ -186,7 +187,7 @@
                         </span>
                     }
                 </div>
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-12 ms-3">
                     <label for="city" class="form-label">
                         @if(language ==='french'){
                         Ville
@@ -195,7 +196,7 @@
                         }
                         <span class="text-danger fw-bold">*</span></label>
                     <input type="text" name="city" id="city" formControlName="city"
-                        class="form-control rounded rounded-4 {{darkTheme?'bg-dark bg-opacity-25':'bg-light'}}">
+                        class="form-control rounded rounded-4 {{ step3Form.get('city')?.hasError('required') && step3Form.get('city')?.touched ?'border border-danger':''}} {{darkTheme?'bg-light bg-opacity-25':'bg-light'}}">
                     @if(step3Form.get('city')?.hasError('required') &&
                     step3Form.get('city')?.touched){
                     <span class="text-danger">
@@ -205,6 +206,7 @@
                         </span>
                     }
                 </div>
+            </div>
                 <div class="form-group col-md-12">
                     <label for="referralCode" class="form-label">
                         @if(language ==='french'){
@@ -214,7 +216,7 @@
                         }
                     </label>
                     <input type="text" name="referralCode" id="referralCode" formControlName="referralCode"
-                        class="form-control rounded rounded-4 {{darkTheme?'bg-dark bg-opacity-25':'bg-light'}}">
+                        class="form-control rounded rounded-4 {{darkTheme?'bg-light bg-opacity-25':'bg-light'}}">
                 </div>
                 <div class="form-group col-12">
                     <div class="form-check">
