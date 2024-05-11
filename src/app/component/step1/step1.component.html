@@ -18,474 +18,532 @@
             </h1>
             <div class="container mx-5">
                 <form (submit)="onSubmit()" [formGroup]="step1Form">
-                <h6 class="fw-bold">
-                    @if(language ==='french'){
-                    Votre installation électrique est-t-elle bien en monophasé ?
-                    }@else if(language ==='english') {
-                    Is your electrical installation single-phase?
-                    }
-                    <!-- Button trigger modal -->
-                    <button class="btn btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#explanation">
-                        <i class="bi bi-info-circle text-danger fs-5"></i>
-                    </button>
-                </h6>
-                <!-- Modal -->
-                <div class="modal fade" id="explanation" tabindex="-1" aria-labelledby="explanation" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-dialog-right">
-                        <div class="modal-content {{darkTheme?'bg-secondary':'bg-white'}}" style="width:fit-content">
-                            <div class="modal-header">
-                                <h6 class="modal-title bg-danger bg-opacity-10 text-danger" id="explanation"
-                                    style="width:100%"><i class="bi bi-info-circle text-danger fs-5 me-2"></i>
-                                    @if(language ==='french'){
-                                    Monophasé ou triphasé ?
-                                    }@else if(language ==='english') {
-                                    Single-phase or three-phase?
-                                    }
-                                </h6>
-                            </div>
-                            <div class="modal-body"
-                                style="display: flex; flex-direction: row; justify-content:space-evenly;">
-                                <div class="me-5">
-                                    <img src="../../assets/images/monophase.jpg" alt="monophasé image identifier">
+                    <h6 class="fw-bold">
+                        @if(language ==='french'){
+                        Votre installation électrique est-t-elle bien en monophasé ?
+                        }@else if(language ==='english') {
+                        Is your electrical installation single-phase?
+                        }
+                        <!-- Button trigger modal -->
+                        <button class="btn btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#explanation">
+                            <i class="bi bi-info-circle text-danger fs-5"></i>
+                        </button>
+                    </h6>
+                    <!-- Modal -->
+                    <div class="modal fade" id="explanation" tabindex="-1" aria-labelledby="explanation"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-dialog-right">
+                            <div class="modal-content {{darkTheme?'bg-secondary':'bg-white'}}"
+                                style="width:fit-content">
+                                <div class="modal-header">
+                                    <h6 class="modal-title bg-danger bg-opacity-10 text-danger" id="explanation"
+                                        style="width:100%"><i class="bi bi-info-circle text-danger fs-5 me-2"></i>
+                                        @if(language ==='french'){
+                                        Monophasé ou triphasé ?
+                                        }@else if(language ==='english') {
+                                        Single-phase or three-phase?
+                                        }
+                                    </h6>
                                 </div>
-                                <div>
-                                    <img src="../../assets/images/triphase.jpg" alt="triphasé image identifier">
+                                <div class="modal-body"
+                                    style="display: flex; flex-direction: row; justify-content:space-evenly;">
+                                    <div class="me-5">
+                                        <img src="../../assets/images/monophase.jpg" alt="monophasé image identifier">
+                                    </div>
+                                    <div>
+                                        <img src="../../assets/images/triphase.jpg" alt="triphasé image identifier">
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <p class="my-4">
-                    @if(language ==='french'){
-                    90% des foyers français ont une installation électrique en monophasé.
-                    }@else if(language ==='english') {
-                    90% of French homes have a single-phase electrical installation.
-                    }
-                </p>
-                <div class="form-group">
-                <div style="display: flex; flex-direction: row; justify-content:flex-start;">
-                    <!-- [class.active]="step1Form.get('selectedButton1')?.value === 'buttonDontKnow'"  (click)="clickedDontKnow()" invalidFlag1-->
-                    <button type="button" class="form-control btn  {{ step1Form.get('selectedButton1')?.hasError('required') && step1Form.get('selectedButton1')?.touched ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3" [class.active]="buttonDontKnow"
-                      (click)="onClick1('buttonDontKnow')" name="installation" id="installation">
-                        {{language ==='french'? ' Je ne sais pas':' I don`t know'}}
-                    </button>
-                    <!-- [class.active]="step1Form.get('selectedButton1')?.value === 'buttonYes'" (click)="clickedYes()" -->
-                        <button type="button" class="form-control btn {{step1Form.get('selectedButton1')?.hasError('required') && step1Form.get('selectedButton1')?.touched ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3" [class.active]="buttonYes"
-                        (click)="onClick1('buttonYes')" name="installation" id="installation">
-                        {{language ==='french'? ' Oui, monophasé':' Yes, single phase'}}
-                        </button>
-                         <!-- [class.active]="step1Form.get('selectedButton1')?.value === 'buttonNo'" (click)="clickedNo()" -->
-                        <button type="button" class="form-control btn {{step1Form.get('selectedButton1')?.hasError('required') && step1Form.get('selectedButton1')?.touched ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3" [class.active]="buttonNo"
-                        (click)="onClick1('buttonNo')" name="installation" id="installation">
-                        {{language ==='french'? 'Non, triphasé':'No, three-phase'}}
-                        </button>
-                    </div>
-                    <!-- @if(step1Form.get('installation')?.hasError('required') ){
+                    <p class="my-4">
+                        @if(language ==='french'){
+                        90% des foyers français ont une installation électrique en monophasé.
+                        }@else if(language ==='english') {
+                        90% of French homes have a single-phase electrical installation.
+                        }
+                    </p>
+                    <div class="form-group">
+                        <div style="display: flex; flex-direction: row; justify-content:flex-start;">
+                            <!-- [class.active]="step1Form.get('selectedButton1')?.value === 'buttonDontKnow'"  (click)="clickedDontKnow()" invalidFlag1-->
+                            <button type="button"
+                                class="form-control btn  {{ step1Form.get('selectedButton1')?.hasError('required') && step1Form.get('selectedButton1')?.touched ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3"
+                                [class.active]="buttonDontKnow" (click)="onClick1('buttonDontKnow')" name="installation"
+                                id="installation">
+                                {{language ==='french'? ' Je ne sais pas':' I don`t know'}}
+                            </button>
+                            <!-- [class.active]="step1Form.get('selectedButton1')?.value === 'buttonYes'" (click)="clickedYes()" -->
+                            <button type="button"
+                                class="form-control btn {{step1Form.get('selectedButton1')?.hasError('required') && step1Form.get('selectedButton1')?.touched ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3"
+                                [class.active]="buttonYes" (click)="onClick1('buttonYes')" name="installation"
+                                id="installation">
+                                {{language ==='french'? ' Oui, monophasé':' Yes, single phase'}}
+                            </button>
+                            <!-- [class.active]="step1Form.get('selectedButton1')?.value === 'buttonNo'" (click)="clickedNo()" -->
+                            <button type="button"
+                                class="form-control btn {{step1Form.get('selectedButton1')?.hasError('required') && step1Form.get('selectedButton1')?.touched ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3"
+                                [class.active]="buttonNo" (click)="onClick1('buttonNo')" name="installation"
+                                id="installation">
+                                {{language ==='french'? 'Non, triphasé':'No, three-phase'}}
+                            </button>
+                        </div>
+                        <!-- @if(step1Form.get('installation')?.hasError('required') ){
                        error
                     } -->
-                </div>
-                @if(buttonYes || buttonNo){
-                <h6 class="fw-bold mt-4 mb-2">
-                    @if(language ==='french'){
-                    Quelle est la puissance d’installation électrique chez vous ?
-                    }@else if(language ==='english') {
-                    What is the electrical installation power in your home?
-                    }
-                    <!-- Button trigger modal -->
-                    <button class="btn btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#explanationYes">
-                        <i class="bi bi-info-circle text-danger fs-5"></i>
-                    </button>
-                </h6>
-                <!-- Modal -->
-                <div class="modal fade" id="explanationYes" tabindex="-1" aria-labelledby="explanationYes"
-                    aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-dialog-right">
-                        <div class="modal-content {{darkTheme?'bg-secondary':'bg-white'}}" style="width:fit-content">
-                            <div class="modal-header">
-                                <h6 class="modal-title bg-danger bg-opacity-10 text-danger" id="explanationYes"
-                                    style="width:100%"><i class="bi bi-info-circle text-danger fs-5 me-2"></i>
-                                    @if(language ==='french'){
-                                    Quelle puissance ?
-                                    }@else if(language ==='english') {
-                                    What power ?
-                                    }
-                                </h6>
-                            </div>
-                            <div class="modal-body my-2"
-                                style="display: flex; flex-direction: column; justify-content:space-around;">
-                                <p>
-                                    @if(language ==='french'){
-                                    La puissance est exprimée en kVA. Vous pouvez la consulter sur votre compteur ou
-                                    votre facture d'électricité.
-                                    }@else if(language ==='english') {
-                                    Power is expressed in kVA. You can consult it on your meter or your electricity
-                                    bill.
-                                    }
-                                </p>
-                                <div>
-                                    <img src="../../assets/images/explanationYes.png" alt="puissance image explanation"
-                                        style="width:100%">
+                    </div>
+                    @if(buttonYes || buttonNo){
+                    <h6 class="fw-bold mt-4 mb-2">
+                        @if(language ==='french'){
+                        Quelle est la puissance d’installation électrique chez vous ?
+                        }@else if(language ==='english') {
+                        What is the electrical installation power in your home?
+                        }
+                        <!-- Button trigger modal -->
+                        <button class="btn btn-sm" type="button" data-bs-toggle="modal"
+                            data-bs-target="#explanationYes">
+                            <i class="bi bi-info-circle text-danger fs-5"></i>
+                        </button>
+                    </h6>
+                    <!-- Modal -->
+                    <div class="modal fade" id="explanationYes" tabindex="-1" aria-labelledby="explanationYes"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-dialog-right">
+                            <div class="modal-content {{darkTheme?'bg-secondary':'bg-white'}}"
+                                style="width:fit-content">
+                                <div class="modal-header">
+                                    <h6 class="modal-title bg-danger bg-opacity-10 text-danger" id="explanationYes"
+                                        style="width:100%"><i class="bi bi-info-circle text-danger fs-5 me-2"></i>
+                                        @if(language ==='french'){
+                                        Quelle puissance ?
+                                        }@else if(language ==='english') {
+                                        What power ?
+                                        }
+                                    </h6>
+                                </div>
+                                <div class="modal-body my-2"
+                                    style="display: flex; flex-direction: column; justify-content:space-around;">
+                                    <p>
+                                        @if(language ==='french'){
+                                        La puissance est exprimée en kVA. Vous pouvez la consulter sur votre compteur ou
+                                        votre facture d'électricité.
+                                        }@else if(language ==='english') {
+                                        Power is expressed in kVA. You can consult it on your meter or your electricity
+                                        bill.
+                                        }
+                                    </p>
+                                    <div>
+                                        <img src="../../assets/images/explanationYes.png"
+                                            alt="puissance image explanation" style="width:100%">
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                }
-                <div class="form-group">
-                @if(buttonYes){
-                    <!-- invalidFlag1_yes-->
-                <select class="form-select mb-5 {{ (step1Form.get('selectYes')?.hasError('required') && step1Form.get('selectYes')?.touched) ? 'bg-danger bg-opacity-50' : (darkTheme ? 'bg-secondary bg-opacity-75' : 'bg-light')}}" aria-label="selectYes" formControlName="selectYes" style="width:45%" (change)="onSelectionChangeYes($event)" id="yes">
-                    <option [class.selected]="step1Form.get('selectYes')?.value === ''" disabled>
-                        @if(language ==='french'){
-                        Veuillez sélectionner
-                        }@else if(language ==='english') {
-                        Please select
-                        }
-                    </option>
-                    <option [class.selected]="step1Form.get('selectYes')?.value === '1'" value="1">3 kVa</option>
-                    <option [class.selected]="step1Form.get('selectYes')?.value === '2'" value="2">6 kVa</option>
-                    <option [class.selected]="step1Form.get('selectYes')?.value === '3'" value="3">9 kVa</option>
-                    <option [class.selected]="step1Form.get('selectYes')?.value === '4'" value="4">12 kVa</option>
-                    <option [class.selected]="step1Form.get('selectYes')?.value === '5'" value="5">
-                        @if(language ==='french'){
-                        Je ne sais pas
-                        }@else if(language ==='english') {
-                        I don't know
-                        }
-                    </option>
-                </select>
-                }
-                @if(buttonNo){
-                    <!--  invalidFlag1_no-->
-                <select class="form-select mb-5 {{ (step1Form.get('selectNo')?.hasError('required') && step1Form.get('selectNo')?.touched) ? 'bg-danger bg-opacity-50' : (darkTheme ? 'bg-secondary bg-opacity-75' : 'bg-light')}}" aria-label="selectNo" formControlName="selectNo" style="width:45%" (change)="onSelectionChangeNo($event)" id="no">
-                    <option [class.selected]="step1Form.get('selectNo')?.value === ''" disabled>
-                        @if(language ==='french'){
-                        Veuillez sélectionner
-                        }@else if(language ==='english') {
-                        Please select
-                        }
-                    </option>
-                    <option [class.selected]="step1Form.get('selectNo')?.value === '1'" value="1">12 kVa</option>
-                    <option [class.selected]="step1Form.get('selectNo')?.value === '2'" value="2">15 kVa</option>
-                    <option [class.selected]="step1Form.get('selectNo')?.value === '3'" value="3">18 kVa</option>
-                    <option [class.selected]="step1Form.get('selectNo')?.value === '4'" value="4">21 kVa</option>
-                    <option [class.selected]="step1Form.get('selectNo')?.value === '5'" value="5">24 kVa</option>
-                    <option [class.selected]="step1Form.get('selectNo')?.value === '6'" value="6">27 kVa</option>
-                    <option [class.selected]="step1Form.get('selectNo')?.value === '7'" value="7">30 kVa</option>
-                    <option [class.selected]="step1Form.get('selectNo')?.value === '8'" value="8">33 kVa</option>
-                    <option [class.selected]="step1Form.get('selectNo')?.value === '9'" value="9">36 kVa</option>
-                    <option [class.selected]="step1Form.get('selectNo')?.value === '10'" value="10">
-                        @if(language ==='french'){
-                        Je ne sais pas
-                        }@else if(language ==='english') {
-                        I don't know
-                        }
-                    </option>
-                </select>
-                }
-                </div>
-                <h6 class="fw-bold my-4">
-                    @if(language ==='french'){
-                    Où souhaitez-vous positionner votre borne de recharge ?
-                    }@else if(language ==='english') {
-                    Where do you want to position your charging station?
                     }
+                    <div class="form-group">
+                        @if(buttonYes){
+                        <!-- invalidFlag1_yes-->
+                        <select
+                            class="form-select mb-5 {{ (step1Form.get('selectYes')?.hasError('required') && step1Form.get('selectYes')?.touched) ? 'bg-danger bg-opacity-50' : (darkTheme ? 'bg-secondary bg-opacity-75' : 'bg-light')}}"
+                            aria-label="selectYes" formControlName="selectYes" style="width:45%"
+                            (change)="onSelectionChangeYes($event)" id="yes">
+                            <option [class.selected]="step1Form.get('selectYes')?.value === ''" disabled>
+                                @if(language ==='french'){
+                                Veuillez sélectionner
+                                }@else if(language ==='english') {
+                                Please select
+                                }
+                            </option>
+                            <option [class.selected]="step1Form.get('selectYes')?.value === '1'" value="1">3 kVa
+                            </option>
+                            <option [class.selected]="step1Form.get('selectYes')?.value === '2'" value="2">6 kVa
+                            </option>
+                            <option [class.selected]="step1Form.get('selectYes')?.value === '3'" value="3">9 kVa
+                            </option>
+                            <option [class.selected]="step1Form.get('selectYes')?.value === '4'" value="4">12 kVa
+                            </option>
+                            <option [class.selected]="step1Form.get('selectYes')?.value === '5'" value="5">
+                                @if(language ==='french'){
+                                Je ne sais pas
+                                }@else if(language ==='english') {
+                                I don't know
+                                }
+                            </option>
+                        </select>
+                        }
+                        @if(buttonNo){
+                        <!--  invalidFlag1_no-->
+                        <select
+                            class="form-select mb-5 {{ (step1Form.get('selectNo')?.hasError('required') && step1Form.get('selectNo')?.touched) ? 'bg-danger bg-opacity-50' : (darkTheme ? 'bg-secondary bg-opacity-75' : 'bg-light')}}"
+                            aria-label="selectNo" formControlName="selectNo" style="width:45%"
+                            (change)="onSelectionChangeNo($event)" id="no">
+                            <option [class.selected]="step1Form.get('selectNo')?.value === ''" disabled>
+                                @if(language ==='french'){
+                                Veuillez sélectionner
+                                }@else if(language ==='english') {
+                                Please select
+                                }
+                            </option>
+                            <option [class.selected]="step1Form.get('selectNo')?.value === '1'" value="1">12 kVa
+                            </option>
+                            <option [class.selected]="step1Form.get('selectNo')?.value === '2'" value="2">15 kVa
+                            </option>
+                            <option [class.selected]="step1Form.get('selectNo')?.value === '3'" value="3">18 kVa
+                            </option>
+                            <option [class.selected]="step1Form.get('selectNo')?.value === '4'" value="4">21 kVa
+                            </option>
+                            <option [class.selected]="step1Form.get('selectNo')?.value === '5'" value="5">24 kVa
+                            </option>
+                            <option [class.selected]="step1Form.get('selectNo')?.value === '6'" value="6">27 kVa
+                            </option>
+                            <option [class.selected]="step1Form.get('selectNo')?.value === '7'" value="7">30 kVa
+                            </option>
+                            <option [class.selected]="step1Form.get('selectNo')?.value === '8'" value="8">33 kVa
+                            </option>
+                            <option [class.selected]="step1Form.get('selectNo')?.value === '9'" value="9">36 kVa
+                            </option>
+                            <option [class.selected]="step1Form.get('selectNo')?.value === '10'" value="10">
+                                @if(language ==='french'){
+                                Je ne sais pas
+                                }@else if(language ==='english') {
+                                I don't know
+                                }
+                            </option>
+                        </select>
+                        }
+                    </div>
+                    <h6 class="fw-bold my-4">
+                        @if(language ==='french'){
+                        Où souhaitez-vous positionner votre borne de recharge ?
+                        }@else if(language ==='english') {
+                        Where do you want to position your charging station?
+                        }
 
-                </h6>
-                <div class="form-group">
-                <div style="display: flex; flex-direction: row; justify-content:flex-start;">
-                    <!-- (click)="clickedSame()" invalidFlag2-->
-                    <button type="button" class="btn {{ step1Form.get('selectedButton2')?.hasError('required') && step1Form.get('selectedButton2')?.touched ?'bg-danger bg-opacity-50':'btn-outline-dark'}} {{darkTheme?'btn-secondary':'btn-light'}} rounded rounded-3 me-3" [class.active]="buttonSame"
-                         (click)="onClick2('buttonSame')" id="position">
-                        <p style="display: flex; flex-direction: column; justify-content:space-between;">
+                    </h6>
+                    <div class="form-group">
+                        <div style="display: flex; flex-direction: row; justify-content:flex-start;">
+                            <!-- (click)="clickedSame()" invalidFlag2-->
+                            <button type="button"
+                                class="btn {{ step1Form.get('selectedButton2')?.hasError('required') && step1Form.get('selectedButton2')?.touched ?'bg-danger bg-opacity-50':'btn-outline-dark'}} {{darkTheme?'btn-secondary':'btn-light'}} rounded rounded-3 me-3"
+                                [class.active]="buttonSame" (click)="onClick2('buttonSame')" id="position">
+                                <p style="display: flex; flex-direction: column; justify-content:space-between;">
+                                    @if(language ==='french'){
+                                    Tableau électrique et véhicule dans <span class="fw-bold">la même pièce</span>
+                                    }@else if(language ==='english') {
+                                    Electrical panel and vehicle in <span class="fw-bold">the same room</span>
+                                    }
+                                </p>
+                                <!-- <i class="bi bi-house-check fs-1"></i> -->
+                                <svg width="62" height="64" viewBox="0 0 62 64" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4.56934 40.6826V62.6211H38.5609H57.9847V40.6826" stroke="#1D1D1D"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path
+                                        d="M1.01465 30.3L28.172 3.14261C28.5433 2.77109 28.9842 2.47636 29.4694 2.27528C29.9547 2.0742 30.4748 1.9707 31 1.9707C31.5252 1.9707 32.0453 2.0742 32.5306 2.27528C33.0158 2.47636 33.4567 2.77109 33.828 3.14261L60.9853 30.3"
+                                        stroke="#1D1D1D" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                    <path d="M42.9946 12.3086V8.31055H52.9897V22.3037" stroke="#1D1D1D" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path
+                                        d="M46.2373 52.3474V35.0694C46.2373 34.4473 45.9902 33.8506 45.5503 33.4107C45.1103 32.9708 44.5137 32.7236 43.8915 32.7236H36.8542C36.2323 32.724 35.636 32.9713 35.1964 33.4112C34.7567 33.851 34.5098 34.4475 34.5098 35.0694V39.9983"
+                                        fill="#A5D2FF" fill-opacity="0.05"></path>
+                                    <path
+                                        d="M46.2373 52.3474V35.0694C46.2373 34.4473 45.9902 33.8506 45.5503 33.4107C45.1103 32.9708 44.5137 32.7236 43.8915 32.7236H36.8542C36.2323 32.724 35.636 32.9713 35.1964 33.4112C34.7567 33.851 34.5098 34.4475 34.5098 35.0694V39.9983"
+                                        stroke="#1D1D1D" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                    <path d="M40.7325 35.6562L39.104 38.5881H41.5468L39.9183 41.52" fill="#A5D2FF"
+                                        fill-opacity="0.1"></path>
+                                    <path d="M40.7325 35.6562L39.104 38.5881H41.5468L39.9183 41.52" stroke="#1D1D1D"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path
+                                        d="M41.3642 57.6252C41.8309 57.6252 42.2784 57.4398 42.6084 57.1098C42.9384 56.7798 43.1238 56.3322 43.1238 55.8656C43.124 55.3078 43.0142 54.7555 42.8007 54.2403C42.5871 53.725 42.2741 53.257 41.8795 52.8629L39.6058 50.5879H20.2535L17.9812 52.8629C17.5865 53.257 17.2735 53.725 17.06 54.2403C16.8465 54.7555 16.7366 55.3078 16.7368 55.8656C16.7368 56.3322 16.9222 56.7798 17.2522 57.1098C17.5822 57.4398 18.0298 57.6252 18.4965 57.6252H41.3642Z"
+                                        fill="#A5D2FF" fill-opacity="0.05" stroke="#1D1D1D" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M17.1162 54.1074H22.0123" stroke="#1D1D1D" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M42.7428 54.1074H37.8467" stroke="#1D1D1D" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path
+                                        d="M20.2529 50.5897L22.2499 45.2649C22.4388 44.7622 22.7764 44.3291 23.2178 44.0234C23.6592 43.7177 24.1833 43.5538 24.7203 43.5537H35.1366C35.6737 43.5537 36.198 43.7175 36.6397 44.0233C37.0813 44.329 37.4192 44.7621 37.6082 45.2649L39.6052 50.5897"
+                                        fill="#A5D2FF" fill-opacity="0.05"></path>
+                                    <path
+                                        d="M20.2529 50.5897L22.2499 45.2649C22.4388 44.7622 22.7764 44.3291 23.2178 44.0234C23.6592 43.7177 24.1833 43.5538 24.7203 43.5537H35.1366C35.6737 43.5537 36.198 43.7175 36.6397 44.0233C37.0813 44.329 37.4192 44.7621 37.6082 45.2649L39.6052 50.5897"
+                                        stroke="#1D1D1D" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                    <path
+                                        d="M18.4946 57.627V59.3919C18.5799 59.9269 18.8689 60.4081 19.301 60.7349C19.7331 61.0617 20.2749 61.2086 20.8129 61.145C21.3511 61.209 21.8932 61.0622 22.3256 60.7354C22.758 60.4086 23.0471 59.9271 23.1324 59.3919V57.627H18.4946Z"
+                                        fill="#A5D2FF" fill-opacity="0.1" stroke="#1D1D1D" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path
+                                        d="M36.7832 57.627V59.3919C36.8673 59.9281 37.1559 60.4108 37.5885 60.7387C38.021 61.0666 38.5638 61.2141 39.1028 61.1502C39.6417 61.2141 40.1845 61.0666 40.6171 60.7387C41.0496 60.4108 41.3382 59.9281 41.4223 59.3919V57.627H36.7832Z"
+                                        fill="#A5D2FF" fill-opacity="0.1" stroke="#1D1D1D" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </button>
+                            <!-- (click)="clickedDifferent()"  -->
+                            <button type="button"
+                                class="btn {{ step1Form.get('selectedButton2')?.hasError('required') && step1Form.get('selectedButton2')?.touched ?'bg-danger bg-opacity-50':'btn-outline-dark'}} {{darkTheme?'btn-secondary':'btn-light'}}  rounded rounded-3 me-3"
+                                [class.active]="buttonDifferent" (click)="onClick2('buttonDifferent')" id="position">
+                                <p style="display: flex; flex-direction: column; justify-content:space-between;">
+                                    @if(language ==='french'){
+                                    Tableau électrique et véhicule dans <span class="fw-bold">une pièce
+                                        différente</span>
+                                    }@else if(language ==='english') {
+                                    Electrical panel and vehicle in <span class="fw-bold">a different room</span>
+                                    }
+                                </p>
+                                <!-- <i class="bi bi-house-gear fs-1"></i> -->
+                                <svg width="74" height="66" viewBox="0 0 74 66" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M54.8096 64.659H61.3447V45.9873C61.3447 45.4921 61.1479 45.0172 60.7978 44.667C60.4476 44.3168 59.9727 44.1201 59.4775 44.1201H53.876C53.3808 44.1201 52.9058 44.3168 52.5557 44.667C52.2055 45.0172 52.0088 45.4921 52.0088 45.9873V62.5585"
+                                        fill="#A5D2FF" fill-opacity="0.1"></path>
+                                    <path
+                                        d="M54.8096 64.659H61.3447V45.9873C61.3447 45.4921 61.1479 45.0172 60.7978 44.667C60.4476 44.3168 59.9727 44.1201 59.4775 44.1201H53.876C53.3808 44.1201 52.9058 44.3168 52.5557 44.667C52.2055 45.0172 52.0088 45.4921 52.0088 45.9873V62.5585V64.659H54.8096Z"
+                                        stroke="#1D1D1D" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                    <rect x="56.1512" y="47.8739" width="0.972332" height="3.69561" fill="#A5D2FF"
+                                        fill-opacity="0.1"></rect>
+                                    <rect x="56.1512" y="47.8739" width="0.972332" height="3.69561" stroke="#1D1D1D"
+                                        stroke-width="0.972332"></rect>
+                                    <path d="M56.9618 47.3877L55.665 49.7217H57.6097L56.3129 52.0556" stroke="#1D1D1D"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M5.32812 43.1885V64.661H29.6863H43.6052V43.1885" stroke="#1D1D1D"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M43.6045 43.1885V64.661H59.6452H68.8114V43.1885" stroke="#1D1D1D"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path
+                                        d="M1 35.9825L33.6048 3.37768C34.0506 2.93163 34.5798 2.57779 35.1624 2.33638C35.745 2.09496 36.3694 1.9707 37 1.9707C37.6306 1.9707 38.255 2.09496 38.8376 2.33638C39.4202 2.57779 39.9494 2.93163 40.3952 3.37768L73 35.9825"
+                                        stroke="#1D1D1D" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                    <path d="M51.4009 14.382V9.58203H63.4009V26.382" stroke="#1D1D1D" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path
+                                        d="M34.8069 59.7746C35.2637 59.7746 35.7018 59.5931 36.0248 59.2701C36.3478 58.9471 36.5292 58.5091 36.5292 58.0523C36.5294 57.5064 36.4219 56.9658 36.2129 56.4615C36.0039 55.9572 35.6975 55.4991 35.3113 55.1134L33.0859 52.8867H14.1446L11.9206 55.1134C11.5343 55.4991 11.2279 55.9572 11.0189 56.4615C10.8099 56.9658 10.7025 57.5064 10.7026 58.0523C10.7026 58.5091 10.8841 58.9471 11.2071 59.2701C11.5301 59.5931 11.9681 59.7746 12.4249 59.7746H34.8069Z"
+                                        fill="#A5D2FF" fill-opacity="0.1" stroke="#1D1D1D" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M11.0752 56.3291H15.8673" stroke="#1D1D1D" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M36.1564 56.3291H31.3643" stroke="#1D1D1D" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path
+                                        d="M14.146 52.8846L16.1006 47.6728C16.2854 47.1809 16.6159 46.757 17.0479 46.4578C17.4799 46.1585 17.9929 45.9981 18.5184 45.998H28.7136C29.2393 45.9981 29.7525 46.1584 30.1847 46.4576C30.6169 46.7569 30.9476 47.1808 31.1327 47.6728L33.0873 52.8846"
+                                        fill="#A5D2FF" fill-opacity="0.1"></path>
+                                    <path
+                                        d="M14.146 52.8846L16.1006 47.6728C16.2854 47.1809 16.6159 46.757 17.0479 46.4578C17.4799 46.1585 17.9929 45.9981 18.5184 45.998H28.7136C29.2393 45.9981 29.7525 46.1584 30.1847 46.4576C30.6169 46.7569 30.9476 47.1808 31.1327 47.6728L33.0873 52.8846"
+                                        stroke="#1D1D1D" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                    <path
+                                        d="M12.4238 59.7725V61.4999C12.5073 62.0235 12.7901 62.4946 13.2131 62.8144C13.636 63.1342 14.1663 63.278 14.6928 63.2157C15.2196 63.2784 15.7502 63.1347 16.1734 62.8149C16.5966 62.495 16.8796 62.0238 16.9631 61.4999V59.7725H12.4238Z"
+                                        fill="#A5D2FF" fill-opacity="0.1" stroke="#1D1D1D" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path
+                                        d="M30.3242 59.7725V61.4999C30.4065 62.0247 30.689 62.4972 31.1124 62.8181C31.5357 63.139 32.067 63.2834 32.5945 63.2209C33.122 63.2834 33.6533 63.139 34.0766 62.8181C34.5 62.4972 34.7825 62.0247 34.8648 61.4999V59.7725H30.3242Z"
+                                        fill="#A5D2FF" fill-opacity="0.1" stroke="#1D1D1D" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </button>
+                            <!-- (click)="clickedOut()" -->
+                            <button type="button"
+                                class="btn {{ step1Form.get('selectedButton2')?.hasError('required') && step1Form.get('selectedButton2')?.touched ?'bg-danger bg-opacity-50':'btn-outline-dark'}} {{darkTheme?'btn-secondary':'btn-light'}} rounded rounded-3 me-3"
+                                [class.active]="buttonOut" (click)="onClick2('buttonOut')" id="position">
+                                <p style="display: flex; flex-direction: column; justify-content:space-between;">
+                                    @if(language ==='french'){
+                                    Tableau électrique à l’intérieur et <span class="fw-bold">véhicule à
+                                        l’extérieur</span>
+                                    }@else if(language ==='english') {
+                                    Electrical panel inside and <span class="fw-bold">vehicle outside</span>
+                                    }
+                                </p>
+                                <!-- <i class="bi bi-house-dash fs-1"></i> -->
+                                <svg width="92" height="64" viewBox="0 0 92 64" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M62.2997 62.0273H70.449V38.7434C70.449 38.1259 70.2037 37.5337 69.7671 37.097C69.3304 36.6604 68.7382 36.415 68.1207 36.415H61.1355C60.518 36.415 59.9258 36.6604 59.4891 37.097C59.0524 37.5337 58.8071 38.1259 58.8071 38.7434V59.4078"
+                                        fill="#A5D2FF" fill-opacity="0.1"></path>
+                                    <path
+                                        d="M62.2997 62.0273H70.449V38.7434C70.449 38.1259 70.2037 37.5337 69.7671 37.097C69.3304 36.6604 68.7382 36.415 68.1207 36.415H61.1355C60.518 36.415 59.9258 36.6604 59.4891 37.097C59.0524 37.5337 58.8071 38.1259 58.8071 38.7434V59.4078V62.0273H62.2997Z"
+                                        stroke="#1D1D1D" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                    <path d="M64.9838 40.4902L63.3667 43.4007H65.7917L64.1746 46.3112" fill="#A5D2FF"
+                                        fill-opacity="0.1"></path>
+                                    <path d="M64.9838 40.4902L63.3667 43.4007H65.7917L64.1746 46.3112" stroke="#1D1D1D"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M41.3433 35.251V62.0274H69.4955H85.5826V35.251" stroke="#1D1D1D"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path
+                                        d="M36.7886 26.5937L60.994 2.38827C61.325 2.05713 61.7179 1.79445 62.1504 1.61522C62.5829 1.436 63.0464 1.34375 63.5146 1.34375C63.9827 1.34375 64.4463 1.436 64.8788 1.61522C65.3113 1.79445 65.7042 2.05713 66.0352 2.38827L90.2406 26.5937"
+                                        stroke="#1D1D1D" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                    <path d="M74.2056 10.5576V6.99414H83.1142V19.4663" stroke="#1D1D1D" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path
+                                        d="M31.8175 55.93C32.3871 55.93 32.9334 55.7038 33.3362 55.301C33.739 54.8982 33.9652 54.3519 33.9652 53.7823C33.9655 53.1016 33.8314 52.4275 33.5708 51.7987C33.3102 51.1698 32.9281 50.5985 32.4465 50.1175L29.6714 47.3408H6.05149L3.27803 50.1175C2.79638 50.5985 2.41431 51.1698 2.1537 51.7987C1.8931 52.4275 1.75906 53.1016 1.75928 53.7823C1.75928 54.3519 1.98555 54.8982 2.38833 55.301C2.7911 55.7038 3.33738 55.93 3.90698 55.93H31.8175Z"
+                                        fill="#A5D2FF" fill-opacity="0.1" stroke="#1D1D1D" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M2.22314 51.6367H8.19895" stroke="#1D1D1D" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M33.5007 51.6367H27.5249" stroke="#1D1D1D" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path
+                                        d="M6.05322 47.3405L8.49059 40.8414C8.72109 40.2279 9.13319 39.6994 9.67192 39.3262C10.2106 38.953 10.8504 38.7531 11.5057 38.7529H24.2191C24.8747 38.753 25.5146 38.9529 26.0536 39.326C26.5926 39.6992 27.005 40.2278 27.2358 40.8414L29.6732 47.3405"
+                                        fill="#A5D2FF" fill-opacity="0.1"></path>
+                                    <path
+                                        d="M6.05322 47.3405L8.49059 40.8414C8.72109 40.228 9.13319 39.6994 9.67192 39.3262C10.2106 38.953 10.8504 38.7531 11.5057 38.7529H24.2191C24.8747 38.753 25.5146 38.9529 26.0536 39.326C26.5926 39.6992 27.005 40.2278 27.2358 40.8414L29.6732 47.3405"
+                                        stroke="#1D1D1D" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                    <path
+                                        d="M3.90576 55.9297V58.0838C4.00987 58.7368 4.36254 59.3242 4.88994 59.723C5.41734 60.1218 6.07858 60.3012 6.73523 60.2235C7.39213 60.3016 8.05377 60.1225 8.58152 59.7236C9.10928 59.3247 9.46218 58.7371 9.56629 58.0838V55.9297H3.90576Z"
+                                        fill="#A5D2FF" fill-opacity="0.1" stroke="#1D1D1D" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path
+                                        d="M26.2271 55.9297V58.0838C26.3297 58.7383 26.682 59.3275 27.2099 59.7277C27.7378 60.1278 28.4003 60.3079 29.0581 60.2299C29.716 60.3079 30.3784 60.1278 30.9064 59.7277C31.4343 59.3275 31.7865 58.7383 31.8892 58.0838V55.9297H26.2271Z"
+                                        fill="#A5D2FF" fill-opacity="0.1" stroke="#1D1D1D" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <h6 class="fw-bold my-4">
+                        @if(language ==='french'){
+                        Souhaitez-vous installer votre borne sur un mur ?
+                        }@else if(language ==='english') {
+                        Do you want to install your terminal on a wall?
+                        }
+                    </h6>
+                    <p>
+                        <small>
                             @if(language ==='french'){
-                            Tableau électrique et véhicule dans <span class="fw-bold">la même pièce</span>
+                            L’installation sur pied de la borne engendre en coût de 550€ HT sur un sol dur et 300€ HT
+                            supplémentaire sur un sol mou nécessitant une structure solide (ex : sur de terre)
                             }@else if(language ==='english') {
-                            Electrical panel and vehicle in <span class="fw-bold">the same room</span>
+                            Installing the terminal on a stand costs €550 excluding tax on hard ground and €300
+                            excluding
+                            tax. additional on soft ground requiring a solid structure (e.g. on dirt)
                             }
-                        </p>
-                        <!-- <i class="bi bi-house-check fs-1"></i> -->
-                        <svg width="62" height="64" viewBox="0 0 62 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4.56934 40.6826V62.6211H38.5609H57.9847V40.6826" stroke="#1D1D1D" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round"></path>
-                            <path
-                                d="M1.01465 30.3L28.172 3.14261C28.5433 2.77109 28.9842 2.47636 29.4694 2.27528C29.9547 2.0742 30.4748 1.9707 31 1.9707C31.5252 1.9707 32.0453 2.0742 32.5306 2.27528C33.0158 2.47636 33.4567 2.77109 33.828 3.14261L60.9853 30.3"
-                                stroke="#1D1D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                            <path d="M42.9946 12.3086V8.31055H52.9897V22.3037" stroke="#1D1D1D" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round"></path>
-                            <path
-                                d="M46.2373 52.3474V35.0694C46.2373 34.4473 45.9902 33.8506 45.5503 33.4107C45.1103 32.9708 44.5137 32.7236 43.8915 32.7236H36.8542C36.2323 32.724 35.636 32.9713 35.1964 33.4112C34.7567 33.851 34.5098 34.4475 34.5098 35.0694V39.9983"
-                                fill="#A5D2FF" fill-opacity="0.05"></path>
-                            <path
-                                d="M46.2373 52.3474V35.0694C46.2373 34.4473 45.9902 33.8506 45.5503 33.4107C45.1103 32.9708 44.5137 32.7236 43.8915 32.7236H36.8542C36.2323 32.724 35.636 32.9713 35.1964 33.4112C34.7567 33.851 34.5098 34.4475 34.5098 35.0694V39.9983"
-                                stroke="#1D1D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                            <path d="M40.7325 35.6562L39.104 38.5881H41.5468L39.9183 41.52" fill="#A5D2FF"
-                                fill-opacity="0.1"></path>
-                            <path d="M40.7325 35.6562L39.104 38.5881H41.5468L39.9183 41.52" stroke="#1D1D1D"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                            <path
-                                d="M41.3642 57.6252C41.8309 57.6252 42.2784 57.4398 42.6084 57.1098C42.9384 56.7798 43.1238 56.3322 43.1238 55.8656C43.124 55.3078 43.0142 54.7555 42.8007 54.2403C42.5871 53.725 42.2741 53.257 41.8795 52.8629L39.6058 50.5879H20.2535L17.9812 52.8629C17.5865 53.257 17.2735 53.725 17.06 54.2403C16.8465 54.7555 16.7366 55.3078 16.7368 55.8656C16.7368 56.3322 16.9222 56.7798 17.2522 57.1098C17.5822 57.4398 18.0298 57.6252 18.4965 57.6252H41.3642Z"
-                                fill="#A5D2FF" fill-opacity="0.05" stroke="#1D1D1D" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round"></path>
-                            <path d="M17.1162 54.1074H22.0123" stroke="#1D1D1D" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round"></path>
-                            <path d="M42.7428 54.1074H37.8467" stroke="#1D1D1D" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round"></path>
-                            <path
-                                d="M20.2529 50.5897L22.2499 45.2649C22.4388 44.7622 22.7764 44.3291 23.2178 44.0234C23.6592 43.7177 24.1833 43.5538 24.7203 43.5537H35.1366C35.6737 43.5537 36.198 43.7175 36.6397 44.0233C37.0813 44.329 37.4192 44.7621 37.6082 45.2649L39.6052 50.5897"
-                                fill="#A5D2FF" fill-opacity="0.05"></path>
-                            <path
-                                d="M20.2529 50.5897L22.2499 45.2649C22.4388 44.7622 22.7764 44.3291 23.2178 44.0234C23.6592 43.7177 24.1833 43.5538 24.7203 43.5537H35.1366C35.6737 43.5537 36.198 43.7175 36.6397 44.0233C37.0813 44.329 37.4192 44.7621 37.6082 45.2649L39.6052 50.5897"
-                                stroke="#1D1D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                            <path
-                                d="M18.4946 57.627V59.3919C18.5799 59.9269 18.8689 60.4081 19.301 60.7349C19.7331 61.0617 20.2749 61.2086 20.8129 61.145C21.3511 61.209 21.8932 61.0622 22.3256 60.7354C22.758 60.4086 23.0471 59.9271 23.1324 59.3919V57.627H18.4946Z"
-                                fill="#A5D2FF" fill-opacity="0.1" stroke="#1D1D1D" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round"></path>
-                            <path
-                                d="M36.7832 57.627V59.3919C36.8673 59.9281 37.1559 60.4108 37.5885 60.7387C38.021 61.0666 38.5638 61.2141 39.1028 61.1502C39.6417 61.2141 40.1845 61.0666 40.6171 60.7387C41.0496 60.4108 41.3382 59.9281 41.4223 59.3919V57.627H36.7832Z"
-                                fill="#A5D2FF" fill-opacity="0.1" stroke="#1D1D1D" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round"></path>
-                        </svg>
-                    </button>
-                    <!-- (click)="clickedDifferent()"  -->
-                    <button type="button" class="btn {{ step1Form.get('selectedButton2')?.hasError('required') && step1Form.get('selectedButton2')?.touched ?'bg-danger bg-opacity-50':'btn-outline-dark'}} {{darkTheme?'btn-secondary':'btn-light'}}  rounded rounded-3 me-3"
-                        [class.active]="buttonDifferent" (click)="onClick2('buttonDifferent')" id="position">
-                        <p style="display: flex; flex-direction: column; justify-content:space-between;">
+                        </small>
+                    </p>
+                    <div class="form-group">
+                        <div style="display: flex; flex-direction: row; justify-content:flex-start;">
+                            <!-- (click)="clickedWall()" invalidFlag3 -->
+                            <button type="button"
+                                class="btn {{ step1Form.get('selectedButton3')?.hasError('required') && step1Form.get('selectedButton3')?.touched ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3"
+                                [class.active]="buttonWall" (click)="onClick3('buttonWall')" id="placement">
+                                <!-- <i class="bi bi-graph-down me-2"></i> -->
+                                <svg width="18" height="27" viewBox="0 0 18 27" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 0.850586V25.8506H17" stroke="#1D1D1D" stroke-linecap="round"></path>
+                                    <path
+                                        d="M1.5 9.35059H3.5C4.05228 9.35059 4.5 9.7983 4.5 10.3506V16.3506C4.5 16.9029 4.05228 17.3506 3.5 17.3506H1.5"
+                                        stroke="#1D1D1D" stroke-linecap="round"></path>
+                                    <path d="M2.66667 11.8506L2 13.3506H3L2.33333 14.8506" stroke="#1D1D1D"
+                                        stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                                @if(language ==='french'){
+                                Oui, sur un mur
+                                }@else if(language ==='english') {
+                                Yes, on a wall
+                                }
+                            </button>
+                            <!-- (click)="clickedStand()" -->
+                            <button type="button"
+                                class="btn {{ step1Form.get('selectedButton3')?.hasError('required') && step1Form.get('selectedButton3')?.touched ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3"
+                                [class.active]="buttonStand" (click)="onClick3('buttonStand')" id="placement">
+                                <!-- <i class="bi bi-modem me-2"></i> -->
+                                <img class="me-1" src="../../assets/images/buttonimage.png"
+                                    alt="'Non, je préfère un pied' image description" style="height:27px">
+                                @if(language ==='french'){
+                                Non, je préfère un pied
+                                }@else if(language ==='english') {
+                                No, I prefer a foot
+                                }
+                            </button>
+                        </div>
+                    </div>
+                    <h6 class="fw-bold my-4">
+                        @if(language ==='french'){
+                        Quelle est la distance entre votre tableau électrique et votre future borne ?
+                        }@else if(language ==='english') {
+                        What is the distance between your electrical panel and your future terminal?
+                        }
+                    </h6>
+                    <div class="form-group">
+                        <div style="display: flex; flex-direction: row; justify-content:flex-start;">
+                            <!-- (click)="clickedDontKnowMeters()" invalidFlag4-->
+                            <button type="button"
+                                class="btn {{ step1Form.get('selectedButton4')?.hasError('required') && step1Form.get('selectedButton4')?.touched ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3"
+                                [class.active]="buttonDontKnowMeters" (click)="onClick4('buttonDontKnowMeters')"
+                                id="distance">
+                                @if(language ==='french'){
+                                Je ne sais pas
+                                }@else if(language ==='english') {
+                                I don't know
+                                }
+                            </button>
+                            <!-- (click)="clicked0Meters()" -->
+                            <button type="button"
+                                class="btn {{ step1Form.get('selectedButton4')?.hasError('required') && step1Form.get('selectedButton4')?.touched ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3"
+                                [class.active]="button0Meters" (click)="onClick4('button0Meters')" id="distance">
+                                @if(language ==='french'){
+                                0 à 5 mètres
+                                }@else if(language ==='english') {
+                                0 to 5 meters
+                                }
+                            </button>
+                            <!-- (click)="clicked5Meters()"  -->
+                            <button type="button"
+                                class="btn {{ step1Form.get('selectedButton4')?.hasError('required') && step1Form.get('selectedButton4')?.touched ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3"
+                                [class.active]="button5Meters" (click)="onClick4('button5Meters')" id="distance">
+                                @if(language ==='french'){
+                                5 à 10 mètres
+                                }@else if(language ==='english') {
+                                5 to 10 meters
+                                }
+                            </button>
+                            <!-- (click)="clicked10Meters()" -->
+                            <button type="button"
+                                class="btn {{ step1Form.get('selectedButton4')?.hasError('required') && step1Form.get('selectedButton4')?.touched ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3"
+                                [class.active]="button10Meters" (click)="onClick4('button10Meters')" id="distance">
+                                @if(language ==='french'){
+                                10 à 15 mètres
+                                }@else if(language ==='english') {
+                                10 to 15 meters
+                                }
+                            </button>
+                            <!-- (click)="clicked15Meters()" -->
+                            <button type="button"
+                                class="btn {{ step1Form.get('selectedButton4')?.hasError('required') && step1Form.get('selectedButton4')?.touched ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3"
+                                [class.active]="button15Meters" (click)="onClick4('button15Meters')" id="distance">
+                                @if(language ==='french'){
+                                15 à 20 mètres
+                                }@else if(language ==='english') {
+                                15 to 20 meters
+                                }
+                            </button>
+                        </div>
+                    </div>
+                    <div class="me-0 my-5" style="display: flex; flex-direction: row; justify-content:flex-end;">
+                        <button type="submit" class="btn btn-dark">
+                            <!-- routerLink="/step2" routerLinkActive="active" -->
                             @if(language ==='french'){
-                            Tableau électrique et véhicule dans <span class="fw-bold">une pièce différente</span>
+                            Choisir vos offres et services
                             }@else if(language ==='english') {
-                            Electrical panel and vehicle in <span class="fw-bold">a different room</span>
+                            Choose your offers and services
                             }
-                        </p>
-                        <!-- <i class="bi bi-house-gear fs-1"></i> -->
-                        <svg width="74" height="66" viewBox="0 0 74 66" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M54.8096 64.659H61.3447V45.9873C61.3447 45.4921 61.1479 45.0172 60.7978 44.667C60.4476 44.3168 59.9727 44.1201 59.4775 44.1201H53.876C53.3808 44.1201 52.9058 44.3168 52.5557 44.667C52.2055 45.0172 52.0088 45.4921 52.0088 45.9873V62.5585"
-                                fill="#A5D2FF" fill-opacity="0.1"></path>
-                            <path
-                                d="M54.8096 64.659H61.3447V45.9873C61.3447 45.4921 61.1479 45.0172 60.7978 44.667C60.4476 44.3168 59.9727 44.1201 59.4775 44.1201H53.876C53.3808 44.1201 52.9058 44.3168 52.5557 44.667C52.2055 45.0172 52.0088 45.4921 52.0088 45.9873V62.5585V64.659H54.8096Z"
-                                stroke="#1D1D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                            <rect x="56.1512" y="47.8739" width="0.972332" height="3.69561" fill="#A5D2FF"
-                                fill-opacity="0.1"></rect>
-                            <rect x="56.1512" y="47.8739" width="0.972332" height="3.69561" stroke="#1D1D1D"
-                                stroke-width="0.972332"></rect>
-                            <path d="M56.9618 47.3877L55.665 49.7217H57.6097L56.3129 52.0556" stroke="#1D1D1D"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                            <path d="M5.32812 43.1885V64.661H29.6863H43.6052V43.1885" stroke="#1D1D1D" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round"></path>
-                            <path d="M43.6045 43.1885V64.661H59.6452H68.8114V43.1885" stroke="#1D1D1D" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round"></path>
-                            <path
-                                d="M1 35.9825L33.6048 3.37768C34.0506 2.93163 34.5798 2.57779 35.1624 2.33638C35.745 2.09496 36.3694 1.9707 37 1.9707C37.6306 1.9707 38.255 2.09496 38.8376 2.33638C39.4202 2.57779 39.9494 2.93163 40.3952 3.37768L73 35.9825"
-                                stroke="#1D1D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                            <path d="M51.4009 14.382V9.58203H63.4009V26.382" stroke="#1D1D1D" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round"></path>
-                            <path
-                                d="M34.8069 59.7746C35.2637 59.7746 35.7018 59.5931 36.0248 59.2701C36.3478 58.9471 36.5292 58.5091 36.5292 58.0523C36.5294 57.5064 36.4219 56.9658 36.2129 56.4615C36.0039 55.9572 35.6975 55.4991 35.3113 55.1134L33.0859 52.8867H14.1446L11.9206 55.1134C11.5343 55.4991 11.2279 55.9572 11.0189 56.4615C10.8099 56.9658 10.7025 57.5064 10.7026 58.0523C10.7026 58.5091 10.8841 58.9471 11.2071 59.2701C11.5301 59.5931 11.9681 59.7746 12.4249 59.7746H34.8069Z"
-                                fill="#A5D2FF" fill-opacity="0.1" stroke="#1D1D1D" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round"></path>
-                            <path d="M11.0752 56.3291H15.8673" stroke="#1D1D1D" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round"></path>
-                            <path d="M36.1564 56.3291H31.3643" stroke="#1D1D1D" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round"></path>
-                            <path
-                                d="M14.146 52.8846L16.1006 47.6728C16.2854 47.1809 16.6159 46.757 17.0479 46.4578C17.4799 46.1585 17.9929 45.9981 18.5184 45.998H28.7136C29.2393 45.9981 29.7525 46.1584 30.1847 46.4576C30.6169 46.7569 30.9476 47.1808 31.1327 47.6728L33.0873 52.8846"
-                                fill="#A5D2FF" fill-opacity="0.1"></path>
-                            <path
-                                d="M14.146 52.8846L16.1006 47.6728C16.2854 47.1809 16.6159 46.757 17.0479 46.4578C17.4799 46.1585 17.9929 45.9981 18.5184 45.998H28.7136C29.2393 45.9981 29.7525 46.1584 30.1847 46.4576C30.6169 46.7569 30.9476 47.1808 31.1327 47.6728L33.0873 52.8846"
-                                stroke="#1D1D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                            <path
-                                d="M12.4238 59.7725V61.4999C12.5073 62.0235 12.7901 62.4946 13.2131 62.8144C13.636 63.1342 14.1663 63.278 14.6928 63.2157C15.2196 63.2784 15.7502 63.1347 16.1734 62.8149C16.5966 62.495 16.8796 62.0238 16.9631 61.4999V59.7725H12.4238Z"
-                                fill="#A5D2FF" fill-opacity="0.1" stroke="#1D1D1D" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round"></path>
-                            <path
-                                d="M30.3242 59.7725V61.4999C30.4065 62.0247 30.689 62.4972 31.1124 62.8181C31.5357 63.139 32.067 63.2834 32.5945 63.2209C33.122 63.2834 33.6533 63.139 34.0766 62.8181C34.5 62.4972 34.7825 62.0247 34.8648 61.4999V59.7725H30.3242Z"
-                                fill="#A5D2FF" fill-opacity="0.1" stroke="#1D1D1D" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round"></path>
-                        </svg>
-                    </button>
-                    <!-- (click)="clickedOut()" -->
-                    <button type="button" class="btn {{ step1Form.get('selectedButton2')?.hasError('required') && step1Form.get('selectedButton2')?.touched ?'bg-danger bg-opacity-50':'btn-outline-dark'}} {{darkTheme?'btn-secondary':'btn-light'}} rounded rounded-3 me-3" [class.active]="buttonOut"
-                         (click)="onClick2('buttonOut')" id="position">
-                        <p style="display: flex; flex-direction: column; justify-content:space-between;">
-                            @if(language ==='french'){
-                            Tableau électrique à l’intérieur et <span class="fw-bold">véhicule à l’extérieur</span>
-                            }@else if(language ==='english') {
-                            Electrical panel inside and <span class="fw-bold">vehicle outside</span>
-                            }
-                        </p>
-                        <!-- <i class="bi bi-house-dash fs-1"></i> -->
-                        <svg width="92" height="64" viewBox="0 0 92 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M62.2997 62.0273H70.449V38.7434C70.449 38.1259 70.2037 37.5337 69.7671 37.097C69.3304 36.6604 68.7382 36.415 68.1207 36.415H61.1355C60.518 36.415 59.9258 36.6604 59.4891 37.097C59.0524 37.5337 58.8071 38.1259 58.8071 38.7434V59.4078"
-                                fill="#A5D2FF" fill-opacity="0.1"></path>
-                            <path
-                                d="M62.2997 62.0273H70.449V38.7434C70.449 38.1259 70.2037 37.5337 69.7671 37.097C69.3304 36.6604 68.7382 36.415 68.1207 36.415H61.1355C60.518 36.415 59.9258 36.6604 59.4891 37.097C59.0524 37.5337 58.8071 38.1259 58.8071 38.7434V59.4078V62.0273H62.2997Z"
-                                stroke="#1D1D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                            <path d="M64.9838 40.4902L63.3667 43.4007H65.7917L64.1746 46.3112" fill="#A5D2FF"
-                                fill-opacity="0.1"></path>
-                            <path d="M64.9838 40.4902L63.3667 43.4007H65.7917L64.1746 46.3112" stroke="#1D1D1D"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                            <path d="M41.3433 35.251V62.0274H69.4955H85.5826V35.251" stroke="#1D1D1D" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round"></path>
-                            <path
-                                d="M36.7886 26.5937L60.994 2.38827C61.325 2.05713 61.7179 1.79445 62.1504 1.61522C62.5829 1.436 63.0464 1.34375 63.5146 1.34375C63.9827 1.34375 64.4463 1.436 64.8788 1.61522C65.3113 1.79445 65.7042 2.05713 66.0352 2.38827L90.2406 26.5937"
-                                stroke="#1D1D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                            <path d="M74.2056 10.5576V6.99414H83.1142V19.4663" stroke="#1D1D1D" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round"></path>
-                            <path
-                                d="M31.8175 55.93C32.3871 55.93 32.9334 55.7038 33.3362 55.301C33.739 54.8982 33.9652 54.3519 33.9652 53.7823C33.9655 53.1016 33.8314 52.4275 33.5708 51.7987C33.3102 51.1698 32.9281 50.5985 32.4465 50.1175L29.6714 47.3408H6.05149L3.27803 50.1175C2.79638 50.5985 2.41431 51.1698 2.1537 51.7987C1.8931 52.4275 1.75906 53.1016 1.75928 53.7823C1.75928 54.3519 1.98555 54.8982 2.38833 55.301C2.7911 55.7038 3.33738 55.93 3.90698 55.93H31.8175Z"
-                                fill="#A5D2FF" fill-opacity="0.1" stroke="#1D1D1D" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round"></path>
-                            <path d="M2.22314 51.6367H8.19895" stroke="#1D1D1D" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round"></path>
-                            <path d="M33.5007 51.6367H27.5249" stroke="#1D1D1D" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round"></path>
-                            <path
-                                d="M6.05322 47.3405L8.49059 40.8414C8.72109 40.2279 9.13319 39.6994 9.67192 39.3262C10.2106 38.953 10.8504 38.7531 11.5057 38.7529H24.2191C24.8747 38.753 25.5146 38.9529 26.0536 39.326C26.5926 39.6992 27.005 40.2278 27.2358 40.8414L29.6732 47.3405"
-                                fill="#A5D2FF" fill-opacity="0.1"></path>
-                            <path
-                                d="M6.05322 47.3405L8.49059 40.8414C8.72109 40.228 9.13319 39.6994 9.67192 39.3262C10.2106 38.953 10.8504 38.7531 11.5057 38.7529H24.2191C24.8747 38.753 25.5146 38.9529 26.0536 39.326C26.5926 39.6992 27.005 40.2278 27.2358 40.8414L29.6732 47.3405"
-                                stroke="#1D1D1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                            <path
-                                d="M3.90576 55.9297V58.0838C4.00987 58.7368 4.36254 59.3242 4.88994 59.723C5.41734 60.1218 6.07858 60.3012 6.73523 60.2235C7.39213 60.3016 8.05377 60.1225 8.58152 59.7236C9.10928 59.3247 9.46218 58.7371 9.56629 58.0838V55.9297H3.90576Z"
-                                fill="#A5D2FF" fill-opacity="0.1" stroke="#1D1D1D" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round"></path>
-                            <path
-                                d="M26.2271 55.9297V58.0838C26.3297 58.7383 26.682 59.3275 27.2099 59.7277C27.7378 60.1278 28.4003 60.3079 29.0581 60.2299C29.716 60.3079 30.3784 60.1278 30.9064 59.7277C31.4343 59.3275 31.7865 58.7383 31.8892 58.0838V55.9297H26.2271Z"
-                                fill="#A5D2FF" fill-opacity="0.1" stroke="#1D1D1D" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round"></path>
-                        </svg>
-                    </button>
-                </div>
-                </div>
-                <h6 class="fw-bold my-4">
-                    @if(language ==='french'){
-                    Souhaitez-vous installer votre borne sur un mur ?
-                    }@else if(language ==='english') {
-                    Do you want to install your terminal on a wall?
-                    }
-                </h6>
-                <p>
-                    <small>
-                        @if(language ==='french'){
-                        L’installation sur pied de la borne engendre en coût de 550€ HT sur un sol dur et 300€ HT
-                        supplémentaire sur un sol mou nécessitant une structure solide (ex : sur de terre)
-                        }@else if(language ==='english') {
-                        Installing the terminal on a stand costs €550 excluding tax on hard ground and €300 excluding
-                        tax. additional on soft ground requiring a solid structure (e.g. on dirt)
-                        }
-                    </small>
-                </p>
-                <div class="form-group">
-                <div style="display: flex; flex-direction: row; justify-content:flex-start;">
-                    <!-- (click)="clickedWall()" invalidFlag3 -->
-                    <button type="button" class="btn {{ step1Form.get('selectedButton3')?.hasError('required') && step1Form.get('selectedButton3')?.touched ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3" [class.active]="buttonWall"
-                        (click)="onClick3('buttonWall')" id="placement">
-                        <!-- <i class="bi bi-graph-down me-2"></i> -->
-                        <svg width="18" height="27" viewBox="0 0 18 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1 0.850586V25.8506H17" stroke="#1D1D1D" stroke-linecap="round"></path>
-                            <path
-                                d="M1.5 9.35059H3.5C4.05228 9.35059 4.5 9.7983 4.5 10.3506V16.3506C4.5 16.9029 4.05228 17.3506 3.5 17.3506H1.5"
-                                stroke="#1D1D1D" stroke-linecap="round"></path>
-                            <path d="M2.66667 11.8506L2 13.3506H3L2.33333 14.8506" stroke="#1D1D1D" stroke-width="0.5"
-                                stroke-linecap="round" stroke-linejoin="round"></path>
-                        </svg>
-                        @if(language ==='french'){
-                        Oui, sur un mur
-                        }@else if(language ==='english') {
-                        Yes, on a wall
-                        }
-                    </button>
-                    <!-- (click)="clickedStand()" -->
-                    <button type="button" class="btn {{ step1Form.get('selectedButton3')?.hasError('required') && step1Form.get('selectedButton3')?.touched ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3" [class.active]="buttonStand"
-                         (click)="onClick3('buttonStand')"  id="placement">
-                        <!-- <i class="bi bi-modem me-2"></i> -->
-                        <img class="me-1" src="../../assets/images/buttonimage.png"
-                            alt="'Non, je préfère un pied' image description" style="height:27px">
-                        @if(language ==='french'){
-                        Non, je préfère un pied
-                        }@else if(language ==='english') {
-                        No, I prefer a foot
-                        }
-                    </button>
-                </div>
-                </div>
-                <h6 class="fw-bold my-4">
-                    @if(language ==='french'){
-                    Quelle est la distance entre votre tableau électrique et votre future borne ?
-                    }@else if(language ==='english') {
-                    What is the distance between your electrical panel and your future terminal?
-                    }
-                </h6>
-                <div class="form-group">
-                <div style="display: flex; flex-direction: row; justify-content:flex-start;">
-                    <!-- (click)="clickedDontKnowMeters()" invalidFlag4-->
-                    <button type="button" class="btn {{ step1Form.get('selectedButton4')?.hasError('required') && step1Form.get('selectedButton4')?.touched ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3" [class.active]="buttonDontKnowMeters"
-                        (click)="onClick4('buttonDontKnowMeters')" id="distance">
-                        @if(language ==='french'){
-                        Je ne sais pas
-                        }@else if(language ==='english') {
-                        I don't know
-                        }
-                    </button>
-                    <!-- (click)="clicked0Meters()" -->
-                    <button type="button" class="btn {{ step1Form.get('selectedButton4')?.hasError('required') && step1Form.get('selectedButton4')?.touched ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3" [class.active]="button0Meters"
-                         (click)="onClick4('button0Meters')" id="distance">
-                        @if(language ==='french'){
-                        0 à 5 mètres
-                        }@else if(language ==='english') {
-                        0 to 5 meters
-                        }
-                    </button>
-                    <!-- (click)="clicked5Meters()"  -->
-                    <button type="button" class="btn {{ step1Form.get('selectedButton4')?.hasError('required') && step1Form.get('selectedButton4')?.touched ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3" [class.active]="button5Meters"
-                        (click)="onClick4('button5Meters')" id="distance">
-                        @if(language ==='french'){
-                        5 à 10 mètres
-                        }@else if(language ==='english') {
-                        5 to 10 meters
-                        }
-                    </button>
-                    <!-- (click)="clicked10Meters()" -->
-                    <button type="button" class="btn {{ step1Form.get('selectedButton4')?.hasError('required') && step1Form.get('selectedButton4')?.touched ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3" [class.active]="button10Meters"
-                       (click)="onClick4('button10Meters')" id="distance">
-                        @if(language ==='french'){
-                        10 à 15 mètres
-                        }@else if(language ==='english') {
-                        10 to 15 meters
-                        }
-                    </button>
-                    <!-- (click)="clicked15Meters()" -->
-                    <button type="button" class="btn {{ step1Form.get('selectedButton4')?.hasError('required') && step1Form.get('selectedButton4')?.touched ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3" [class.active]="button15Meters"
-                        (click)="onClick4('button15Meters')" id="distance">
-                        @if(language ==='french'){
-                        15 à 20 mètres
-                        }@else if(language ==='english') {
-                        15 to 20 meters
-                        }
-                    </button>
-                </div>
-                </div>
-                <div class="me-0 my-5" style="display: flex; flex-direction: row; justify-content:flex-end;">
-                    <button type="submit" class="btn btn-dark" > 
-                        <!-- routerLink="/step2" routerLinkActive="active" -->
-                        @if(language ==='french'){
-                        Choisir vos offres et services
-                        }@else if(language ==='english') {
-                        Choose your offers and services
-                        }
-                        <i class="bi bi-arrow-right-short"></i>
-                    </button>
-                </div>
-            </form>
+                            <i class="bi bi-arrow-right-short"></i>
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
         <!-- invalidFlag -->
         @if(step1Form.invalid && step1Form.touched){
-                <p class="text-danger mb-5">
-                    <i class="bi bi-x-lg"></i>
-                   {{language ==='french'? ' Certaines réponses sont manquantes pour passer à l’étape suivante':' Some answers are missing to move on to the next step'}}</p>
-            }
+        <p class="text-danger mb-5">
+            <i class="bi bi-x-lg"></i>
+            {{language ==='french'? ' Certaines réponses sont manquantes pour passer à l’étape suivante':' Some answers
+            are missing to move on to the next step'}}
+        </p>
+        }
     </div>
 </div>

@@ -32,92 +32,113 @@
         </div>
         @if(!submitted){
         <div class="my-5">
-            <form class="row g-3 needs-validation" novalidate>
-                <div class="col-md-6">
-                    <label for="validationCustom01" class="form-label">
+            <form class="row g-3" (submit)="onSubmit()" [formGroup]="step3Form">
+                <div class="form-group col-md-6">
+                    <label for="name" class="form-label">
                         @if(language ==='french'){
                         Nom
                         }@else if(language ==='english') {
                         Name
                         }
                         <span class="text-danger fw-bold">*</span></label>
-                    <input type="text" class="form-control rounded rounded-4 {{darkTheme?'bg-dark bg-opacity-25':'bg-light'}}" id="validationCustom01" required>
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
-                    <div class="invalid-feedback">
-                        Please choose a username.
-                    </div>
+                    <input type="text"
+                        class="form-control rounded rounded-4 {{darkTheme?'bg-dark bg-opacity-25':'bg-light'}}"
+                        name="name" id="name" formControlName="name" autocomplete="given-name">
+                    @if(step3Form.get('name')?.hasError('required') &&
+                    step3Form.get('name')?.touched){
+                    <span class="text-danger">
+                        {{language ==='french'?
+                        'Veuillez remplir ce champ obligatoire.':
+                        'Please complete this required field.'}}
+                    </span>
+                    }
                 </div>
-                <div class="col-md-6">
-                    <label for="validationCustom02" class="form-label">
+                <div class="form-group col-md-6">
+                    <label for="lastname" class="form-label">
                         @if(language ==='french'){
                         Prénom
                         }@else if(language ==='english') {
                         First name
                         }
                         <span class="text-danger fw-bold">*</span></label>
-                    <input type="text" class="form-control rounded rounded-4 {{darkTheme?'bg-dark bg-opacity-25':'bg-light'}}" id="validationCustom02" required>
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
-                    <div class="invalid-feedback">
-                        @if(language ==='french'){
-                        Veuillez remplir ce champ obligatoire.
-                        }@else if(language ==='english') {
-                        Please complete this required field.
-                        }
-                    </div>
+                    <input type="text"
+                        class="form-control rounded rounded-4 {{darkTheme?'bg-dark bg-opacity-25':'bg-light'}}"
+                        name="lastname" id="lastname" formControlName="lastname" autocomplete="family-name">
+                    @if(step3Form.get('lastname')?.hasError('required') &&
+                    step3Form.get('lastname')?.touched){
+                    <span class="text-danger">
+                        {{language ==='french'?
+                        'Veuillez remplir ce champ obligatoire.':
+                        'Please complete this required field.'}}
+                        </span>
+                    }
                 </div>
-                <div class="col-md-6">
-                    <label for="validationCustom03" class="form-label">
+                <div class="form-group col-md-6">
+                    <label for="telephone" class="form-label">
                         @if(language ==='french'){
                         Numéro de téléphone
                         }@else if(language ==='english') {
                         Phone number
                         }
                         <span class="text-danger fw-bold">*</span></label>
-                    <input type="text" class="form-control rounded rounded-4 {{darkTheme?'bg-dark bg-opacity-25':'bg-light'}}" id="validationCustom03" required>
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
-                    <div class="invalid-feedback">
-                        @if(language ==='french'){
-                        Veuillez remplir ce champ obligatoire.
-                        }@else if(language ==='english') {
-                        Please complete this required field.
-                        }
-                    </div>
-                    <!-- @if(language ==='french'){
-                            Un numéro de téléphone valide ne peut contenir que des chiffres, et +()-. ou x 
-                        }@else if(language ==='english') {
-                           A valid phone number can only contain digits, and +()-. or x
-                        }
-                        -->
-                    <!-- @if(language ==='french'){
-                            Le numéro que vous avez saisi n'est pas dans la plage.
-                        }@else if(language ==='english') {
-                          The number you entered is not in range.
-                        } -->
+                    <input type="tel" name="telephone" id="telephone" formControlName="telephone" autocomplete="tel"
+                        class="form-control rounded rounded-4 {{darkTheme?'bg-dark bg-opacity-25':'bg-light'}}">
+                    @if(step3Form.get('telephone')?.hasError('required') &&
+                    step3Form.get('telephone')?.touched){
+                    <span class="text-danger">
+                        {{language ==='french'?
+                        'Veuillez remplir ce champ obligatoire.':
+                        'Please complete this required field.'}}
+                        </span>
+                    }
+                    @if(step3Form.get('telephone')?.hasError('pattern') &&
+                    step3Form.get('telephone')?.touched){
+                    <span class="text-danger">
+                        {{language ==='french'?
+                        'Un numéro de téléphone valide ne peut contenir que des chiffres, et +()-. ou x':
+                         'A valid phone number can only contain digits, and +()-. or x'}}
+                        </span>
+                    }
+                    @if(step3Form.get('telephone')?.hasError('maxlength') &&
+                    step3Form.get('telephone')?.touched){
+                    <span class="text-danger">
+                        {{language ==='french'?
+                        'Le numéro que vous avez saisi n`est pas dans la plage.':
+                        'The number you entered is not in range.'}}
+                        </span>
+                    }
+                    @if(step3Form.get('telephone')?.hasError('minlength') &&
+                    step3Form.get('telephone')?.touched){
+                    <span class="text-danger">
+                        {{language ==='french'?
+                        'Le numéro que vous avez saisi n`est pas dans la plage.':
+                        'The number you entered is not in range.'}}
+                        </span>
+                    }
                 </div>
-                <div class="col-md-6">
-                    <label for="validationCustom04" class="form-label">E-mail<span
-                            class="text-danger fw-bold">*</span></label>
-                    <input type="text" class="form-control rounded rounded-4 {{darkTheme?'bg-dark bg-opacity-25':'bg-light'}}" id="validationCustom04" required>
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
-                    <div class="invalid-feedback">
-                        @if(language ==='french'){
-                        Veuillez remplir ce champ obligatoire..
-                        }@else if(language ==='english') {
-                        Please complete this required field..
-                        }
-                    </div>
-                    <!-- L'adresse e-mail doit être indiquée dans un format approprié. -->
+                <div class="form-group col-md-6">
+                    <label for="email" class="form-label">E-mail<span class="text-danger fw-bold">*</span></label>
+                    <input type="text" id="email" name="email" formControlName="email" autocomplete="email"
+                        class="form-control rounded rounded-4 {{darkTheme?'bg-dark bg-opacity-25':'bg-light'}}">
+                    @if(step3Form.get('email')?.hasError('required') &&
+                    step3Form.get('email')?.touched){
+                    <span class="text-danger">
+                        {{language ==='french'?
+                        'Veuillez remplir ce champ obligatoire.':
+                        'Please complete this required field.'}}
+                        </span>
+                    }
+                    @if(step3Form.get('email')?.hasError('email') &&
+                    step3Form.get('email')?.touched){
+                    <span class="text-danger">
+                        {{language ==='french'?
+                        'L`adresse e-mail doit être indiquée dans un format approprié.':
+                        'The email address must be provided in an appropriate format.'}}
+                        </span>
+                    }
                 </div>
-                <div class="col-md-12">
-                    <label for="validationCustom05" class="form-label">
+                <div class="form-group col-md-12">
+                    <label for="address" class="form-label">
                         @if(language ==='french'){
                         Adresse postale
                         }@else if(language ==='english') {
@@ -134,64 +155,71 @@
                             }
                         </small>
                     </div>
-                    <input type="text" class="form-control rounded rounded-4 {{darkTheme?'bg-dark bg-opacity-25':'bg-light'}}" id="validationCustom05" required>
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
-                    <div class="invalid-feedback">
-                        @if(language ==='french'){
-                        Veuillez remplir ce champ obligatoire..
-                        }@else if(language ==='english') {
-                        Please complete this required field..
-                        }
-                    </div>
+                    <input type="text" name="address" id="address" formControlName="address"
+                        autocomplete="street-address"
+                        class="form-control rounded rounded-4 {{darkTheme?'bg-dark bg-opacity-25':'bg-light'}}">
+                    @if(step3Form.get('address')?.hasError('required') &&
+                    step3Form.get('address')?.touched){
+                    <span class="text-danger">
+                        {{language ==='french'?
+                        'Veuillez remplir ce champ obligatoire.':
+                        'Please complete this required field.'}}
+                        </span>
+                    }
                 </div>
-                <div class="col-md-6">
-                    <label for="validationCustom06" class="form-label">
+                <div class="form-control col-md-6">
+                    <label for="postalCode" class="form-label">
                         @if(language ==='french'){
                         Code postal
                         }@else if(language ==='english') {
                         Postal code
                         }
                         <span class="text-danger fw-bold">*</span></label>
-                    <input type="number" class="form-control rounded rounded-4 {{darkTheme?'bg-dark bg-opacity-25':'bg-light'}}" id="validationCustom06"
-                        required>
-                    <div class="invalid-feedback">
-                        Please provide a valid zip.
-                    </div>
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
+                    <input type="number" name="postalCode" id="postalCode" formControlName="postalCode"
+                        class="form-control rounded rounded-4 {{darkTheme?'bg-dark bg-opacity-25':'bg-light'}}">
+                    @if(step3Form.get('postalCode')?.hasError('required') &&
+                    step3Form.get('postalCode')?.touched){
+                    <span class="text-danger">
+                        {{language ==='french'?
+                        'Veuillez remplir ce champ obligatoire.':
+                        'Please complete this required field.'}}
+                        </span>
+                    }
                 </div>
-                <div class="col-md-6">
-                    <label for="validationCustom07" class="form-label">
+                <div class="form-group col-md-6">
+                    <label for="city" class="form-label">
                         @if(language ==='french'){
                         Ville
                         }@else if(language ==='english') {
                         City
                         }
                         <span class="text-danger fw-bold">*</span></label>
-                    <input type="text" class="form-control rounded rounded-4 {{darkTheme?'bg-dark bg-opacity-25':'bg-light'}}" id="validationCustom07" required>
-                    <div class="invalid-feedback">
-                        Please provide a valid zip.
-                    </div>
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
+                    <input type="text" name="city" id="city" formControlName="city"
+                        class="form-control rounded rounded-4 {{darkTheme?'bg-dark bg-opacity-25':'bg-light'}}">
+                    @if(step3Form.get('city')?.hasError('required') &&
+                    step3Form.get('city')?.touched){
+                    <span class="text-danger">
+                        {{language ==='french'?
+                        'Veuillez remplir ce champ obligatoire.':
+                        'Please complete this required field.'}}
+                        </span>
+                    }
                 </div>
-                <div class="col-md-12">
-                    <label for="validationCustom07" class="form-label">
+                <div class="form-group col-md-12">
+                    <label for="referralCode" class="form-label">
                         @if(language ==='french'){
                         Code de parrainage
                         }@else if(language ==='english') {
                         Referral Code
                         }
                     </label>
-                    <input type="text" class="form-control rounded rounded-4 {{darkTheme?'bg-dark bg-opacity-25':'bg-light'}}" id="validationCustom07">
+                    <input type="text" name="referralCode" id="referralCode" formControlName="referralCode"
+                        class="form-control rounded rounded-4 {{darkTheme?'bg-dark bg-opacity-25':'bg-light'}}">
                 </div>
-                <div class="col-12">
+                <div class="form-group col-12">
                     <div class="form-check">
-                        <input class="form-check-input border-dark {{darkTheme?'bg-light bg-opacity-75 ':''}}" type="checkbox" value="" id="newsletter">
+                        <input type="checkbox" value="" name="newsletter" id="newsletter" formControlName="newsletter"
+                            class="form-check-input border-dark {{darkTheme?'bg-light bg-opacity-75 ':''}}">
                         <label class="form-check-label" for="newsletter">
                             @if(language ==='french'){
                             M'inscrire à la newsletter de Beev
@@ -201,12 +229,14 @@
                         </label>
                     </div>
                 </div>
-                <div class="col-12">
+                <div class="form-group col-12">
                     <div class="form-check">
-                        <input class="form-check-input border-dark {{darkTheme?'bg-light bg-opacity-75 ':''}}" type="checkbox" value="" id="invalidCheck" required>
+                        <input type="checkbox" value="" id="invalidCheck" name="invalidCheck"
+                            formControlName="invalidCheck"
+                            class="form-check-input border-dark {{darkTheme?'bg-light bg-opacity-75 ':''}}">
                         <label class="form-check-label" for="invalidCheck">
                             @if(language ==='french'){
-                            J’accepte la politique de <a href="https://www.beev.co/donnees-personnelles/"
+                            J`accepte la politique de <a href="https://www.beev.co/donnees-personnelles/"
                                 target="_blank">traitement des données</a> de Beev<span
                                 class="text-danger fw-bold">*</span>
                             }@else if(language ==='english') {
@@ -214,18 +244,27 @@
                                 target="_blank">data processing</a> by Beev<span class="text-danger fw-bold">*</span>
                             }
                         </label>
-                        <div class="invalid-feedback">
-                            @if(language ==='french'){
-                            Veuillez remplir ce champ obligatoire.
-                            }@else if(language ==='english') {
-                            Please complete this required field.
-                            }
-                        </div>
+                        
                     </div>
+                    @if(step3Form.get('invalidCheck')?.hasError('required') &&
+                        step3Form.get('invalidCheck')?.touched){
+                        <span class="text-danger">
+                            {{language ==='french'?
+                            'Veuillez remplir ce champ obligatoire.':
+                            'Please complete this required field.'}}
+                            </span>
+                        }
+                        @if(step3Form.invalid && step3Form.touched){
+                        <p class="text-danger mt-2">
+                            {{language ==='french'? 
+                            'Veuillez remplir tous les champs requis.':
+                            'Please complete all required fields.'}}
+                        </p>
+                        }
                 </div>
                 <div class="col-12 text-center my-4">
                     <!-- <button class="btn btn-dark rounded rounded-4 mt-3 px-4" type="submit"  routerLink="/end" routerLinkActive="active" (click)="onSubmit()">Soumettre</button> -->
-                    <button class="btn btn-dark rounded rounded-4 mt-3 px-4" type="submit" (click)="onSubmit()">
+                    <button class="btn btn-dark rounded rounded-4 mt-3 px-4" type="submit">
                         @if(language ==='french'){
                         Soumettre
                         }@else if(language ==='english') {
