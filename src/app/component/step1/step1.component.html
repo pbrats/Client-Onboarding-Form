@@ -133,8 +133,8 @@
                 }
                 <div class="form-group">
                 @if(buttonYes){
-                    <!-- {{darkTheme?'bg-secondary bg-opacity-75':''}} invalidFlag1_yes-->
-                <select class="form-select mb-5 {{ step1Form.get('selectYes')?.hasError('required') && step1Form.get('selectYes')?.touched ?'bg-danger bg-opacity-50':'bg-light opacity-75'}} {{darkTheme?'bg-secondary bg-opacity-75':''}}"  aria-label="selectYes" formControlName="selectYes" style="width:45%" (change)="onSelectionChangeYes($event)" id="yes">
+                    <!-- invalidFlag1_yes-->
+                <select class="form-select mb-5 {{ (step1Form.get('selectYes')?.hasError('required') && step1Form.get('selectYes')?.touched) ? 'bg-danger bg-opacity-50' : (darkTheme ? 'bg-secondary bg-opacity-75' : 'bg-light')}}" aria-label="selectYes" formControlName="selectYes" style="width:45%" (change)="onSelectionChangeYes($event)" id="yes">
                     <option [class.selected]="step1Form.get('selectYes')?.value === ''" disabled>
                         @if(language ==='french'){
                         Veuillez sélectionner
@@ -156,8 +156,8 @@
                 </select>
                 }
                 @if(buttonNo){
-                    <!-- {{darkTheme?'bg-secondary bg-opacity-75':'bg-light'}} invalidFlag1_no-->
-                <select class="form-select mb-5 {{ step1Form.get('selectNo')?.hasError('required') && step1Form.get('selectNo')?.touched?'bg-danger bg-opacity-50':'bg-light opacity-75'}}" aria-label="selectNo" formControlName="selectNo" style="width:45%" (change)="onSelectionChangeNo($event)" id="no">
+                    <!--  invalidFlag1_no-->
+                <select class="form-select mb-5 {{ (step1Form.get('selectNo')?.hasError('required') && step1Form.get('selectNo')?.touched) ? 'bg-danger bg-opacity-50' : (darkTheme ? 'bg-secondary bg-opacity-75' : 'bg-light')}}" aria-label="selectNo" formControlName="selectNo" style="width:45%" (change)="onSelectionChangeNo($event)" id="no">
                     <option [class.selected]="step1Form.get('selectNo')?.value === ''" disabled>
                         @if(language ==='french'){
                         Veuillez sélectionner

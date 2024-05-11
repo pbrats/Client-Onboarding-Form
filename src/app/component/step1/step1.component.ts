@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { LanguageService } from '../../service/language.service';
 import { ThemeService } from '../../service/theme.service';
-import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-step1',
@@ -332,14 +332,12 @@ export class Step1Component {
       this.buttonSame = true;
       this.buttonDifferent = false;
       this.buttonOut = false;
-    }
-    if (buttonName == "buttonDifferent") {
+    } else if (buttonName == "buttonDifferent") {
       console.log("button Different");
       this.buttonDifferent = true;
       this.buttonSame = false;
       this.buttonOut = false;
-    }
-    if (buttonName == "buttonOut") {
+    } else {
       console.log("button Out");
       this.buttonOut = true;
       this.buttonDifferent = false;
@@ -356,8 +354,7 @@ export class Step1Component {
       console.log("button Wall");
       this.buttonWall = true;
       this.buttonStand = false;
-    }
-    if (buttonName == "buttonStand") {
+    } else {
       console.log("button Stand");
       this.buttonStand = true;
       this.buttonWall = false;
@@ -376,32 +373,28 @@ export class Step1Component {
       this.button5Meters = false;
       this.button10Meters = false;
       this.button15Meters = false;
-    }
-    if (buttonName == "button0Meters") {
+    } else if (buttonName == "button0Meters") {
       console.log("button 0Meters");
       this.button0Meters = true;
       this.button5Meters = false;
       this.button10Meters = false;
       this.button15Meters = false;
       this.buttonDontKnowMeters = false;
-    }
-    if (buttonName == "button5Meters") {
+    } else if (buttonName == "button5Meters") {
       console.log("button 5Meters");
       this.button5Meters = true;
       this.button0Meters = false;
       this.buttonDontKnowMeters = false;
       this.button10Meters = false;
       this.button15Meters = false;
-    }
-    if (buttonName == "button10Meters") {
+    } else if (buttonName == "button10Meters") {
       console.log("button 10Meters");
       this.button10Meters = true;
       this.button0Meters = false;
       this.button5Meters = false;
       this.buttonDontKnowMeters = false;
       this.button15Meters = false;
-    }
-    if (buttonName == "button15Meters") {
+    } else {
       console.log("button 15Meters");
       this.button15Meters = true;
       this.button0Meters = false;

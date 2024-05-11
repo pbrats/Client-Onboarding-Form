@@ -34,10 +34,13 @@
                     activate/deactivate your terminal, track/export data. If in doubt, ask our experts for advice.
                     }
                 </p>
+                <form (submit)="onSubmit()" [formGroup]="step2Form">
+                    <div class="form-group">
                 <div style="display: flex; flex-direction: row; justify-content:flex-start;">
-                    <button
-                        class="btn btn-outline-light rounded rounded-3 me-4 shadow pb-3 {{ buttonOption1 ? 'clicked':''}}"
-                        [class.active]="buttonOption1" (click)="clickedOption1()" style="width:25%; height:270px">
+                    <!-- (click)="clickedOption1()"  -->
+                    <button type="button"
+                        class="form-control btn {{ step2Form.get('selectedButton1')?.hasError('required') && step2Form.get('selectedButton1')?.touched ?'btn-outline-danger bg-danger bg-opacity-25':'btn-outline-light'}} rounded rounded-3 me-4 shadow pb-3 {{ buttonOption1 ? 'clicked':''}}"
+                        [class.active]="buttonOption1" (click)="onClick1('buttonOption1')" name="option" id="option" style="width:25%; height:270px">
                         <div style="display: flex; flex-direction: column; align-content:space-between">
                             <div class="mt-3" style="display: flex; flex-direction: row; justify-content:flex-start">
                                 <div>
@@ -63,7 +66,7 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <p class="{{ buttonOption1 ? 'text-white':'text-black'}}">
+                                    <p class="{{ (step2Form.get('selectedButton1')?.hasError('required') && step2Form.get('selectedButton1')?.touched) ? 'text-danger' : (buttonOption1 ? 'text-white' : 'text-black') }}">
                                         @if(language ==='french'){
                                         La borne <span class="fw-bold">connectée</span>
                                         }@else if(language ==='english') {
@@ -94,7 +97,7 @@
                                 <img src="../../assets/images/option1.png" alt="Option1 image" style="height:80px">
                             </div>
                             <div class="mt-4">
-                                <span class="badge-lg rounded-pill bg-info bg-opacity-50 text-dark py-2 px-4">
+                                <span class="badge-lg rounded-pill {{ (step2Form.get('selectedButton1')?.hasError('required') && step2Form.get('selectedButton1')?.touched) ? 'bg-danger bg-opacity-25':'bg-info bg-opacity-50'}} text-dark py-2 px-4">
                                     @if(language ==='french'){
                                     870 € HT
                                     }@else if(language ==='english') {
@@ -104,13 +107,13 @@
                             </div>
                         </div>
                     </button>
-                    <button
-                        class="btn btn-outline-light rounded py-3 rounded-3 me-4 bg-opacity-10 {{ buttonOption2 ? 'clicked':'option'}}"
-                        [class.active]="buttonOption2" (click)="clickedOption2()" style="width: 25%; height:270px">
+                    <!-- (click)="clickedOption2()" -->
+                    <button type="button"
+                        class="form-control btn {{ step2Form.get('selectedButton1')?.hasError('required') && step2Form.get('selectedButton1')?.touched ?'btn-outline-danger bg-danger bg-opacity':'btn-outline-light'}} rounded py-3 rounded-3 me-4 {{ buttonOption2 ? 'clicked':'option'}}"
+                        [class.active]="buttonOption2" (click)="onClick1('buttonOption2')" name="option" id="option" style="width: 25%; height:270px">
                         <div style="display: flex; flex-direction: column; align-content:space-between">
                             <div class="mb-2">
-                                <p class="{{ buttonOption2 ? 'text-white':'text-black'}}">
-
+                                <p class="{{ (step2Form.get('selectedButton1')?.hasError('required') && step2Form.get('selectedButton1')?.touched) ? 'text-danger' : (buttonOption2 ? 'text-white' : 'text-black') }}">
                                     @if(language ==='french'){
                                     La borne <span class="fw-bold">non connectée </span>Circontrol eHome
                                     }@else if(language ==='english') {
@@ -122,7 +125,7 @@
                                 <img src="../../assets/images/option2.png" alt="Option2 image" style="height:80px">
                             </div>
                             <div class="mt-4">
-                                <span class="badge-lg rounded-pill bg-info bg-opacity-50 text-dark py-2 px-4">
+                                <span class="badge-lg rounded-pill {{ (step2Form.get('selectedButton1')?.hasError('required') && step2Form.get('selectedButton1')?.touched) ? 'bg-danger bg-opacity-25':'bg-info bg-opacity-50'}} text-dark py-2 px-4">
                                     @if(language ==='french'){
                                     720 € HT
                                     }@else if(language ==='english') {
@@ -133,8 +136,9 @@
                         </div>
                     </button>
                     <div style="display: flex; flex-direction: column; justify-content:center;">
-                        <button class="btn btn-outline-dark rounded rounded-3 px-4" [class.active]="buttonDontKnow"
-                            (click)="clickedDontKnow()" style="height:fit-content;">
+                        <!-- (click)="clickedDontKnow()"  -->
+                        <button type="button" class="form-control btn {{ step2Form.get('selectedButton1')?.hasError('required') && step2Form.get('selectedButton1')?.touched ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 px-4" [class.active]="buttonDontKnow"
+                        (click)="onClick1('buttonDontKnow')" name="option" id="option" style="height:fit-content;">
                             @if(language ==='french'){
                             Je ne sais pas
                             }@else if(language ==='english') {
@@ -143,6 +147,7 @@
                         </button>
                     </div>
                 </div>
+            </div>
                 <h6 class="my-5">
                     @if(language ==='french'){
                     <span class="fw-bold">Souhaitez-vous un câble supplémentaire ?</span> (compatible avec des
@@ -162,33 +167,38 @@
                     received it with your electric vehicle. Alternatively, you can obtain one from Beev.
                     }
                 </p>
+                <div class="form-group">
                 <div style="display: flex; flex-direction: row; justify-content:flex-start;">
-                    <button class="btn btn-sm btn-outline-dark rounded rounded-3 me-3 px-3"
-                        [class.active]="buttonNoCable" (click)="clickedNoCable()" style="width:200px">
+                    <!-- (click)="clickedNoCable()" -->
+                    <button type="button" class="form-control btn btn-sm {{ step2Form.get('selectedButton2')?.hasError('required') && step2Form.get('selectedButton2')?.touched ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3 px-3"
+                        [class.active]="buttonNoCable" (click)="onClick2('buttonNoCable')" name="cable" id="cable" style="width:200px">
                         @if(language ==='french'){
                         Non, je n'en ai pas besoin
                         }@else if(language ==='english') {
                         No, I have no need of it
                         }
                     </button>
-                    <button class="btn btn-sm btn-outline-dark rounded rounded-3 me-3 px-3"
-                        [class.active]="button5MetersCable" (click)="clicked5MetersCable()" style="width:200px">
+                    <!-- (click)="clicked5MetersCable()" -->
+                    <button type="button" class="form-control btn btn-sm {{ step2Form.get('selectedButton2')?.hasError('required') && step2Form.get('selectedButton2')?.touched ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3 px-3"
+                        [class.active]="button5MetersCable" (click)="onClick2('button5MetersCable')" name="cable" id="cable" style="width:200px">
                         @if(language ==='french'){
                         5 mètres (250€ TTC)
                         }@else if(language ==='english') {
                         5 meters (250€ incl. VAT)
                         }
                     </button>
-                    <button class="btn btn-sm btn-outline-dark rounded rounded-3 me-3 px-3"
-                        [class.active]="button7MetersCable" (click)="clicked7MetersCable()" style="width:200px">
+                    <!-- (click)="clicked7MetersCable()" -->
+                    <button type="button" class="form-control btn btn-sm {{ step2Form.get('selectedButton2')?.hasError('required') && step2Form.get('selectedButton2')?.touched ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3 px-3"
+                        [class.active]="button7MetersCable" (click)="onClick2('button7MetersCable')" name="cable" id="cable" style="width:200px">
                         @if(language ==='french'){
                         7 mètres (280€ TTC)
                         }@else if(language ==='english') {
                         7 meters (280€ incl. VAT)
                         }
                     </button>
-                    <button class="btn btn-sm btn-outline-dark rounded rounded-3 me-3 px-3"
-                        [class.active]="button15MetersCable" (click)="clicked15MetersCable()" style="width:200px">
+                    <!-- (click)="clicked15MetersCable()" -->
+                    <button type="button" class="form-control btn btn-sm {{ step2Form.get('selectedButton2')?.hasError('required') && step2Form.get('selectedButton2')?.touched ?'btn-outline-danger':'btn-outline-dark'}} rounded rounded-3 me-3 px-3"
+                        [class.active]="button15MetersCable" (click)="onClick2('button15MetersCable')" name="cable" id="cable" style="width:200px">
                         @if(language ==='french'){
                         15 mètres (310€ TTC)
                         }@else if(language ==='english') {
@@ -196,8 +206,10 @@
                         }
                     </button>
                 </div>
+            </div>
                 <div class="me-0 my-5" style="display: flex; flex-direction: row; justify-content:flex-end;">
-                    <button class="btn btn-dark" routerLink="/step3" routerLinkActive="active">
+                    <!-- routerLink="/step3" routerLinkActive="active" -->
+                    <button  type="submit" class="btn btn-dark">
                         @if(language ==='french'){
                         Finaliser votre demande
                         }@else if(language ==='english') {
@@ -205,7 +217,13 @@
                         }
                         <i class="bi bi-arrow-right-short"></i></button>
                 </div>
+            </form>
             </div>
         </div>
+        @if(step2Form.invalid && step2Form.touched){
+            <p class="text-danger mb-5">
+                <i class="bi bi-x-lg"></i>
+               {{language ==='french'? ' Certaines réponses sont manquantes pour passer à l’étape suivante':' Some answers are missing to move on to the next step'}}</p>
+        }
     </div>
 </div>
