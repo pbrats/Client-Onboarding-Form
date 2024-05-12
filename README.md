@@ -10,12 +10,13 @@ Language can be toggled between English and French.
 
 Theme toggle between dark and light modes is also available.
 
-Additionally, there is a Chatbot available.
+Additionally, there is a Chatbot available, where users can send messages and receive automated answers.
 
 
 Technologies: Angular, HTML, CSS, TypeScript, Bootstrap
 
-The project is based on : https://app.beev.co/onboarding-cs-b2c?step=0&user_type=Particulier&l_l_i=LDrAdpzT3kPT
+The project is a copy of this Upwork project : https://app.beev.co/onboarding-cs-b2c?step=0&user_type=Particulier&l_l_i=LDrAdpzT3kPT
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.0.
 
 ## Development server
