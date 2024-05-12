@@ -139,10 +139,12 @@
                     @if(emailSuggestionFlag){
                         <br>
                         <a (click)="suggestioncClick()">
-                            <small>{{language ==='french'?
-                            'Vouliez-vous dire : ':
-                            'Did you mean : '}}</small>
-                            {{suggestion}} ?
+                            <span>
+                                <small>{{language ==='french'?
+                                'Vouliez-vous dire : ':
+                                'Did you mean : '}}</small>
+                                {{suggestion}} ?
+                            </span>
                         </a>
                     }
                 </div>

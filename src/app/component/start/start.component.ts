@@ -22,4 +22,9 @@ export class StartComponent {
       this.language = language;
     });
   }
+  start(){
+    sessionStorage.removeItem("step1");
+    sessionStorage.removeItem("step2");
+    sessionStorage.removeItem("user");
+  }
 }

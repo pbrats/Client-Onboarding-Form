@@ -4,4 +4,5 @@
 a :hover {
     color: purple;
     font-weight:bold;
+    cursor: pointer;
 }
