@@ -6,13 +6,13 @@ It consists of 3 steps, where the user selects necessary information and inputs 
 
 The selected options are saved, allowing users to navigate back and forth between steps and change their choices before submitting the form.
 
-
+<BR>
 Language can be toggled between English and French.
 
 Theme toggle between dark and light modes is also available.
 
 Additionally, there is a Chatbot available, where users can send messages and receive automated answers.
-
+<BR>
 
 Technologies: Angular, HTML, CSS, TypeScript, Bootstrap
 
