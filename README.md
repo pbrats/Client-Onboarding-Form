@@ -1,5 +1,18 @@
 # Beev
+This project is a web application for new charging station installations' Client Onboarding Form. 
+It consists of 3 steps, where the user selects necessary information and inputs their personal details. All necessary information is required, and users are informed about the required fields along with instructional messages on how to complete the input forms if they are entered incorrectly.
+The selected options are saved, allowing users to navigate back and forth between steps and change their choices before submitting the form.
 
+
+Language can be toggled between English and French.
+Theme toggle between dark and light modes is also available.
+
+Additionally, there is a Chatbot available.
+
+
+Technologies: Angular, HTML, CSS, TypeScript, Bootstrap
+
+The project is based on : https://app.beev.co/onboarding-cs-b2c?step=0&user_type=Particulier&l_l_i=LDrAdpzT3kPT
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.0.
 
 ## Development server
