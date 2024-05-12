@@ -7,6 +7,7 @@ The selected options are saved, allowing users to navigate back and forth betwee
 
 
 Language can be toggled between English and French.
+
 Theme toggle between dark and light modes is also available.
 
 Additionally, there is a Chatbot available.
