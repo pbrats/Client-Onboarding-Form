@@ -176,46 +176,46 @@
                         </span>
                     }
                 </div>
-                <div class="col-md-6" style="display: flex; flex-direction: row; justify-content:space-between;">
-                <div class="form-control col-md-6 {{darkTheme?'bg-secondary border border-secondary':'border border-white'}}  ps-1 pe-2">
+                <div class="form-group col-md-6">
                     <label for="postalCode" class="form-label">
                         @if(language ==='french'){
-                        Code postal
+                            Code postal
                         }@else if(language ==='english') {
-                        Postal code
+                            Postal code
                         }
                         <span class="text-danger fw-bold">*</span></label>
-                    <input type="number" name="postalCode" id="postalCode" formControlName="postalCode"
-                        class="form-control rounded rounded-4 {{ step3Form.get('postalCode')?.hasError('required') && step3Form.get('postalCode')?.touched ?'border border-danger':''}} {{darkTheme?'bg-light bg-opacity-25':'bg-light'}}">
+                    <input type="number"
+                        class="form-control rounded rounded-4 {{ step3Form.get('postalCode')?.hasError('required') && step3Form.get('postalCode')?.touched ?'border border-danger':''}} {{darkTheme?'bg-light bg-opacity-25':'bg-light'}}"
+                        name="postalCode" id="postalCode" formControlName="postalCode" autocomplete="postal-code">
                     @if(step3Form.get('postalCode')?.hasError('required') &&
                     step3Form.get('postalCode')?.touched){
                     <span class="text-danger">
                         {{language ==='french'?
                         'Veuillez remplir ce champ obligatoire.':
                         'Please complete this required field.'}}
-                        </span>
+                    </span>
                     }
                 </div>
-                <div class="form-group col-md-12 ms-3 mt-1">
+                <div class="form-group col-md-6">
                     <label for="city" class="form-label">
                         @if(language ==='french'){
-                        Ville
+                            Ville
                         }@else if(language ==='english') {
-                        City
+                            City
                         }
                         <span class="text-danger fw-bold">*</span></label>
-                    <input type="text" name="city" id="city" formControlName="city"
-                        class="form-control rounded rounded-4 {{ step3Form.get('city')?.hasError('required') && step3Form.get('city')?.touched ?'border border-danger':''}} {{darkTheme?'bg-light bg-opacity-25':'bg-light'}}">
+                    <input type="text"
+                        class="form-control rounded rounded-4 {{ step3Form.get('city')?.hasError('required') && step3Form.get('city')?.touched ?'border border-danger':''}} {{darkTheme?'bg-light bg-opacity-25':'bg-light'}}"
+                        name="city" id="city" formControlName="city">
                     @if(step3Form.get('city')?.hasError('required') &&
                     step3Form.get('city')?.touched){
                     <span class="text-danger">
                         {{language ==='french'?
                         'Veuillez remplir ce champ obligatoire.':
                         'Please complete this required field.'}}
-                        </span>
+                    </span>
                     }
                 </div>
-            </div>
                 <div class="form-group col-md-12">
                     <label for="referralCode" class="form-label">
                         @if(language ==='french'){
