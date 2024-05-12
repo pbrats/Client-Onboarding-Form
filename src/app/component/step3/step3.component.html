@@ -128,13 +128,22 @@
                         'Please complete this required field.'}}
                         </span>
                     }
-                    @if(step3Form.get('email')?.hasError('email') &&
-                    step3Form.get('email')?.touched){
+                    @if((step3Form.get('email')?.hasError('email') &&
+                    step3Form.get('email')?.touched) || emailSuggestionFlag){
                     <span class="text-danger">
                         {{language ==='french'?
                         'L`adresse e-mail doit être indiquée dans un format approprié.':
                         'The email address must be provided in an appropriate format.'}}
                         </span>
+                    }
+                    @if(emailSuggestionFlag){
+                        <br>
+                        <a (click)="suggestioncClick()">
+                            <small>{{language ==='french'?
+                            'Vouliez-vous dire : ':
+                            'Did you mean : '}}</small>
+                            {{suggestion}} ?
+                        </a>
                     }
                 </div>
                 <div class="form-group col-md-12">

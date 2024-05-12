@@ -1,3 +1,7 @@
 .spinner-border {
     font-size: 3em;
 }
+a :hover {
+    color: purple;
+    font-weight:bold;
+}
