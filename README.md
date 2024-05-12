@@ -1,6 +1,8 @@
 # Beev
 This project is a web application for new charging station installations' Client Onboarding Form. 
+
 It consists of 3 steps, where the user selects necessary information and inputs their personal details. All necessary information is required, and users are informed about the required fields along with instructional messages on how to complete the input forms if they are entered incorrectly.
+
 The selected options are saved, allowing users to navigate back and forth between steps and change their choices before submitting the form.
 
 
