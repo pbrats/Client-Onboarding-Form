@@ -15,6 +15,7 @@ Additionally, there is a Chatbot available, where users can send messages and re
 
 <br>
 Technologies: Angular, HTML, CSS, TypeScript, Bootstrap
+<br>
 
 The project is a copy of this Upwork project : https://app.beev.co/onboarding-cs-b2c?step=0&user_type=Particulier&l_l_i=LDrAdpzT3kPT
 
