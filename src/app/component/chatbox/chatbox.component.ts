@@ -19,6 +19,7 @@ export class ChatboxComponent {
   prCounter: number = 0;
   newtyped: any;
   delay: boolean = false;
+  openedChat : boolean = false;
   ngOnInit() {
     console.log("language oninit: ", this.language);
     this.setFormValues();
@@ -55,5 +56,11 @@ export class ChatboxComponent {
     setTimeout(() => {
       this.delay = true;
     }, 1000);
+  }
+  openChat(){
+    this.openedChat =true;
+  }
+  closeChat(){
+    this.openedChat =false;
   }
 }

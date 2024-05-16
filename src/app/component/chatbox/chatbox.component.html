@@ -1,7 +1,8 @@
 <!-- Button trigger modal -->
 <button class="chatbot rounded rounded-circle btn bg-info bg-opacity-25" type="button" data-bs-toggle="modal"
-    data-bs-target="#beevBot">
+    data-bs-target="#beevBot" (click)="openChat()">
     <!-- <i class="bi bi-chat-square"></i> -->
+    @if(!openedChat){
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="30"
         viewBox="0 0 39 37" class="conversations-visitor-open-icon">
         <defs>
@@ -26,6 +27,9 @@
             </g>
         </g>
     </svg>
+}@else {
+    <i class="bi bi-x-lg"></i>
+}
 </button>
 <!-- Modal -->
 <div class="modal fade" id="beevBot" tabindex="-1" aria-labelledby="beevBot" aria-hidden="true"
@@ -51,7 +55,7 @@
                     </g>
                 </svg>
                 <h6 class="modal-title" id="beevBot">BeevBot</h6>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeChat()"></button>
             </div>
             <div class="modal-body my-2"
                 style="display: flex; flex-direction: column; justify-content:flex-start; height:320px">

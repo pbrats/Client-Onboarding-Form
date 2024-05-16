@@ -541,8 +541,10 @@
         @if(step1Form.invalid && step1Form.touched){
         <p class="text-danger mb-5">
             <i class="bi bi-x-lg"></i>
-            {{language ==='french'? ' Certaines réponses sont manquantes pour passer à l’étape suivante':' Some answers
-            are missing to move on to the next step'}}
+            {{language ==='french'? 
+            ' Certaines réponses sont manquantes pour passer à l’étape suivante':
+            ' Some answers are missing to move on to the next step'
+            }}
         </p>
         }
     </div>
